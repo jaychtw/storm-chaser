@@ -1,0 +1,125 @@
+気象庁 | 気象庁防災情報XMLフォーマット形式電文（PULL型）
+すべての機能をご利用いただくにはJavascriptを有効にしてください。
+LINK https://www.jma.go.jp/jma/index.html
+LINK #main
+本文へ
+LINK https://www.jma.go.jp/jma/kishou/usage_info/guide_top.html
+情報ご利用ガイド
+LINK https://www.jma.go.jp/jma/indexe.html
+ENGLISH
+LINK https://www.jma.go.jp/jma/kishou/info/goiken.html
+ご意見･ご感想
+LINK https://www.jma.go.jp/jma/kishou/sitemap.html
+サイトマップ
+LINK https://www.jma.go.jp/
+ホーム
+LINK https://www.jma.go.jp/jma/menu/menuflash.html
+防災情報
+LINK https://www.jma.go.jp/jma/menu/menureport.html
+各種データ・資料
+LINK https://www.jma.go.jp/jma/menu/areas.html
+地域の情報
+LINK https://www.jma.go.jp/jma/menu/menuknowledge.html
+知識・解説
+LINK https://www.jma.go.jp/jma/menu/menuappli.html
+各種申請・ご案内
+LINK https://www.jma.go.jp/
+ホーム
+>
+LINK https://www.jma.go.jp/jma/menu/menureport.html
+各種データ・資料
+>
+LINK ./index.html
+気象庁防災情報XMLフォーマット情報提供ページ
+>
+情報の取得方法
+コンテンツ
+LINK ./index.html
+トップページ
+LINK ./revise.html
+更新情報
+LINK ./tec_material.html
+技術資料
+LINK ./xmlpull.html
+情報の取得方法
+LINK ./qanda.html
+よくある質問
+LINK ./link.html
+参考資料集
+気象庁防災情報XMLフォーマット形式電文の公開（PULL型）
+このページでは、気象庁ホームページを通じて公開する気象庁防災情報XMLフォーマット電文を掲載しています。更新サイクルの異なる２つのAtomフィードが取得可能であり、自動処理等、用途に合わせてご利用ください。取得可能な電文一覧は
+LINK xmllist.pdf
+こちら
+をご覧ください。
+利用方法
+ご利用にあたっては、「
+LINK ./considerationforxml.pdf
+気象庁ホームページを通じて公開するXML形式電文のご利用にあたっての留意事項
+」[PDF形式：114KB]をご覧頂き、以下の点にご留意ください。
+・サーバーメンテナンス等により、配信が停止・遅延する場合があります。
+・利用者が公開ＸＭＬ電文を用いて行う一切の行為について気象庁は何ら責任を負うものではありません。
+・気象情報の迅速かつ確実な配信については
+LINK http://www.jmbsc.or.jp/jp/
+（一財）気象業務支援センター
+や
+LINK https://www.jma.go.jp/jma/kishou/minkan/jigyosha.html
+予報業務許可事業者
+等にお問い合わせください。
+■ダウンロード量超過時のアクセス遮断について
+気象庁防災情報XMLを公開しているURLに対し、1日10GB以上のダウンロードを伴うアクセスが確認された場合、アクセス元のIPアドレスを遮断します。
+遮断された場合、一度取得したファイルを再度取得しない等の改修をお願いいたします。また、バグ等によりそのような動作をしていないか、ご確認をお願いいたします。
+Atomフィード
+○高頻度フィード
+※毎分更新し、直近少なくとも10分入電を掲載しております。
+LINK https://www.data.jma.go.jp/developer/xml/feed/regular.xml
+定時
+LINK https://www.data.jma.go.jp/developer/xml/feed/extra.xml
+随時
+LINK https://www.data.jma.go.jp/developer/xml/feed/eqvol.xml
+地震火山
+LINK https://www.data.jma.go.jp/developer/xml/feed/other.xml
+その他
+○長期フィード
+※毎時更新し、数日間の全入電を掲載しております。
+LINK https://www.data.jma.go.jp/developer/xml/feed/regular_l.xml
+定時
+LINK https://www.data.jma.go.jp/developer/xml/feed/extra_l.xml
+随時
+LINK https://www.data.jma.go.jp/developer/xml/feed/eqvol_l.xml
+地震火山
+LINK https://www.data.jma.go.jp/developer/xml/feed/other_l.xml
+その他
+Atomフィードの分類種別
+・定時：気象に関する情報のうち、天気概況など定時に発表されるもの
+・随時：気象に関する情報のうち、警報・注意報など随時発表されるもの
+・地震火山：地震、火山に関する情報
+・その他：上記３種類のいずれにも属さないもの
+公開電文の利用・編集等にあたって
+公開電文の利用にあたっては、事前に当ホームページにて記載されている仕様や電文毎の解説資料等の内容を十分に確認・理解した上で、誤った利用が無いよう、十分ご注意の上、ご利用ください。
+・
+LINK ./tec_material.html
+気象庁防災情報XMLフォーマット技術資料
+・
+LINK ./jmaxml_guide_20130412.pdf
+気象庁防災情報XMLフォーマット運用指針
+[PDF形式：435KB]
+よくある質問
+LINK ./qanda.html
+よくある質問
+をこちらにまとめています。
+お問い合わせ先
+気象庁情報基盤部情報政策課
+電話 03-6758-3900（内線3118、3115）
+電子メールアドレス「jmaxml※met.kishou.go.jp」（※は@に変更してください）
+（メールでのお問い合わせの場合には、件名を「＜問合せ＞○○○について」のように記入し送付をお願いします。）
+LINK #top
+このページのトップへ
+LINK https://get.adobe.com/jp/reader/
+このサイトには、Adobe社
+LINK https://get.adobe.com/jp/reader/
+Adobe 
+      Reader
+が必要なページがあります。
+お持ちでない方は左のアイコンよりダウンロードをお願いいたします。
+LINK https://www.jma.go.jp/jma/kishou/info/coment.html
+気象庁ホームページについて

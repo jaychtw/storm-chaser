@@ -1,0 +1,22 @@
+{
+  "environmentId": "ccarenv_b64_Y2NhcmVudl83Mzc5MDU4ZWI4Yzg4MTkxODBmOGVjMzVlMmRlMjBmNw",
+  "observationsCurrent": true,
+  "observedPhase": "running",
+  "specRevision": "1",
+  "observedSpecRevision": "1",
+  "policy": {
+    "mode": "restricted",
+    "state": "enforced",
+    "customAllowedHosts": [
+      "opendata.cwa.gov.tw",
+      "www.cwa.gov.tw",
+      "www.data.jma.go.jp",
+      "www.jma.go.jp",
+      "www.metoc.navy.mil",
+      "www.ncei.noaa.gov"
+    ]
+  },
+  "credentialBindingCount": 0,
+  "configurationMutated": false,
+  "applicationDeployed": false
+}

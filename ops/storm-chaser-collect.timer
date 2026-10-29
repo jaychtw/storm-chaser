@@ -1,0 +1,10 @@
+[Unit]
+Description=Storm Chaser JMA collection every five minutes
+[Timer]
+OnCalendar=*:0/5
+Persistent=true
+RandomizedDelaySec=10
+AccuracySec=10
+Unit=storm-chaser-collect.service
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,25 @@
+[
+  {
+    "url": "https://xml.kishou.go.jp/jmaxml_20260129_dictionary.xlsx",
+    "status": 200,
+    "observedAt": "2026-10-28T23:07:40.180487+00:00",
+    "sha256": "752164f07086f5bbfa8d40d1535bf1213ec0c8ddf8189b5c62cf7efcfc4226c3"
+  },
+  {
+    "url": "https://xml.kishou.go.jp/jmaxml_20241031_Schema(xsd).zip",
+    "status": 200,
+    "observedAt": "2026-10-28T23:07:38.172572+00:00",
+    "sha256": "adcea5e6f4af9bdf48b47dbc9cb2143f7499831eeec8dd633bc661a9420bede3"
+  },
+  {
+    "url": "https://xml.kishou.go.jp/tec_material.html",
+    "status": 200,
+    "observedAt": "2026-10-28T23:07:38.020578+00:00",
+    "sha256": "40ee809708c3825fc1391d2857894a2d119fff9852d34d206e689448bdb379c9"
+  },
+  {
+    "url": "https://xml.kishou.go.jp/qanda.html",
+    "status": 200,
+    "sha256": "7725dcbd3e87eaeaed596be1ea361f39e6511cc7f9521253452aa864d3a98bcd"
+  }
+]

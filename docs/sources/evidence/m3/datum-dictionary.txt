@@ -1,0 +1,13 @@
+Source: Japan Meteorological Agency website
+https://xml.kishou.go.jp/jmaxml_20260129_dictionary.xlsx
+Extracted shared-string entries; workbook phonetic annotations preserved.
+
+408: type.Coordinate
+409: （一般）地理空間情報（値はISO 6709の書式で記述する。ただし、例外として表1.1の備考欄に示す一部情報では、ISO6709で規定されている緯度、経度の整数部分の先頭の0を省略する場合がある。）イッパンチリクウカンジョウホウ
+412: "中心位置（度）"ド
+413: "中心位置（度分）"ドフン
+429: datum
+430: 測地系ソクチケイ
+431: 　測地系を示す（日本測地系の場合のみ表現する）。ソクチケイシメニホンソクチケイバアイヒョウゲン
+432: "日本測地系"ニホンソクチケイ
+433: 　緯経度が"日本測地系"であることを示す。イケイドニホンソクチケイシメ

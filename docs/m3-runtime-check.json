@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-28T23:29:49.380Z",
+  "mode": "isolated-offline-production-dependency-smoke",
+  "productionInstall": true,
+  "developerDependenciesRequired": false,
+  "sourceRequests": 0,
+  "points": 7,
+  "integrity": {
+    "integrity_check": "ok"
+  },
+  "provenance": {
+    "checked": 1,
+    "failed": []
+  }
+}

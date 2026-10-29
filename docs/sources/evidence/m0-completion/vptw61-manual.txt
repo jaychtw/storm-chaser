@@ -1,0 +1,670 @@
+                                             （令和 3 年 4 月２３日改訂）
+
+                                                 平成 23 年 11 月 25 日
+
+                                                            気象庁
+
+
+
+                    台風解析・予報情報（延長予報）XML の解説
+
+
+
+
+1 全体構成
+ Report
+ └ Control   管理部
+ └ Head      ヘッダ部
+ └ Body      内容部
+
+
+
+
+                       台風解析・予報情報（延長予報）-1
+2 各部の構成と内容
+(1) 管理部
+① 管理部の構成
+  Control
+   └ Title              情報名称
+   └ DateTime           発表時刻
+   └ Status             運用種別
+   └ EditorialOffice    編集官署名
+   └ PublishingOffice   発表官署名
+
+② Control 部の詳細
+            タグ                                       解説
+Title                   「情報名称」
+                        電文の種別を示すための情報名称を示す。   “台風解析・予報情報（５日予報）       ”または“台風解析・予報情報（５
+                        日予報）（Ｈ３０）
+                                ”固定。
+DateTime                「発表時刻」
+                        発表時刻。未来時刻にはならない。 “2009-08-03T19:27:52Z”のように協定世界時で記述する。
+Status                  「運用種別」
+                        本情報の位置づけ。“通常”“訓練”“試験”のいずれかを記載。“訓練”“試験”は正規の情報として利用しては
+                        ならないことを示す。
+EditorialOffice         「編集官署名」
+                        実際に発表作業を行った「編集官署名」を示す。      “気象庁本庁”    。
+PublishingOffice        「発表官署名」
+                        本情報を業務的に発表した「発表官署名」を示す。       “気象庁予報部”   。
+
+
+
+
+                                 台風解析・予報情報（延長予報）-2
+(2) ヘッダ部
+① ヘッダ部の構成
+  Head
+   └ Title             標題
+   └ ReportDateTime    発表時刻
+   └ TargetDateTime    基点時刻
+   └ TargetDuration    基点時刻からの取りうる時間
+   └ EventID           識別情報
+   └ InfoType          情報形態
+   └ Serial            情報番号
+   └ InfoKind          スキーマの運用種別情報
+   └ InfoKindVersion   スキーマの運用種別情報のバージョン
+   └ Headline          見出し要素
+       └ Text          見出し文
+
+
+
+
+                               台風解析・予報情報（延長予報）-3
+② Head 部の詳細
+          タグ                                       解説
+Title             「標題」
+                  情報を示す標題。 “台風解析・予報情報”固定。
+ReportDateTime    「発表時刻」
+                  本情報の公式な発表時刻を示す。“2009-08-04T04:25:00+09:00”のように日本標準時で記述する。
+TargetDateTime    「基点時刻」
+                  本情報の対象となる時刻・時間帯の基点時刻を示す。       “2009-08-04T03:00:00+09:00”のように日本標準時で記述
+                  する。
+TargetDuration    「基点時刻からの取りうる時間」
+                  本情報の対象が時間幅を持つ場合、TargetDateTime を基点とした時間の幅を示す。台風解析・予報情報（延長
+                  予報）では、“PT120H”で「基点時刻」から 120 時間後までとなる。
+EventID           「識別情報」
+                  台風解析・予報情報（延長予報）では“TC0910”等 TC 番号を記述する。
+InfoType          「情報形態」
+                  本情報の形態を示す。   “発表”
+                                  “訂正”“取消”のいずれかを記述する。
+Serial            「情報番号」
+                  台風解析・予報情報（延長予報）の情報番号を記述する。
+InfoKind          「スキーマの運用種別情報」
+                  同一スキーマ上における情報分類に応じた運用を示す種別情報である。              “台風解析・予報情報（５日予報）     ”と記
+                  述する。
+InfoKindVersion   「スキーマの運用種別情報のバージョン」
+                  スキーマの運用種別情報におけるバージョン番号を示す。本解説のバージョン番号は、情報名称が“台風解析・
+                  予報情報（５日予報）”の場合は“1.0_0”、情報名称が“台風解析・予報情報（５日予報）（Ｈ３０）”の場合は
+                  “1.0_2”。
+Headline          「見出し要素」
+                  防災気象情報事項となる見出し要素を示す。
+└ Text            「見出し文」
+                  台風解析・予報情報（延長予報）では要素内に何も記述しない。
+
+
+
+
+                            台風解析・予報情報（延長予報）-4
+(3) 内容部
+① 内容部の構成
+  Body
+   └ MeteorologicalInfos    予報の項目
+     └ MeteorologicalInfo   予報の内容（③個別要素の詳細参照）
+       └DateTime            予報・観測時刻
+
+② Body 部の詳細
+                    タグ                                    解説
+MeteorologicalInfos              予測・観測の種別として台風情報を記述する。属性 type は“台風情報”の値をとり、内容を示す。
+└ MeteorologicalInfo             台風情報における予報や観測事項の時間を示す。
+  └DateTime                      予報や観測時刻を示す。属性 type は“実況”（③個別要素ア参照）、“推定 １時間後”（③個別要素
+                                 イ参照）、“予報 X 時間後”（③個別要素ウ参照）、“延長予報 X 時間後”（③個別要素エ参照）の値
+                                 をとる。
+
+
+
+
+                                    台風解析・予報情報（延長予報）-5
+③ 個別要素の詳細
+ア 「実況」の詳細
+ MeteorologicalInfo
+  └ DateTime          観測時刻
+  └ Item              実況の内容
+    └ Kind            個々の実況の内容
+      └ Property      実況要素
+        └ Type        要素名
+    └ Area            対象
+      └ Name          対象の名称
+
+         タグ                                            解説
+MeteorologicalInfo
+└ DateTime            観測時間の基点時刻を“2009-08-04T03:00:00+09:00”のように日本標準時で記述する。属性 type は“実況”の値をとり、
+                      台風情報の分類が「実況」であることを示す。
+└ Item                台風情報「実況」の内容を示す。
+ └ Kind               台風情報「実況」の個々の要素を示す。
+   └ Property         台風情報「実況」の要素の詳細事項を示す。
+     └ Type           要素名を記述する。“呼称”の場合、台風の呼称・番号等を示す。
+ └ Kind
+   └ Property
+     └ Type           要素名を記述する。“階級”の場合、熱帯擾乱種類・大きさ階級・強さ階級を示す。
+ └ Kind
+   └ Property
+     └ Type           要素名を記述する。“中心”の場合、台風の中心に関する諸要素（中心位置・存在域・移動方向・移動速度・中心気圧）を
+                      示す。
+ └ Kind               台風の呼称の注意事項・付加事項の値が、“台風消滅（温帯低気圧化）”、“台風消滅（熱帯低気圧化）”の場合は省略され、
+                       “台風発生の可能性が小さくなった”の場合は省略されることがある。
+  └ Property
+    └ Type            要素名を記述する。
+                              “風”の場合、風（最大風速・最大瞬間風速）及び警戒領域（暴風域・強風域）に関する諸要素を示す。
+ └ Area               台風情報「実況」の対象地域を示す。
+  └ Name              対象地域名として“熱帯低気圧”と記述する。
+
+
+                                      台風解析・予報情報（延長予報）-6
+イ 「推定 １時間後」の詳細
+ MeteorologicalInfo
+  └ DateTime        基点時刻
+  └ Item            予報の内容
+    └ Kind          個々の予報の内容
+      └ Property    予報要素
+        └ Type      要素名
+    └ Area          対象
+      └ Name        対象の名称
+
+             タグ                                          解説
+MeteorologicalInfo   台風の観測時刻後 1 時間の推定値がある場合に付加され、省略される場合がある。
+└ DateTime           観測時刻後 1 時間の基点時刻を“2009-08-04T04:00:00+09:00”のように日本標準時で記述する。属性 type は“推
+                     定 １時間後”の値をとり、台風情報の分類が「推定 １時間後」であることを示す。
+└ Item               台風情報「推定 １時間後」の内容を示す。
+ └ Kind              台風情報「推定 １時間後」の個々の要素を示す。
+   └ Property        台風情報「推定 １時間後」の要素の詳細事項を示す。
+     └ Type          要素名を記述する。“階級”の場合、熱帯擾乱種類・大きさ階級・強さ階級を示す。
+ └ Kind
+   └ Property
+     └ Type          要素名を記述する。
+                             “中心”の場合、台風の中心に関する諸要素（中心位置・存在域・移動方向・移動速度・中心気
+                     圧）を示す。
+ └ Kind
+  └ Property
+    └ Type           要素名を記述する。
+                             “風”の場合、風（最大風速・最大瞬間風速）及び警戒領域（暴風域・強風域）に関する諸要素
+                     を示す。
+ └ Area              台風情報「推定 １時間後」の対象地域を示す。
+  └ Name             対象地域名として熱帯低気圧と記述する。
+
+
+
+
+                                 台風解析・予報情報（延長予報）-7
+ウ 「予報 X 時間後」の詳細
+ MeteorologicalInfo
+  └ DateTime        基点時刻
+  └ Item            予報の内容
+    └ Kind          個々の予報の内容
+      └ Property    予報要素
+        └ Type      要素名
+    └ Area          対象
+      └ Name        対象の名称
+
+             タグ                                               解説
+MeteorologicalInfo   台風の予報値がある場合に付加される。省略される場合がある。
+└ DateTime           予報期間の基点時刻を“2009-08-05T03:00:00+09:00”(8 月 4 日 3 時の 24 時間後)のように日本標準時で記述する。
+                     属性 type は“予報 X 時間後”の値をとり、台風情報の分類が「予報 X 時間後」であることを示す。X は
+                     3,6,9,12,15,18,21,24,45,48,69,72 の値を取りうる。情報名称が“台風解析・予報情報（５日予報）    （Ｈ３０）”の
+                     場合は、さらに 93,96,117,120 の値を取りうる。
+└ Item               台風情報「予報 X 時間後」の内容を示す。
+ └ Kind              台風情報「予報 X 時間後」の個々の要素を示す。
+   └ Property        台風情報「予報 X 時間後」の要素の詳細事項を示す。
+     └ Type          要素名を記述する。“階級”の場合、熱帯擾乱種類・強さ階級を示す。
+ └ Kind
+   └ Property
+     └ Type          要素名を記述する。“中心”の場合、台風の中心に関する諸要素（予報円・存在域・移動方向・移動速度・中心気圧）
+                     を示す。ただし、X が 3,6,9,15,18,21 の場合、存在域は省略する。
+ └ Kind
+  └ Property
+    └ Type           要素名を記述する。“風”の場合、情報名称が“台風解析・予報情報（５日予報）”の場合は風（最大風速・最大瞬
+                     間風速）に関する諸要素を、情報名称が“台風解析・予報情報（５日予報）（Ｈ３０）”の場合は風（最大風速・最
+                     大瞬間風速）及び警戒領域（暴風警戒域）に関する諸要素を示す。
+ └ Area              台風情報「予報 X 時間後」の対象地域を示す。
+  └ Name             対象地域名として熱帯低気圧と記述する。
+
+
+                                 台風解析・予報情報（延長予報）-8
+エ 「延長予報 X 時間後」の詳細
+ MeteorologicalInfo
+  └ DateTime        基点時刻
+  └ Item            予報の内容
+    └ Kind          個々の予報の内容
+      └ Property    予報要素
+        └ Type      要素名
+    └ Area          対象
+      └ Name        対象の名称
+
+             タグ                                           解説
+MeteorologicalInfo   情報名称が“台風解析・予報情報（５日予報）”の場合で、台風の延長予報値がある場合に付加される。省略される
+                     場合がある。
+└ DateTime           予報期間の基点時刻を“2009-08-08T03:00:00+09:00”(8 月 4 日 3 時の 96 時間後)のように日本標準時で記述する。
+                     属性 type は“延長予報 X 時間後”の値をとり、台風情報の分類が「延長予報 X 時間後」であることを示す。X
+                     は 96,120 の値を取りうる。
+└ Item               台風情報「延長予報 X 時間後」の内容を示す。
+ └ Kind              台風情報「延長予報 X 時間後」の個々の要素を示す。
+   └ Property        台風情報「延長予報 X 時間後」の要素の詳細事項を示す。
+     └ Type          要素名を記述する。“階級”の場合、    「延長予報 X 時間後」では熱帯擾乱種類を記述する（ただし空タグ）               。
+ └ Kind
+   └ Property
+     └ Type          要素名を記述する。“中心”の場合、台風の中心に関する諸要素（予報円・存在域・移動方向・移動速度）を示す。
+ └ Area              台風情報「延長予報 X 時間後」の対象地域を示す。
+   └ Name            対象地域名として熱帯低気圧と記述する。
+
+
+
+
+                                 台風解析・予報情報（延長予報）-9
+（例１）      「呼称」の詳細         （/Kind/Property/Type =呼称）   /TyphoonNamePart
+
+                     例                                                   解説
+
+<TyphoonNamePart>                           ・台風呼名についての諸要素を示す。
+
+  <Name>MORAKOT</Name>                      ・台風の英字の呼名を示す:
+                                             台風委員会が定める呼名“DAMREY”～“SAOLA”、域外から入る熱帯低気圧の呼称（別表１参照）、
+                                             または記述なし（空タグ）。
+
+
+  <NameKana>モーラコット</NameKana>               ・台風のかなの呼名を示す:
+                                             台風委員会が定める呼名に対応したカタカナ表記“ダムレイ”～“サオラー”
+                                                                               、域外から入る熱
+                                             帯低気圧の呼称のカタカナ表記（別表１参照）、
+                                             または記述なし（空タグ）。
+
+
+  <Number>0908</Number>                     ・台風番号を示す。または記述なし（空タグ）。
+
+  <Remark>台風発生</Remark>                     ・注意事項・付加事項を示す：
+                                             “台風発生”、
+                                             “台風発生（域外から入る）”、
+                                             “台風消滅（域外へ出る）”、
+                                             “台風消滅（温帯低気圧化）”、
+                                             “台風消滅（熱帯低気圧化）”、
+                                             “台風発生の可能性が小さくなった”、
+                                             “発表間隔変更（毎時から３時間毎）”、
+                                             “発表間隔変更（３時間毎から毎時）”、
+                                             “台風発生予想”、
+                                             “温帯低気圧化しつつある”、
+                                             または記述なし（空タグ）。
+</TyphoonNamePart>
+
+
+
+
+                                              台風解析・予報情報（延長予報）-10
+（例２）    「階級」の詳細        （/Kind/Property/Type =階級）   /ClassPart
+
+                                  例                                                   解説
+<ClassPart>
+  <jmx_eb:TyphoonClass type="熱帯擾乱種類">台風(TY)</jmx_eb:TyphoonClass>    ・台風の階級： “台風（TY）”、  “台風（STS）”、
+                                                                                                 “台風（TS）” 、
+                                                                      “熱帯低気圧（TD）”、
+                                                                                 “ハリケーン（Hurricane）”  、
+                                                                                                     “発達
+                                                                      した熱帯低気圧（Tropical Storm）”
+                                                                                             、“温帯低気圧（LOW）”、
+                                                                      または記述なし（空タグ）。「延長予報 X 時間後」では
+                                                                      記述しない。
+
+ <jmx_eb:AreaClass type="大きさ階級">大型</jmx_eb:AreaClass>                ・台風の大きさ：“大型”、“超大型”、または記述なし（空
+                                                                      タグ）。
+                                                                         「予報 X 時間後」及び「延長予報 X 時間後」で
+                                                                      は省略する。
+
+  <jmx_eb:IntensityClass type="強さ階級">非常に強い</jmx_eb:IntensityClass>   ・台風の強さ：“強い”、“非常に強い”、“猛烈な”、または
+</ClassPart>                                                          記述なし（空タグ）。「延長予報 X 時間後」では省略す
+                                                                      る。
+
+
+
+
+                                            台風解析・予報情報（延長予報）-11
+（例３）    「中心」の詳細       （/Kind/Property/Type =中心）   /CenterPart
+
+                                    例                                                        解説
+<CenterPart>
+  <jmx_eb:Coordinate type="中心位置（度）" condition="正確" description="北緯２７． ・台風の中心位置：「実況」及び「推定 １時間後」に
+   ４度東経１２７．７度">+27.4+127.7/</jmx_eb:Coordinate>                            おいては、台風の中心位置を記述する。
+  <jmx_eb:Coordinate type="中心位置（度分）" condition="正確" description="北緯２７      - 台 風 の 中 心 位 置 の 確 度 ：「 実 況 」 に お い て 属 性
+   度２５分東経１２７度４０分">+2725+12740/</jmx_eb:Coordinate>                           condition を記述する。属性の取りうる値は、“正
+                                                                             確”、“ほぼ正確”、“不確実”。台風の呼称の注意事
+                                                                             項・付加事項の値が、       “台風消滅（熱帯低気圧化）         ”
+                                                                             の場合は省略され、     “台風消滅（温帯低気圧化）         ”、
+                                                                                                                  “台
+                                                                             風発生の可能性が小さくなった”の場合は省略され
+                                                                             ることがある。
+                                                                           - 台風の中心位置の緯度経度（0.1 度単位、度分単位）。
+  <Location>与論島の西北西約 80km</Location>
+                                                                          ・台風の存在域：下記台風の存在地域・存在方向・存在
+                                                                           地域名から台風の中心までの距離いずれかの組み合
+                                                                           わせによって記述する。
+                                                                           - 台風の存在地域：“釧路市”、“日本の東”など（別
+                                                                             表２参照）    、または記述なし。
+                                                                           - 台風の存在方向：“の北北東”、“の北東”～“の北
+                                                                             北西”、  “の北”  、
+                                                                                         “近海”、  “付近”、  “北部”  、“南部”、
+                                                                             “中部”   、“東部”、 “西部”  、または記述なし。
+                                                                           - 存在地域名から台風の中心までの距離（km）：             “10”
+                                                                             ～“3000”  、または記述なし。
+  <jmx_eb:Direction type="移動方向" unit="１６方位漢字">北</jmx_eb:Direction>
+                                                                          ・台風の移動方向：“北”、“北北東”～“北西”、“北北
+                                                                           西” 、または記述なし（空タグ）        。空タグの場合、属性、
+                                                                           condition="不定"、description="不定"が記述され
+                                                                           る。
+    <jmx_eb:Speed type=" 移 動 速 度 " description=" １ ４ ノ ッ ト " unit=" ノ ッ ト
+     ">14</jmx_eb:Speed>                                                  ・台風の移動速度（ノット）： “6”～“100”、または
+                                                                           空タグ。空タグの場合、属性 condition="ゆっくり"、
+                                                                           description="ゆっくり"、または、属性 condition="
+                                                                           ほとんど停滞"、description="ほとんど停滞"が記述
+    <jmx_eb:Speed type=" 移 動 速 度 " description=" 毎 時 ２ ５ キ ロ "             される。
+     unit="km/h">25</jmx_eb:Speed>                                        ・台風の移動速度（km/h）     ：“10”～“190”   、または空タ
+                                                                           グ。空タグの場合、上記の台風の移動速度（ノット）
+                                                                           と同様に属性が記述される。
+                                           台風解析・予報情報（延長予報）-12
+    <jmx_eb:Pressure type="中心気圧" description="中心気圧９４０ヘクトパスカル"
+     unit="hPa">940</jmx_eb:Pressure>                                ・台風の中心気圧（hPa）
+                                                                                 ：“800”～“1100”
+                                                                                             。
+</CenterPart>
+
+
+
+
+<CenterPart>
+  <ProbabilityCircle type="予報円">                                     ・予報円：
+                                                                         「予報 X 時間後」及び「延長予報          X 時間後」
+                                                                      においては予報円を記述する。
+   <jmx_eb:BasePoint type="中心位置（度）" description="北緯３１．７度東経１３０．
+    ５度">+31.7+130.5/</jmx_eb:BasePoint>                                    ・予報円の中心位置（度）：予報円の中心位置の緯度経
+   <jmx_eb:BasePoint type="中心位置（度分）" description="北緯３１度４０分東経１３              度を 0.1 度単位で記述する。
+    ０度３０分">+3140+13030/</jmx_eb:BasePoint>                                 ・予報円の中心位置（度分）：予報円の中心位置の緯度
+                                                                            経度を度分単位で記述する。
+   <jmx_eb:Axes>
+     <jmx_eb:Axis>
+       <jmx_eb:Direction type="方向" condition="全域" description="全域" unit="８
+        方位漢字"/>                                                            ・予報円の半径の方向：空タグ。属性 condition および
+                                                                            description の値は“全域”と記述する。
+       <jmx_eb:Radius type="７０パーセント確率半径" description="中心が７０パーセ
+        ントの確率で入る予報円の半径１００海里" unit="海里" >100</jmx_eb:Radius>                ・台風の中心が 70%の確率で入る予報円の半径（海里）：
+       <jmx_eb:Radius type="７０パーセント確率半径" description="中心が７０パーセ              “5”～“1600”。
+        ントの確率で入る予報円の半径１９０キロ" unit="km">190</jmx_eb:Radius>                 ・台風の中心が 70%の確率で入る予報円の半径（km） ：“10”
+     </jmx_eb:Axis>                                                         ～“3000”  。
+   </jmx_eb:Axes>
+ </ProbabilityCircle>
+
+ <Location>鹿児島市付近</Location>
+                                                                     ・予報円の中心の存在域：上記「実況」及び「推定 １
+                                                                      時間後」に記述する「台風の中心位置」中の「台風の
+                                                                      存在域」と同様に記述する。「予報 3,6,9,15,18,21
+                                                                      時間後」の場合省略される。
+ <jmx_eb:Direction type="移動方向" unit="１６方位漢字">北東</jmx_eb:Direction>
+                                                                     ・台風の移動方向：上記「台風の中心位置」における「台
+                                                                      風の移動方向」と同様に記述する。
+ <jmx_eb:Speed type=" 移 動 速 度 " description=" １ ５ ノ ッ ト " unit=" ノ ッ ト
+  ">15</jmx_eb:Speed>                                                  ・台風の移動速度：上記「台風の中心位置」における「台
+
+                                         台風解析・予報情報（延長予報）-13
+ <jmx_eb:Speed type=" 移 動 速 度 "    description=" 毎 時 ３ ０ キ ロ "       風の移動速度」と同様に記述する。
+  unit="km/h">30</jmx_eb:Speed>
+
+  <jmx_eb:Pressure type=" 中 心 気 圧 " description=" 中 心 気 圧 ９ ５ ０ ヘ ク ト パ ス カ ル "
+   unit="hPa">950</jmx_eb:Pressure>                                             ・台風の中心気圧：上記「台風の中心位置」における「台
+</CenterPart>                                                                    風の中心気圧」と同様に記述する。「延長予報 X 時間
+                                                                                 後」においては省略する。
+
+
+
+
+                                       台風解析・予報情報（延長予報）-14
+（例４）     「風」の詳細 （/Kind/Property/Type =風）          /WindPart   /WarningAreaPart
+
+                                        例                                                         解説
+<WindPart>                                                                              ・風についての諸要素を示す。以下に「実況」及
+                                                                                         び「推定 １時間後」の場合を示す。
+
+ <jmx_eb:WindSpeed type="最大風速" condition="中心付近" description="中心付近の最大風速                  ・風速についての諸要素として最大風速を示す
+  90 ノット" unit="ノット">90</jmx_eb:WindSpeed>                                               （ノット）    ：“30”～“300”  。
+                                                                                         condition は、値が"中心付近"、"中心付近を除
+                                                                                         く"、"なし"の場合がある。
+                                                                                         description は、"最大風速"の前に"中心付近の
+                                                                                         "、"中心付近を除いて"が付加される場合と何
+                                                                                         も付加されない場合がある。
+ <jmx_eb:WindSpeed type="最大風速" condition="中心付近" description="中心付近の最大風速                  ・風速についての諸要素として最大風速を示す
+  ４５メートル" unit="m/s">45</jmx_eb:WindSpeed>                                               （m/s） ：“15”～“155”   。
+                                                                                         condition、description の値の取り方は unit
+                                                                                         がノットの場合に同じ。
+
+  <jmx_eb:WindSpeed type="最大瞬間風速" description="最大瞬間風速１３０ノット" unit="ノッ                   ・風速についての諸要素として最大瞬間風速を示
+   ト">130</jmx_eb:WindSpeed>                                                             す（ノット）： “30”～“300”。
+  <jmx_eb:WindSpeed type=" 最 大 瞬 間 風 速 " description=" 最 大 瞬 間 風 速 ６ ５ メ ー ト ル "        ・風速についての諸要素として最大瞬間風速を示
+   unit="m/s">65</jmx_eb:WindSpeed>                                                      す（m/s）：
+                                                                                               “15”～“155”
+                                                                                                        。
+</WindPart>
+
+
+
+
+<WarningAreaPart type="暴風域">                                                            ・警戒領域部分についての諸要素として「実況」
+                                                                                         及び「推定 １時間後」では暴風域を示す。
+
+ <jmx_eb:WindSpeed type="風速" condition="以上" description="風速５０ノット以上" unit="              ・警戒領域（暴風域)の風速を示す：
+                                                                                                        “風速 50 ノ
+  ノット">50</jmx_eb:WindSpeed>                                                             ット以上”
+                                                                                             。
+ <jmx_eb:WindSpeed type=" 風 速 " condition=" 以 上 " description=" 風 速 ２ ５ メ ー ト ル 以 上 "   ・警戒領域（暴風域)の風速を示す：
+                                                                                                        “風速 25 メ
+  unit="m/s">25</jmx_eb:WindSpeed>                                                       ートル以上”。
+                                               台風解析・予報情報（延長予報）-15
+ <jmx_eb:Circle>                                                                     ・警戒領域（暴風域）の諸要素を示す。
+   <jmx_eb:Axes>
+     <jmx_eb:Axis>
+       <jmx_eb:Direction type="方向" unit="８方位漢字">南東</jmx_eb:Direction>                ・暴風域の広域側の（長径）方向：          “北東”   、“東”
+                                                                                      ～“北西”、    “北”、または記述なし（空タグ）。
+                                                                                      空 タ グ の 場 合 、 属 性 condition= “ 全 域 ”、
+                                                                                      description=“全域”を記述する。
+        <jmx_eb:Radius   description=" １ ９ ０ 海 里 "    unit=" 海 里 "    type=" 半 径     ・暴風域の広域側の半径（長径）         （海里）   ：“5”～
+">190</jmx_eb:Radius>                                                                 “1600” 、または記述なし（空タグ）。空タグの
+                                                                                      場合、属性 condition=“なし”、description=
+                                                                                      “なし”を記述する。
+
+        <jmx_eb:Radius description="３５０キロ" unit="km" type="半径">350</jmx_eb:Radius>   ・暴風域の広域側の半径（長径）（km）：“10”～
+      </jmx_eb:Axis>                                                                  “3000”
+                                                                                           、または記述なし（空タグ）。空タグの
+                                                                                      場合、属性 condition=“なし”、description=
+                                                                                      “なし”を記述する。
+
+      <jmx_eb:Axis>                                                                  ・広域側の方向が“全域”の場合省略される。
+
+       <jmx_eb:Direction type="方向" unit="８方位漢字">北西</jmx_eb:Direction>                ・暴風域の狭域側の（短径）方向： “北東”、
+                                                                                                          “東”
+                                                                                      ～“北西”、または“北”
+                                                                                                 。
+
+        <jmx_eb:Radius   description=" １ ０ ０ 海 里 "    unit=" 海 里 "    type=" 半 径     ・暴風域の狭域側の半径（短径）（海里） ： “5”
+">100</jmx_eb:Radius>                                                                 ～“1600”。広域側の方向が“全域”の場合省
+                                                                                      略される。
+
+        <jmx_eb:Radius description="１９０キロ" unit="km" type="半径">190</jmx_eb:Radius>   ・暴風域の狭域側の半径（短径）（km）： “10”
+      </jmx_eb:Axis>                                                                  ～“3000”。広域側の方向が“全域”の場合省
+    </jmx_eb:Axes>                                                                    略される。
+  </jmx_eb:Circle>
+</WarningAreaPart>
+
+
+<WarningAreaPart type="強風域">                                                         ・警戒領域部分についての諸要素として「実況」
+                                                                                      及び「推定 １時間後」では強風域を示す。
+
+ <jmx_eb:WindSpeed type="風速" condition="以上" description="風速３０ノット以上" unit="           ・警戒領域(強風域)の風速を示す：
+                                                                                                     “風速 30 ノッ
+  ノット">30</jmx_eb:WindSpeed>                                                          ト以上”。
+
+                                              台風解析・予報情報（延長予報）-16
+ <jmx_eb:WindSpeed type=" 風 速 " condition=" 以 上 " description=" 風 速 １ ５ メ ー ト ル 以 上 "   ・警戒領域(強風域)の風速を示す：
+                                                                                                        “風速 15 メー
+  unit="m/s">15</jmx_eb:WindSpeed>                                                       トル以上”。
+
+  <jmx_eb:Circle>                                                                       ・警戒領域（強風域）の諸要素を示す：上記「警
+    <jmx_eb:Axes>                                                                        戒領域（暴風域）」と同様に記述される。
+      <jmx_eb:Axis>
+        <jmx_eb:Direction type="方向" unit="８方位漢字">南東</jmx_eb:Direction>
+        <jmx_eb:Radius description=" ３ ５ ０ 海 里 " unit=" 海 里 " type=" 半 径
+">350</jmx_eb:Radius>
+        <jmx_eb:Radius description="６５０キロ" unit="km" type="半径">650</jmx_eb:Radius>
+      </jmx_eb:Axis>
+
+      <jmx_eb:Axis>
+        <jmx_eb:Direction type="方向" unit="８方位漢字">北西</jmx_eb:Direction>
+        <jmx_eb:Radius description=" ２ ３ ０ 海 里 " unit=" 海 里 " type=" 半 径
+">230</jmx_eb:Radius>
+        <jmx_eb:Radius description="４３０キロ" unit="km" type="半径" >430</jmx_eb:Radius>
+      </jmx_eb:Axis>
+    </jmx_eb:Axes>
+  </jmx_eb:Circle>
+</WarningAreaPart>
+
+
+
+<WindPart>                                                                              ・風についての諸要素を示す。以下に「予報 X
+                                                                                         時間後」の場合を示す。
+                                                                                                   「延長予報 X 時間後」
+                                                                                         では記述しない。
+
+
+
+ <jmx_eb:WindSpeed type="最大風速" condition="中心付近" description="中心付近の最大風速                  ・風速についての諸要素として最大風速を示す
+  ８０ノット" unit="ノット">80</jmx_eb:WindSpeed>                                                （ノット）    ：“30”～“300”。
+                                                                                         condition は、値が"中心付近"、"中心付近を除
+                                                                                         く"、"なし"の場合がある。
+                                                                                         description は、"最大風速"の前に"中心付近の
+                                                                                         "、"中心付近を除いて"が付加される場合と何
+                                                                                         も付加されない場合がある。
+ <jmx_eb:WindSpeed type="最大風速" condition="中心付近" description="中心付近の最大風速                  ・風速についての諸要素として最大風速を示す
+  ４０メートル" unit="m/s">40</jmx_eb:WindSpeed>                                               （m/s） ：“15”～“155” 。
+
+                                               台風解析・予報情報（延長予報）-17
+                                                                                      condition、description の値の取り方は unit
+                                                                                      がノットの場合に同じ。
+  <jmx_eb:WindSpeed type="最大瞬間風速" description="最大瞬間風速１１５ノット" unit="ノッ                ・風速についての諸要素として最大瞬間風速を示
+   ト">115</jmx_eb:WindSpeed>                                                          す（ノット）：    “30”～“300”。
+  <jmx_eb:WindSpeed type=" 最 大 瞬 間 風 速 " description=" 最 大 瞬 間 風 速 ６ ０ メ ー ト ル "     ・風速についての諸要素として最大瞬間風速を示
+   unit="m/s">60</jmx_eb:WindSpeed>                                                   す（m/s）：  “15”～“155”   。
+</WindPart>                                                                          ・対象となる予報時刻の階級における熱帯擾乱種
+                                                                                      類が「熱帯低気圧(TD)」又は「温帯低気圧(LOW)」
+                                                                                      のときで、最大風速の値が 30 ノット（15 メー
+                                                                                      トル）未満の場合、当該 WindPart 要素下の
+                                                                                      WindSpeed 要素において、type 属性値が“最大
+                                                                                      風速”及び“最大瞬間風速”となる WindSpeed
+                                                                                      要素値はそれぞれ”0”として記述する。
+
+<WarningAreaPart type="暴風警戒域">                                                        ・警戒領域部分についての諸要素として「予報 X
+                                                                                       時間後」では暴風警戒域を示す。情報名称が“台
+                                                                                       風解析・予報情報（５日予報）”では記述しな
+                                                                                       い。
+ <jmx_eb:WindSpeed type="風速" condition="以上" description="風速５０ノット以上" unit=" ・警戒領域(暴風警戒域)の風速を示す：“風速 50
+  ノット">50</jmx_eb:WindSpeed>                                                           ノット以上”。
+ <jmx_eb:WindSpeed type=" 風 速 " condition=" 以 上 " description=" 風 速 ２ ５ メ ー ト ル 以 上 " ・警戒領域(暴風警戒域)の風速を示す：“風速 25
+  unit="m/s">25</jmx_eb:WindSpeed>                                                     メートル以上”。
+
+ <jmx_eb:Circle>                                                                     ・警戒領域（暴風警戒域）の諸要素を示す。
+   <jmx_eb:Axes>
+     <jmx_eb:Axis>
+       <jmx_eb:Direction type="方向" unit="８方位漢字">南東</jmx_eb:Direction>                ・暴風警戒域の広域側の（長径）方向：“北東”、
+                                                                                      “東”～“北西”、     “北” 、記述なし（空タグ）。
+                                                                                      空 タ グ の 場 合 、 属 性 condition= “ 全 域 ”、
+                                                                                      description=“全域”を記述する。
+        <jmx_eb:Radius   description=" ２ ９ ０ 海 里 "    unit=" 海 里 "    type=" 半 径     ・暴風警戒域の広域側の半径（長径）           （海里）  ：“5”
+">290</jmx_eb:Radius>                                                                 ～“1600”  、または記述なし（空タグ）        。空タグ
+                                                                                      の場合、属性 condition=“なし”    、description=
+                                                                                      “なし”を記述する。
+        <jmx_eb:Radius description="５４０キロ" unit="km" type="半径">540</jmx_eb:Radius>   ・暴風警戒域の広域側の半径（長径）           （km） ：“10”
+      </jmx_eb:Axis>                                                                  ～“3000”  、または記述なし（空タグ）        。空タグ
+                                                                                      の場合、属性 condition=“なし”    、description=
+                                                                                      “なし”を記述する。
+
+
+                                              台風解析・予報情報（延長予報）-18
+      <jmx_eb:Axis>                                                                  ・広域側の方向が“全域”の場合省略される。
+
+       <jmx_eb:Direction type="方向" unit="８方位漢字">北西</jmx_eb:Direction>                ・暴風警戒域の狭域側の（短径）方向：“北東”、
+                                                                                      “東”～“北西”
+                                                                                             、または“北”。
+
+        <jmx_eb:Radius   description=" ２ ０ ０ 海 里 "    unit=" 海 里 "    type=" 半 径     ・暴風警戒域の狭域側の半径（短径）  （海里） ：”
+">200</jmx_eb:Radius>                                                                 5”～“1600”
+                                                                                              。広域側の方向が“全域”の場合
+                                                                                      省略される。ただし、“全域”以外の場合に、
+                                                                                      広域側の半径（長径）と同じ値となることがあ
+                                                                                      る。
+        <jmx_eb:Radius description="３７０キロ" unit="km" type="半径">370</jmx_eb:Radius>   ・暴風警戒域の狭域側の半径（短径）  （km）
+                                                                                                           ：“10”
+      </jmx_eb:Axis>                                                                  ～“3000”。広域側の方向が“全域”の場合省
+    </jmx_eb:Axes>                                                                    略される。
+  </jmx_eb:Circle>
+</WarningAreaPart>
+
+
+
+
+                                              台風解析・予報情報（延長予報）-19
+（例５）     「熱帯低気圧」の詳細          （/Area/Name =熱帯低気圧）      /jmx_eb:Circle
+
+                                       例                                                     解説
+<jmx_eb:Circle type="強風域">                                                      ・
+                                                                                「実況」及び「推定 1 時間後」においては強風
+                                                                                  域を示す。
+ <jmx_eb:BasePoint description="北緯２７．４度東経１２７．７度" type="中心位置（度） ・中心位置（度、度分）及び、強風域の諸要素と
+  ">+27.4+127.7/</jmx_eb:BasePoint>                                               して広域側の（長径）方向、半径（長径：海里、
+ <jmx_eb:BasePoint description="北緯２７度２５分東経１２７度４０分" type="中心位置（度分）                 km）、狭域側の（短径）方向、半径(短径：海里、
+  ">+2725+12740/</jmx_eb:BasePoint>                                               km)を示す。広域側の方向が全域の場合、狭域
+ <jmx_eb:Axes>                                                                    側の方向、半径は省略される。
+   <jmx_eb:Axis>
+     <jmx_eb:Direction unit="８方位漢字" type="方向">南東</jmx_eb:Direction>
+     <jmx_eb:Radius description="３５０海里" unit="海里" type="半径">350</jmx_eb:Radius>
+     <jmx_eb:Radius description="６５０キロ" unit="km" type="半径">650</jmx_eb:Radius>
+   </jmx_eb:Axis>
+
+    <jmx_eb:Axis>
+      <jmx_eb:Direction unit="８方位漢字" type="方向">北西</jmx_eb:Direction>
+      <jmx_eb:Radius description="２３０海里" unit="海里" type="半径">230</jmx_eb:Radius>
+      <jmx_eb:Radius description="４３０キロ" unit="km" type="半径">430</jmx_eb:Radius>
+    </jmx_eb:Axis>
+  </jmx_eb:Axes>
+</jmx_eb:Circle>
+
+
+<jmx_eb:Circle type="予報円">                                         ・「予報 X 時間後」及び「延長予報 X 時間後」
+  <jmx_eb:BasePoint description="北緯２８．０度東経１２７．８度" type="中心位置（度）     においては予報円を示す。上記（例３）の中心
+   ">+28.0+127.8/</jmx_eb:BasePoint>                                における ProbabilityCircle と同様に記述す
+  <jmx_eb:BasePoint description="北緯２８度００分東経１２７度５０分" type="中心位置（度分）  る。
+   ">+2800+12750/</jmx_eb:BasePoint>
+
+ <jmx_eb:Axes>
+   <jmx_eb:Axis>
+     <jmx_eb:Direction description="全域" condition="全域" unit="８方位漢字" type="方向"
+      />
+
+     <jmx_eb:Radius description="中心が７０パーセントの確率で入る予報円の半径３０海里"
+      unit="海里" type="７０パーセント確率半径">30</jmx_eb:Radius>
+     <jmx_eb:Radius description="中心が７０パーセントの確率で入る予報円の半径６０キロ"
+                                             台風解析・予報情報（延長予報）-20
+       unit="km" type="７０パーセント確率半径">60</jmx_eb:Radius>
+    </jmx_eb:Axis>
+  </jmx_eb:Axes>
+</jmx_eb:Circle>
+
+
+
+
+                                                              ―以上―
+
+
+
+
+                                         台風解析・予報情報（延長予報）-21
+

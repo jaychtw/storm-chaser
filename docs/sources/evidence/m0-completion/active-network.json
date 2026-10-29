@@ -1,0 +1,17 @@
+{
+  "environmentId": "ccarenv_b64_Y2NhcmVudl9hNjViZDQ3MzM4Mjg4MTkxODg1YTYxM2IwYWQwMjYyMA",
+  "observationsCurrent": true,
+  "networkState": "enforced",
+  "customAllowedHosts": [
+    "opendata.cwa.gov.tw",
+    "www.cwa.gov.tw",
+    "www.data.jma.go.jp",
+    "www.digital.go.jp",
+    "www.jma.go.jp",
+    "www.metoc.navy.mil",
+    "www.ncei.noaa.gov",
+    "xml.kishou.go.jp"
+  ],
+  "configurationReapplied": false,
+  "publicDeployment": false
+}

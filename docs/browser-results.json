@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-28T23:17:34.766Z",
+  "errors": [],
+  "checks": [
+    {
+      "name": "desktop-en-multi",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-manual",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-empty",
+      "violations": []
+    },
+    {
+      "name": "desktop-en-outage",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-multi",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-multi",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-outage",
+      "violations": []
+    }
+  ]
+}

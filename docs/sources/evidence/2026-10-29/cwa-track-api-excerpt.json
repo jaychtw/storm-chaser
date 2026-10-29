@@ -1,0 +1,358 @@
+{
+  "source": "Central Weather Administration open-data platform",
+  "url": "https://opendata.cwa.gov.tw/apidoc/v1",
+  "note": "Official YAML parsed to JSON; only typhoon warning/track paths retained. No data payload or credential.",
+  "basePath": "/api",
+  "paths": {
+    "/v1/rest/datastore/W-C0034-001": {
+      "get": {
+        "summary": "颱風消息與警報-颱風警報",
+        "description": "颱風消息與警報-災害性天氣資訊-颱風警報\n",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "query",
+            "description": "氣象開放資料平台會員授權碼",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "限制最多回傳的資料，預設為回傳全部筆數",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "指定從第幾筆後開始回傳，預設為第 0 筆開始回傳",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "回傳資料格式，預設為 json 格式",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "JSON",
+              "XML"
+            ]
+          },
+          {
+            "name": "info",
+            "in": "query",
+            "description": "篩選info顯示參數，預設顯示全部，若有指定參數則只回傳指定參數",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "language",
+                "category",
+                "event",
+                "responseType",
+                "urgency",
+                "severity",
+                "certainty",
+                "eventCode",
+                "effective",
+                "onset",
+                "expires",
+                "senderName",
+                "headline",
+                "description",
+                "web",
+                "parameter",
+                "area"
+              ]
+            }
+          },
+          {
+            "name": "parameter",
+            "in": "query",
+            "description": "篩選parameter顯示參數",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "alert_title",
+                "severity_level",
+                "alert_color",
+                "website_color"
+              ]
+            }
+          },
+          {
+            "name": "areaDesc",
+            "in": "query",
+            "description": "海上依範圍名稱篩選，陸上依行政區篩選，格式可能為「海上範圍」或「縣市」，若同時指定areaDesc、geocode，以geocode優先",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "臺灣北部海面",
+                "臺灣東南部海面",
+                "臺灣東北部海面",
+                "臺灣海峽北部",
+                "臺灣海峽南部",
+                "巴士海峽",
+                "東沙島海域",
+                "宜蘭縣",
+                "花蓮縣",
+                "臺東縣",
+                "澎湖縣",
+                "金門縣",
+                "連江縣",
+                "臺北市",
+                "新北市",
+                "桃園市",
+                "臺中市",
+                "臺南市",
+                "高雄市",
+                "基隆市",
+                "新竹縣",
+                "新竹市",
+                "苗栗縣",
+                "彰化縣",
+                "南投縣",
+                "雲林縣",
+                "嘉義縣",
+                "嘉義市",
+                "屏東縣"
+              ]
+            }
+          },
+          {
+            "name": "geocode",
+            "in": "query",
+            "description": "依行政區代碼篩選，若同時指定「areaDesc」、「geocode」，會使「areaDesc」失效",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "headline",
+            "in": "query",
+            "description": "依警報種類篩選",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "海上颱風警報",
+              "海上陸上颱風警報",
+              "解除颱風警報"
+            ]
+          },
+          {
+            "name": "expires",
+            "in": "query",
+            "description": "是否排除已過期的警報。若選擇true只會回傳沒有過期的警報，選擇false則不排除已過期的警報；預設不排除",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "string",
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "篩選description標籤裡面的元素，預設不篩選",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "typhoon-info",
+                "命名與位置",
+                "強度與半徑",
+                "移速與預測",
+                "另一颱風",
+                "颱風動態",
+                "警戒區域及事項",
+                "大雨特報",
+                "豪雨特報",
+                "強風特報",
+                "注意事項"
+              ]
+            }
+          },
+          {
+            "name": "cwaTyNo",
+            "in": "query",
+            "description": "颱風編號，若與「typhoonName」和「cwaTyphoonName」同時使用，會使這兩個變數失效",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "typhoonName",
+            "in": "query",
+            "description": "颱風英文名稱，若與「cwaTyNo」同時使用，會失去作用；若與「cwaTyphoonName」同時使用，會使「cwaTyphoonName」變數失效",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cwaTyphoonName",
+            "in": "query",
+            "description": "颱風中文名稱，若與「cwaTyNo」和「typhoonName」同時使用，會使「cwaTyphoonName」變數失效",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": [
+          "天氣警特報"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/rest/datastore/W-C0034-005": {
+      "get": {
+        "summary": "颱風消息與警報-熱帶氣旋路徑",
+        "description": "西北太平洋地區及南海目前所有活動中熱帶氣旋之資訊-熱帶性低氣壓及颱風過去、現在及未來預報之資訊\n",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "query",
+            "description": "氣象開放資料平台會員授權碼",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "限制最多回傳的資料，預設為回傳全部筆數",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "指定從第幾筆後開始回傳，預設為第 0 筆開始回傳",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "回傳資料格式，預設為 json 格式",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "JSON",
+              "XML"
+            ]
+          },
+          {
+            "name": "CwaTdNo",
+            "in": "query",
+            "description": "為熱帶性低氣壓編號，預設全部回傳",
+            "required": false,
+            "type": "number",
+            "format": "int"
+          },
+          {
+            "name": "Dataset",
+            "in": "query",
+            "description": "AnalysisData/ForecastData，預設全部回傳",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "AnalysisData",
+                "ForecastData"
+              ]
+            }
+          },
+          {
+            "name": "DateTime",
+            "in": "query",
+            "description": "過去及現在定位時間，預設全部回傳，格式為「yyyy-MM-ddThh:mm:ss」",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+            }
+          },
+          {
+            "name": "ForecastHour",
+            "in": "query",
+            "description": "預報時距，預設全部回傳，輸入數字6~120，可輸入多筆資料，用逗號分隔",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "int"
+            }
+          },
+          {
+            "name": "timeFrom",
+            "in": "query",
+            "description": "時間區段，針對AnalysisData篩選需要之時間區段，時間從「timeFrom」 開始篩選，直到內容之最後時間，並可與參數 「timeTo」 合併使用 格式為「yyyy-MM-ddThh:mm:ss」，若使用參數「DateTime」，則參數「timeFrom」的篩選資料則會失效，預設為全部回傳",
+            "required": false,
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+          },
+          {
+            "name": "timeTo",
+            "in": "query",
+            "description": "時間區段，針對AnalysisData篩選需要之時間區段，時間從內容之最初時間開始篩選，直到 timeTo，並可與參數 「timeFrom」 合併使用 格式為「yyyy-MM-ddThh:mm:ss」，若使用「DateTime」，則參數「timeTo」的篩選資料則會失效，預設為全部回傳",
+            "required": false,
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "對「CwaTdNo」進行升冪排序, 預設不排序",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CwaTdNo"
+              ]
+            }
+          }
+        ],
+        "tags": [
+          "天氣警特報"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

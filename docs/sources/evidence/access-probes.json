@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cwa-catalog",
+    "url": "https://opendata.cwa.gov.tw/dist/opendata-swagger.html",
+    "checkedAt": "2026-10-28T16:07:28.211728+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "cwa-chart-page",
+    "url": "https://www.cwa.gov.tw/V8/C/P/Typhoon/TY_NEWS.html",
+    "checkedAt": "2026-10-28T16:07:28.229103+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "jma-active-candidate",
+    "url": "https://www.jma.go.jp/bosai/typhoon/data/targetTc.json",
+    "checkedAt": "2026-10-28T16:07:28.249918+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "jma-xml-feed",
+    "url": "https://www.data.jma.go.jp/developer/xml/feed/extra.xml",
+    "checkedAt": "2026-10-28T16:07:28.272502+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "jma-terms",
+    "url": "https://www.jma.go.jp/jma/kishou/info/coment.html",
+    "checkedAt": "2026-10-28T16:07:28.288999+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "jtwc-products",
+    "url": "https://www.metoc.navy.mil/jtwc/jtwc.html",
+    "checkedAt": "2026-10-28T16:07:28.305037+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  },
+  {
+    "id": "ibtracs-catalog",
+    "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+    "checkedAt": "2026-10-28T16:07:28.321735+00:00",
+    "curlExitCode": 22,
+    "outcome": "request-failed",
+    "httpStatus": "000",
+    "payloadArchived": false
+  }
+]

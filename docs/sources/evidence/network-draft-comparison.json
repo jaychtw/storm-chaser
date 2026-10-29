@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-28 17:23:49 UTC",
+  "classification": "saved-network-draft-not-applied",
+  "draft": {
+    "revision": 3,
+    "baseVersion": "b5c2ec73-6066-44cf-a53e-d85bc41955ac~cecfgver_6ae21b44e6f4819185dda35c62a0e33a",
+    "mode": "restricted",
+    "customAllowedHosts": [
+      "opendata.cwa.gov.tw",
+      "www.cwa.gov.tw",
+      "www.data.jma.go.jp",
+      "www.jma.go.jp",
+      "www.metoc.navy.mil",
+      "www.ncei.noaa.gov"
+    ]
+  },
+  "runtime": {
+    "observationsCurrent": true,
+    "specRevision": "1",
+    "observedSpecRevision": "1",
+    "mode": "restricted",
+    "state": "enforced",
+    "customAllowedHosts": []
+  },
+  "controlledRetry": {
+    "url": "https://www.jma.go.jp/bosai/typhoon/data/targetTc.json",
+    "attempts": 1,
+    "automaticRetries": 0,
+    "followRedirects": false,
+    "tlsVerification": true,
+    "configuredProxyPreserved": true,
+    "curlExitCode": 56,
+    "proxyConnectStatus": 403,
+    "destinationHttpStatus": "000",
+    "weatherPayloadRetrieved": false
+  },
+  "action": "Review and save the existing restricted-domain settings in the storm-chaser environment editor. Publish the environment to activate the reviewed configuration if required by the product. Recheck runtime policy before further source requests.",
+  "toolCapability": "Draft read/write only; no available runtime apply or environment publish action."
+}

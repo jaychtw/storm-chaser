@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-28T23:25:46.156Z",
+  "integrity": {
+    "integrity_check": "ok"
+  },
+  "provenance": {
+    "checked": 105,
+    "failed": []
+  },
+  "storage": {
+    "usedBytes": 7954432,
+    "hardCapBytes": 268435456,
+    "retentionPressure": null
+  },
+  "migration": {
+    "from": "M2-files",
+    "imported": 46,
+    "failed": 0,
+    "at": "2026-10-28T23:13:30.895Z"
+  },
+  "normalizedSnapshots": 105,
+  "rawRecords": 107,
+  "rawBytes": 5228218,
+  "cursor": {
+    "lastLong": 1793229244781,
+    "failures": 0,
+    "nextAttempt": 1793230059760
+  },
+  "health": {
+    "state": "fresh",
+    "lastCheckedAt": "2026-10-28T23:22:39.760Z",
+    "lastSuccessAt": "2026-10-28T23:22:39.760Z",
+    "partial": false
+  },
+  "legacyFilesRemoved": false,
+  "systemdUnitsInstalled": false,
+  "publicDeployment": false
+}

@@ -1,0 +1,20 @@
+<!-- Source: Japan Meteorological Agency website; excerpts reserialized by Storm Chaser. Original file: jmx_eb.xsd in https://xml.kishou.go.jp/jmaxml_20241031_Schema(xsd).zip -->
+<excerpts>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="type.Coordinate">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="type" type="xs:string" use="optional" />
+        <xs:attribute name="datum" type="jmx_eb:enum.type.Coordinate.datum.attr" use="optional" />
+        <xs:attribute name="condition" type="xs:string" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="enum.type.Coordinate.datum.attr">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="日本測地系" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+</excerpts>

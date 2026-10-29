@@ -1,0 +1,445 @@
+[
+  {
+    "id": "jma-terms",
+    "url": "https://www.jma.go.jp/jma/kishou/info/coment.html",
+    "observedAt": "2026-10-28T17:39:13.359855+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 23377,
+    "sha256": "ff2b45042e6207053d8f6aa617656aa6a144e462db138f0b8138de6eefbeff48",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:14 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Thu, 06 Aug 2026 02:24:21 GMT",
+      "cache-control": "max-age=600",
+      "etag": "\"09bba9947dd7c637451db5e3a8b71e2c\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-en-terms",
+    "url": "https://www.jma.go.jp/jma/en/copyright.html",
+    "observedAt": "2026-10-28T17:41:23.156471+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 13749,
+    "sha256": "ff851548d5d8351c5b64abb3b253a540469a98c8fc25ad539b8b51a4b89d6f62",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:41:24 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Fri, 19 Dec 2025 01:12:57 GMT",
+      "cache-control": "max-age=600",
+      "etag": "\"126d652a0caff8bcd1ee9d5d87043171\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-active",
+    "url": "https://www.jma.go.jp/bosai/typhoon/data/targetTc.json",
+    "observedAt": "2026-10-28T17:39:10.479840+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 105,
+    "sha256": "f3235f7184c7dd3481f7a3fff516f02ef9a1ab600feb74b0790d9074bd68a2be",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:10 GMT",
+      "content-type": "application/json",
+      "last-modified": "Wed, 28 Oct 2026 15:42:15 GMT",
+      "cache-control": "max-age=60",
+      "etag": "\"6424adc216432a53d02853c104aefc7b\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-feed",
+    "url": "https://www.data.jma.go.jp/developer/xml/feed/extra.xml",
+    "observedAt": "2026-10-28T17:39:10.967843+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 217538,
+    "sha256": "268cdafd85c7842ff8820c30c45b04537fe2eb9143fb35849ce8dff0b5010308",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:10 GMT",
+      "content-type": "text/xml",
+      "last-modified": "Wed, 28 Oct 2026 16:08:32 GMT",
+      "cache-control": "max-age=60",
+      "etag": "\"da3ab37b4369e99e601187c7f0389c27\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-bulletin",
+    "url": "https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml",
+    "observedAt": "2026-10-28T17:39:38.447984+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 30052,
+    "sha256": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 15:43:34 GMT",
+      "content-type": "text/xml",
+      "last-modified": "Wed, 28 Oct 2026 15:42:02 GMT",
+      "etag": "\"2b599d99e1051fe524f3d01790f6ea77\"",
+      "cache-control": "max-age=86400"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-xml-info",
+    "url": "https://www.data.jma.go.jp/developer/",
+    "observedAt": "2026-10-28T17:40:08.096140+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 21561,
+    "sha256": "f75261a65019d7b0958e0ffc3d78718e5d651d5db731c4968c7411684592a29c",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:40:07 GMT",
+      "content-type": "text/html",
+      "last-modified": "Thu, 26 Mar 2026 01:33:25 GMT",
+      "etag": "\"b2e471c90e4942581fbeb0abb68a856d\"",
+      "cache-control": "max-age=600"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-usage-pdf",
+    "url": "https://www.data.jma.go.jp/developer/ryuui.pdf",
+    "observedAt": "2026-10-28T17:41:00.900379+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 113331,
+    "sha256": "6c88ae1f092118c2d4be5d519420a49d2b4493351cc3b1b3a2947861e316de17",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:41:00 GMT",
+      "content-type": "application/pdf",
+      "last-modified": "Mon, 10 Feb 2025 05:11:02 GMT",
+      "etag": "\"b07b471aa173846373b8b90259fff441\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-17",
+    "url": "https://www.jma.go.jp/jma/kishou/info/ml-17.html",
+    "observedAt": "2026-10-28T17:40:07.092135+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 5498,
+    "sha256": "9ad5c31d4765818b16dc039e861abcbceca42d0b73d952146f2cb4b7d2deb63d",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:40:06 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Thu, 06 Nov 2025 04:23:00 GMT",
+      "etag": "\"91ad4c4ae56c427c6f47d12632cc742c\"",
+      "cache-control": "max-age=600"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-23",
+    "url": "https://www.jma.go.jp/jma/kishou/info/ml-23.html",
+    "observedAt": "2026-10-28T17:40:07.112135+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 4801,
+    "sha256": "c2374817c89bf6eca9aed886c5178673184b311dccb95a0125ad479a1dae2f9c",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:40:06 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Thu, 06 Nov 2025 04:22:59 GMT",
+      "etag": "\"166594c3e2687e665f9eb91ed5d9e231\"",
+      "cache-control": "max-age=600"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-catalog",
+    "url": "https://opendata.cwa.gov.tw/dist/opendata-swagger.html",
+    "observedAt": "2026-10-28T17:39:12.931853+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 955,
+    "sha256": "e8a666848fa4f70108f131f282bbadf602725e89b1918d0d60a5d630866ec82d",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:12 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Mon, 22 Jun 2026 02:14:20 GMT",
+      "etag": "W/\"3bb-19eed1b7740\"",
+      "cache-control": "public, max-age=15552000"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-swagger",
+    "url": "https://opendata.cwa.gov.tw/dist/static/od-swagger/od-swagger.js",
+    "observedAt": "2026-10-28T17:40:10.824153+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 552,
+    "sha256": "fcec0a049570ef4a9c4a6d5a6538b4a82137929cbdef488a8c1fdf75ae614320",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:40:10 GMT",
+      "content-type": "application/javascript; charset=UTF-8",
+      "last-modified": "Mon, 22 Jun 2026 02:14:20 GMT",
+      "etag": "W/\"228-19eed1b7748\"",
+      "cache-control": "public, max-age=15552000"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-api",
+    "url": "https://opendata.cwa.gov.tw/apidoc/v1",
+    "observedAt": "2026-10-28T17:41:06.968405+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 306587,
+    "sha256": "7147380d31e1537ef780941e18c6a0cfc0602be92f76f380172b621fe0653487",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:41:06 GMT",
+      "content-type": "text/yaml; charset=UTF-8",
+      "last-modified": "Wed, 30 Sep 2026 01:16:40 GMT",
+      "etag": "W/\"4ad9b-1a0efe298fa\"",
+      "cache-control": "public, max-age=15552000"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-chart",
+    "url": "https://www.cwa.gov.tw/V8/C/P/Typhoon/TY_NEWS.html",
+    "observedAt": "2026-10-28T17:39:12.923853+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 91347,
+    "sha256": "6a2f7066070828f871150a1d1c8a16d2224086fbecaa85d3838a29b829c6cac2",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:12 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Fri, 07 Aug 2026 03:10:05 GMT"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-rules-chunk",
+    "url": "https://opendata.cwa.gov.tw/dist/js/30.5de985aa.js",
+    "observedAt": "2026-10-28T17:42:13.708673+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 22293,
+    "sha256": "82b0d1469ac41d8a5c0db894bef477b8a8ed0d4fd0b8c48c65cf3d8f6134de7e",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:42:13 GMT",
+      "content-type": "application/javascript; charset=UTF-8",
+      "last-modified": "Mon, 22 Jun 2026 02:14:20 GMT",
+      "etag": "W/\"5715-19eed1b7726\"",
+      "cache-control": "public, max-age=15552000"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-api-auth-check",
+    "url": "https://opendata.cwa.gov.tw/api/v1/rest/datastore/W-C0034-005?format=JSON",
+    "observedAt": "2026-10-28T17:42:12.528669+00:00",
+    "httpResponseSequence": [
+      200,
+      401
+    ],
+    "destinationHttpStatus": 401,
+    "classification": "authentication-required",
+    "bytes": 49,
+    "sha256": "88fb64a6730947576a63ecc3010c36997dda0990683d7af7ebd4fe1cb2083202",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:42:12 GMT",
+      "content-type": "application/octet-stream"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "ibtracs",
+    "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+    "observedAt": "2026-10-28T17:39:10.863842+00:00",
+    "httpResponseSequence": [
+      200,
+      200
+    ],
+    "destinationHttpStatus": 200,
+    "classification": "retrieved",
+    "bytes": 111775,
+    "sha256": "5ee8c84b21f5e265639a0b6532ebb7353fbaf4c8e141fc828e3d48defc381019",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:10 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Wed, 28 Oct 2026 17:04:29 GMT",
+      "etag": "\"1793207069-gzip\"",
+      "cache-control": "public, max-age=2"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jtwc",
+    "url": "https://www.metoc.navy.mil/jtwc/jtwc.html",
+    "observedAt": "2026-10-28T17:39:12.171849+00:00",
+    "httpResponseSequence": [
+      200,
+      403
+    ],
+    "destinationHttpStatus": 403,
+    "classification": "origin-or-cdn-denied",
+    "bytes": 919,
+    "sha256": "cf4bc435fce140521693294c6ff9e7f2393fecf6dadf21ed7b30da1f2c1a49f9",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:39:12 GMT",
+      "content-type": "text/html"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "digital-license",
+    "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+    "observedAt": "2026-10-28T17:40:48.424325+00:00",
+    "httpResponseSequence": [
+      403
+    ],
+    "destinationHttpStatus": null,
+    "classification": "proxy-connect-denied",
+    "bytes": 0,
+    "sha256": null,
+    "selectedResponseHeaders": {
+      "content-type": "text/plain",
+      "date": "Wed, 28 Oct 2026 17:40:48 GMT"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "xml-pull",
+    "url": "https://xml.kishou.go.jp/xmlpull.html",
+    "observedAt": "2026-10-28T17:40:46.076316+00:00",
+    "httpResponseSequence": [
+      403
+    ],
+    "destinationHttpStatus": null,
+    "classification": "proxy-connect-denied",
+    "bytes": 0,
+    "sha256": null,
+    "selectedResponseHeaders": {
+      "content-type": "text/plain",
+      "date": "Wed, 28 Oct 2026 17:40:45 GMT"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "jma-developer",
+    "url": "https://www.data.jma.go.jp/developer/xml/index.html",
+    "observedAt": "2026-10-28T17:39:38.403984+00:00",
+    "httpResponseSequence": [
+      200,
+      404
+    ],
+    "destinationHttpStatus": 404,
+    "classification": "discovery-path-not-found",
+    "bytes": 2203,
+    "sha256": "959efccbba82d9eca9d398d32811d456f51929aff12dfba2ccaf60a0b1b35b58",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:32:05 GMT",
+      "content-type": "text/html",
+      "last-modified": "Fri, 21 Feb 2025 07:01:30 GMT",
+      "cache-control": "public, max-age=600",
+      "etag": "\"713849bc8f1a01c61a4341da8aca8199\""
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  },
+  {
+    "id": "cwa-terms",
+    "url": "https://www.cwa.gov.tw/V8/C/Member/appendix.html",
+    "observedAt": "2026-10-28T17:40:08.872144+00:00",
+    "httpResponseSequence": [
+      200,
+      404
+    ],
+    "destinationHttpStatus": 404,
+    "classification": "discovery-path-not-found",
+    "bytes": 3743,
+    "sha256": "5aaffc5debcd1bd73e0502d3842bf21cc78ff23e83e0bfd208f2dbdb7f93e60e",
+    "selectedResponseHeaders": {
+      "date": "Wed, 28 Oct 2026 17:40:08 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "last-modified": "Thu, 16 Oct 2025 08:30:43 GMT"
+    },
+    "automaticRetries": 0,
+    "tlsVerification": true
+  }
+]

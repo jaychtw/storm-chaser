@@ -1,0 +1,112 @@
+[
+  {
+    "id": "xml-pull",
+    "url": "https://xml.kishou.go.jp/xmlpull.html",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:37.836799+00:00",
+    "sha256": "70e391cb0563a5f77a0361bd9537ac69ad40f5bcc1517900ef6c5705f682c5d3",
+    "bytes": 10819,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "xml-home",
+    "url": "https://xml.kishou.go.jp/",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:36.096873+00:00",
+    "sha256": "27b8b0bec6e999a69adb72fdff738aee915f80e6d56a3d0cc4eb0b4cdeca5afa",
+    "bytes": 11695,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "license",
+    "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:35.100915+00:00",
+    "sha256": "5bf863037f8fdb87ed96d6f533e5e49d430b5ac21d703eda17538bd913b15c7e",
+    "bytes": 59216,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "tech",
+    "url": "https://xml.kishou.go.jp/tec_material.html",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:58.143937+00:00",
+    "sha256": "40ee809708c3825fc1391d2857894a2d119fff9852d34d206e689448bdb379c9",
+    "bytes": 13690,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "guide",
+    "url": "https://xml.kishou.go.jp/jmaxml_guide_20130412.pdf",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:56.508006+00:00",
+    "sha256": "c3087420527ca871bdb65f4d0ae1c4d3f8973ef27ab66efe077c0eb1f0900d4b",
+    "bytes": 445072,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "pull-notes",
+    "url": "https://xml.kishou.go.jp/considerationforxml.pdf",
+    "status": 200,
+    "observedAt": "2026-10-28T17:52:58.119938+00:00",
+    "sha256": "7dfaaa27758af28d3105271bd28ada1d90678b326acae6c85dfcb1e26310293d",
+    "bytes": 116364,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "manuals",
+    "url": "https://xml.kishou.go.jp/jmaxml_20261009_Manual(pdf).zip",
+    "status": 200,
+    "observedAt": "2026-10-28T17:54:15.132668+00:00",
+    "sha256": "441a5b802a42049b61f68d56c47040fe0f4c81f31b4427515f41b484bc4adc9f",
+    "bytes": 13228262,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "head-list",
+    "url": "https://xml.kishou.go.jp/jmaxml_guide_20260430_head_control_list.pdf",
+    "status": 200,
+    "observedAt": "2026-10-28T17:54:11.140837+00:00",
+    "sha256": "8603b08afe7827941744b79e7c312ad50043fc9be8940227c2d15721d2eb83a3",
+    "bytes": 353575,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "format",
+    "url": "https://xml.kishou.go.jp/jmaxml_20221209_format_v1_3.pdf",
+    "status": 200,
+    "observedAt": "2026-10-28T17:56:25.651106+00:00",
+    "sha256": "39c3f85d2a7b5ad01e0a617562bc23474a7723349b4b42226aac3ab85a3874d9",
+    "bytes": 588523,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "cadence",
+    "url": "https://www.jma.go.jp/jma/kishou/know/typhoon/7-1.html",
+    "status": 200,
+    "observedAt": "2026-10-28T17:57:45.252417+00:00",
+    "sha256": "819d280da530f4a919fb9c1d8e2659be67b9e551bcf67118fd3f757b204de54f",
+    "bytes": 23467,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  },
+  {
+    "id": "typhoon-about",
+    "url": "https://www.jma.go.jp/jma/kishou/know/typhoon/1-1.html",
+    "status": 200,
+    "observedAt": "2026-10-28T17:56:25.533480+00:00",
+    "sha256": "84ed035d0da6ab7e71dc515c3ca192f844d9790d38664714a6bf7437eb606222",
+    "bytes": 7618,
+    "tlsVerified": true,
+    "automaticRetries": 0
+  }
+]

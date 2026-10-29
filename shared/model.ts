@@ -1,0 +1,6 @@
+export type Value = { value: number | null; unit: string; type: string; condition?: string; description?: string };
+export type Datum = { encoding:"ISO6709-decimal-degrees"; sourceAttribute:null; interpretation:"datum-attribute-omitted"; plottingAssumption:"geographic-degrees-on-WGS84-basemap"; precisionDegrees:0.1 };
+export type Position = { datum:Datum; validAt: string; latitude: number; longitude: number; kind: 'analysis'|'estimate'|'forecast'; leadHours: number; winds: Value[]; pressure: Value[]; motion: Value[] };
+export type Advisory = { id: string; stormId: string; source:'JMA'; inputKind:'live'|'official-example'; schemaVersion:string; eventId:string; serial:string;unitKey:string;remark:string|null;validUntil:string|null; infoType:string; issuedAt:string; controlAt:string; analysisAt:string; retrievedAt:string; sourceUrl:string; contentHash:string; rawPayloadRef:string; name:string; typhoonNumber:string|null; nativeClass:string|null; lifecycle:'active'|'inactive'|'unknown'; cancelled:boolean; points:Position[] };
+export type Health = {state:'fresh'|'stale'|'unavailable'|'unknown';lastCheckedAt?:string;lastSuccessAt?:string;error?:string;partial?:boolean};
+export type LiveSnapshot = {mode:'live';asOf:string;health:Health;advisories:Advisory[];expiredCount:number;inactiveCount:number;coverage:'recent-jma-bulletins';pollSeconds:number};

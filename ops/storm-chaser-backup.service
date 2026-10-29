@@ -1,0 +1,17 @@
+[Unit]
+Description=Storm Chaser consistent SQLite backup and rotation
+[Service]
+Type=oneshot
+User=storm-chaser
+WorkingDirectory=/opt/storm-chaser
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=STORM_DATA_DIR=/var/lib/storm-chaser
+ExecStart=/usr/bin/env node --import tsx server/backup.ts
+TimeoutStartSec=300
+StateDirectory=storm-chaser
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/storm-chaser

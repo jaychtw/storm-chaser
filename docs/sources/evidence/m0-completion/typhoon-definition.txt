@@ -1,0 +1,78 @@
+台風とは | 気象庁
+LINK /jma/index.html
+LINK /jma/indexe.html
+ENGLISH
+LINK /jma/kokusai/multi.html
+Other Languages
+LINK https://x.com/JMA_bousai
+LINK https://x.com/JMA_kishou
+LINK https://www.youtube.com/channel/UCODH6XDH1lL618u3pOoFd-A
+LINK https://www.youtube.com/channel/UCajQ4ZQJrgwSxkF6xaCfrRw
+文字サイズ変更
+標準
+大
+検索
+LINK /jma/index.html
+ホーム
+LINK /jma/menu/menuflash.html
+防災情報
+LINK /jma/menu/menureport.html
+各種データ・資料
+LINK /jma/menu/areas.html
+地域の情報
+LINK /jma/menu/menuknowledge.html
+知識・解説
+LINK /jma/menu/menuappli.html
+各種申請・ご案内
+LINK /jma/index.html
+気象庁ホーム
+LINK ../../../menu/menuknowledge.html
+知識・解説
+LINK ./index.html
+台風について
+台風とは
+台風とは
+LINK index.html
+台風について
+台風とは
+LINK 1-2.html
+台風の一生
+LINK 1-3.html
+台風の大きさと強さ
+LINK 1-4.html
+台風の発生、接近、上陸、経路
+LINK 1-5.html
+台風の番号とアジア名の付け方
+LINK 1-6.html
+過去の台風の番号と名前の対応表
+LINK 2-1.html
+台風に伴う風の特性
+LINK 3-1.html
+台風に伴う雨の特性
+LINK 3-2.html
+大雨の影響
+LINK 4-1.html
+台風に伴う高潮
+LINK 4-2.html
+高潮と台風の進路
+LINK 5-1.html
+台風に伴う高波
+LINK 5-2.html
+海岸の高潮と高波の重なり合い
+LINK 6-1.html
+台風による災害の例
+LINK 7-1.html
+台風情報の種類と表現方法
+LINK //www.data.jma.go.jp/typhoon/verification/index.html
+台風予報の精度検証結果
+LINK //www.data.jma.go.jp/typhoon/statistics/index.html
+台風の統計資料
+LINK 8-1.html
+関連リンク（リーフレット等）
+熱帯の海上で発生する低気圧を「熱帯低気圧」と呼びますが、このうち北西太平洋（赤道より北で東経180度より西の領域）または南シナ海に存在し、なおかつ低気圧域内の最大風速（10分間平均）がおよそ17 m/s（34ノット、風力8）以上のものを「台風」と呼びます。
+台風は、通常東風が吹いている低緯度では西に移動し、太平洋高気圧のまわりを北上して中・高緯度に達すると、上空の強い西風（偏西風）により速い速度で北東へ進むなど、上空の風や台風周辺の気圧配置の影響を受けて動きます。また、台風は地球の自転の影響で北～北西へ向かう性質を持っています。
+平成30年（2018年）9月3日09時の地上天気図
+（非常に強い台風第21号の中心が日本の南にある）
+台風は暖かい海面から供給された水蒸気が凝結して雲粒になるときに放出される熱をエネルギーとして発達します。しかし、移動する際に海面や地上との摩擦により絶えずエネルギーを失っており、仮にエネルギーの供給がなくなれば2～3日で消滅してしまいます。また、日本付近に接近すると上空に寒気が流れ込むようになり、次第に台風本来の性質を失って「温帯低気圧」に変わります。あるいは、熱エネルギーの供給が少なくなり衰えて「熱帯低気圧」に変わることもあります。上陸した台風が急速に衰えるのは水蒸気の供給が絶たれ、さらに陸地の摩擦によりエネルギーが失われるからです。
+LINK /jma/kishou/info/coment.html
+気象庁ホームページについて

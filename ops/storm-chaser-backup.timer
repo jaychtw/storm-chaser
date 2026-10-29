@@ -1,0 +1,9 @@
+[Unit]
+Description=Storm Chaser nightly database backup
+[Timer]
+OnCalendar=*-*-* 19:20:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+Unit=storm-chaser-backup.service
+[Install]
+WantedBy=timers.target

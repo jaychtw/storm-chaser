@@ -1,0 +1,100 @@
+{
+  "source": "Japan Meteorological Agency website",
+  "url": "https://xml.kishou.go.jp/jmaxml_20260917_Samples.zip",
+  "bundleSha256": "96332ca3f8e107be36fedff26e576b533c731616f85312d85b058f2118c2b6c2",
+  "kind": "official published examples, not live or observed historical advisories",
+  "entries": [
+    {
+      "entry": "10_01_01_091210_VPTW50.xml",
+      "sha256": "86641c9ffe3c957f4ac5742576321cdc8c0ea36c54cf9692f6c64a85d9e831a7"
+    },
+    {
+      "entry": "10_01_02_091210_VPTW50.xml",
+      "sha256": "e530c17d84a05e19afe490814ab4c67f5b9f3065e6dae8958515dbbb80577f23"
+    },
+    {
+      "entry": "10_01_03_091210_VPTW50.xml",
+      "sha256": "ef6820913c9013793b667d87c9b647894dc4f7988c9850cd14c9291fbf52612d"
+    },
+    {
+      "entry": "10_01_04_100917_VPTW50.xml",
+      "sha256": "b2eaaaf01c36753125936c603a10fbab2c596ea4fbd1a37da4f7e3b50bc4a309"
+    },
+    {
+      "entry": "10_01_05_091210_VPTW50.xml",
+      "sha256": "a6349370430f78fe5f81280a5a89a4d3b655683a239d1166f3e80423636f6d60"
+    },
+    {
+      "entry": "10_01_06_091210_VPTW50.xml",
+      "sha256": "63204b22d4374f3d6b8c7bdd525dff890271867ad7bbf6dc208e715046583d29"
+    },
+    {
+      "entry": "10_02_01_091210_VPTW51.xml",
+      "sha256": "8a0f32c1b23c88b86a226e0a2d85a17ac4029aa857c527e1966c16b7950249a3"
+    },
+    {
+      "entry": "10_02_02_100917_VPTW51.xml",
+      "sha256": "eda3eedc595d69483e6a3ff3e36e920755267b10ff518845ca3cafd10227c1df"
+    },
+    {
+      "entry": "10_03_01_171016_VPTW60.xml",
+      "sha256": "91ea5acb655f8f8255e2de54935882232cf5fe4f29cac846fc0559d67be96b1f"
+    },
+    {
+      "entry": "10_04_01_170908_VPTW60.xml",
+      "sha256": "f80e6ee60ca06513026482dbbba4a7da2baedd4e87d394673faec05873483949"
+    },
+    {
+      "entry": "10_04_02_170910_VPTW60.xml",
+      "sha256": "0347ff2fe4bb3cbe45492f6fae5447dddf9b027a306feb56560c3fd86477729a"
+    },
+    {
+      "entry": "10_04_03_170913_VPTW60.xml",
+      "sha256": "f44fc02c410747b10b54041877191f85abe9e472ecc6520257c26ecf9362904f"
+    },
+    {
+      "entry": "10_04_04_170913_VPTW60.xml",
+      "sha256": "5a5393ade3796f7d345e469abd058e26c3361d9e43bc4bb969a134d2372b5460"
+    },
+    {
+      "entry": "10_04_05_170913_VPTW60.xml",
+      "sha256": "ec24e0ca9b7beff86ded5cf02828bd81553796cecb5dd8598ac39d4f5bdbdac0"
+    },
+    {
+      "entry": "10_04_06_170913_VPTW60.xml",
+      "sha256": "759e771bb3fd851bca2bc0c161bd1711e32ed8f5b5b3fd923c606592cccf0393"
+    },
+    {
+      "entry": "10_04_07_170916_VPTW60.xml",
+      "sha256": "fd9933e26c16b07534f43f307931d689720fc659f2cf5bc35f5fc924279dc1fb"
+    },
+    {
+      "entry": "10_04_08_170918_VPTW60.xml",
+      "sha256": "ebb69d2c840452fcff3994c07041161ff4efffb54b2b90d3ef7090dbbd725536"
+    },
+    {
+      "entry": "10_05_01_200826_VPTW60.xml",
+      "sha256": "7a5babbc33573cb5ed180904caa8c65f63f8add741e76b7d31b8fdaab75e6115"
+    },
+    {
+      "entry": "10_05_02_200826_VPTW60.xml",
+      "sha256": "f2f386ec3963854a7e708c203ab4bf21c0f833726bd76c930fa20290e117b326"
+    },
+    {
+      "entry": "10_05_03_200826_VPTW60.xml",
+      "sha256": "10407f2b24da4ebc6fee31ae68753bbdd40bcbc28fa21f408a837bcc1a92bfac"
+    },
+    {
+      "entry": "10_05_04_200826_VPTW60.xml",
+      "sha256": "17c2163705519a39e3fdf22cb5a18c9690aac79a37bfeb00f50cf43708f5db72"
+    },
+    {
+      "entry": "10_05_05_200826_VPTW61.xml",
+      "sha256": "a94348c1256487a09734456300eb2d21a0e80376ed237015f73f8fcbd808951a"
+    },
+    {
+      "entry": "10_05_09_200630_VPTW60.xml",
+      "sha256": "a57fdff079e6d763c8795555c2eca72453e8fe7ddba30d5cadccb9133878dd56"
+    }
+  ]
+}

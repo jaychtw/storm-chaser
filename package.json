@@ -1,0 +1,33 @@
+{
+  "name": "storm-chaser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:browser": "node scripts/browser-check.mjs",
+    "api": "node --import tsx server/index.ts",
+    "collect": "node --import tsx server/once.ts",
+    "test:live-browser": "node --import tsx scripts/browser-live.mjs",
+    "reprocess": "node --import tsx server/reprocess.ts",
+    "maintenance": "node --import tsx server/maintenance.ts",
+    "backup": "node --import tsx server/backup.ts",
+    "healthcheck": "node --import tsx server/healthcheck.ts"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.3.6",
+    "maplibre-gl": "5.10.0",
+    "tsx": "4.20.6"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "@playwright/test": "1.56.1",
+    "@types/node": "^24.10.0",
+    "typescript": "5.9.3",
+    "vite": "7.1.12",
+    "vitest": "3.2.4"
+  }
+}

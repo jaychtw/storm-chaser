@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-28T23:34:19.795Z",
+  "type": "actual-local-JMA-collection",
+  "health": {
+    "state": "fresh",
+    "lastCheckedAt": "2026-10-28T23:22:39.760Z",
+    "lastSuccessAt": "2026-10-28T23:22:39.760Z",
+    "partial": false
+  },
+  "asOf": "2026-10-28T23:34:15.499Z",
+  "systemCount": 1,
+  "advisories": [
+    {
+      "stormId": "JMA:2026:TC2637",
+      "name": "IN-FA",
+      "issuedAt": "2026-10-28T21:45:00.000Z",
+      "controlAt": "2026-10-28T21:42:48.000Z",
+      "retrievedAt": "2026-10-28T23:14:31.029Z",
+      "sourceUrl": "https://www.data.jma.go.jp/developer/xml/data/20261028214249_0_VPTW61_010000.xml",
+      "contentHash": "11362ca28cc5edf96fa39cb40f9660839847e44394c9684c19128d4dd5d5f032",
+      "analysisPoints": 1,
+      "forecastPoints": 6
+    }
+  ],
+  "limits": "One current collection capture; not evidence of a newly issued changed payload, reliable scheduled operation, or production readiness."
+}

@@ -1,0 +1,23 @@
+[Unit]
+Description=Storm Chaser read-only local API
+After=network-online.target
+[Service]
+Type=simple
+User=storm-chaser
+WorkingDirectory=/opt/storm-chaser
+Environment=STORM_EXTERNAL_SCHEDULER=1
+Environment=STORM_DATA_DIR=/var/lib/storm-chaser
+# Install Node 24, npm ci, and npm run build before starting.
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/env node --import tsx server/index.ts
+Restart=on-failure
+RestartSec=10
+StateDirectory=storm-chaser
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/storm-chaser
+[Install]
+WantedBy=multi-user.target

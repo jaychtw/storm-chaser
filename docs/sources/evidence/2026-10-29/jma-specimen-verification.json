@@ -1,0 +1,431 @@
+{
+  "purpose": "M0 offline specimen verification; not production data",
+  "source": "JMA",
+  "sha256": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "eventId": "TC2637",
+  "typhoonNumber": "2631",
+  "nameAsReported": "IN-FA",
+  "serial": "46",
+  "infoType": "発表",
+  "status": "通常",
+  "reportIssuedAt": "2026-10-28T15:45:00Z",
+  "controlDateTime": "2026-10-28T15:41:20Z",
+  "analysisValidAt": "2026-10-28T15:00:00Z",
+  "targetDuration": "PT120H",
+  "points": [
+    {
+      "kind": "analysis",
+      "nativeTimeType": "実況",
+      "validAt": "2026-10-28T15:00:00Z",
+      "leadHoursFromAnalysis": 0.0,
+      "latitude": 15.4,
+      "longitude": 157.0,
+      "nativeCoordinate": "+15.4+157.0/",
+      "windAsReported": [
+        {
+          "value": "95",
+          "description": "中心付近の最大風速９５ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "50",
+          "description": "中心付近の最大風速５０メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "135",
+          "description": "最大瞬間風速１３５ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "70",
+          "description": "最大瞬間風速７０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "945",
+          "description": "中心気圧９４５ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": []
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　１２時間後",
+      "validAt": "2026-10-29T03:00:00Z",
+      "leadHoursFromAnalysis": 12.0,
+      "latitude": 15.8,
+      "longitude": 154.1,
+      "nativeCoordinate": "+15.8+154.1/",
+      "windAsReported": [
+        {
+          "value": "100",
+          "description": "中心付近の最大風速１００ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "50",
+          "description": "中心付近の最大風速５０メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "140",
+          "description": "最大瞬間風速１４０ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "70",
+          "description": "最大瞬間風速７０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "935",
+          "description": "中心気圧９３５ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "25",
+          "description": "中心が７０パーセントの確率で入る予報円の半径２５海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "45",
+          "description": "中心が７０パーセントの確率で入る予報円の半径４５キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　２４時間後",
+      "validAt": "2026-10-29T15:00:00Z",
+      "leadHoursFromAnalysis": 24.0,
+      "latitude": 16.5,
+      "longitude": 150.7,
+      "nativeCoordinate": "+16.5+150.7/",
+      "windAsReported": [
+        {
+          "value": "100",
+          "description": "中心付近の最大風速１００ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "50",
+          "description": "中心付近の最大風速５０メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "140",
+          "description": "最大瞬間風速１４０ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "70",
+          "description": "最大瞬間風速７０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "935",
+          "description": "中心気圧９３５ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "35",
+          "description": "中心が７０パーセントの確率で入る予報円の半径３５海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "65",
+          "description": "中心が７０パーセントの確率で入る予報円の半径６５キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　４５時間後",
+      "validAt": "2026-10-30T12:00:00Z",
+      "leadHoursFromAnalysis": 45.0,
+      "latitude": 19.0,
+      "longitude": 145.0,
+      "nativeCoordinate": "+19.0+145.0/",
+      "windAsReported": [
+        {
+          "value": "100",
+          "description": "中心付近の最大風速１００ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "50",
+          "description": "中心付近の最大風速５０メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "140",
+          "description": "最大瞬間風速１４０ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "70",
+          "description": "最大瞬間風速７０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "935",
+          "description": "中心気圧９３５ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "55",
+          "description": "中心が７０パーセントの確率で入る予報円の半径５５海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "100",
+          "description": "中心が７０パーセントの確率で入る予報円の半径１００キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　６９時間後",
+      "validAt": "2026-10-31T12:00:00Z",
+      "leadHoursFromAnalysis": 69.0,
+      "latitude": 22.0,
+      "longitude": 142.7,
+      "nativeCoordinate": "+22.0+142.7/",
+      "windAsReported": [
+        {
+          "value": "90",
+          "description": "中心付近の最大風速９０ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "45",
+          "description": "中心付近の最大風速４５メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "130",
+          "description": "最大瞬間風速１３０ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "65",
+          "description": "最大瞬間風速６５メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "940",
+          "description": "中心気圧９４０ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "80",
+          "description": "中心が７０パーセントの確率で入る予報円の半径８０海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "150",
+          "description": "中心が７０パーセントの確率で入る予報円の半径１５０キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　９３時間後",
+      "validAt": "2026-11-01T12:00:00Z",
+      "leadHoursFromAnalysis": 93.0,
+      "latitude": 21.3,
+      "longitude": 141.0,
+      "nativeCoordinate": "+21.3+141.0/",
+      "windAsReported": [
+        {
+          "value": "85",
+          "description": "中心付近の最大風速８５ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "45",
+          "description": "中心付近の最大風速４５メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "120",
+          "description": "最大瞬間風速１２０ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "60",
+          "description": "最大瞬間風速６０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "950",
+          "description": "中心気圧９５０ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "100",
+          "description": "中心が７０パーセントの確率で入る予報円の半径１００海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "185",
+          "description": "中心が７０パーセントの確率で入る予報円の半径１８５キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    },
+    {
+      "kind": "forecast",
+      "nativeTimeType": "予報　１１７時間後",
+      "validAt": "2026-11-02T12:00:00Z",
+      "leadHoursFromAnalysis": 117.0,
+      "latitude": 21.4,
+      "longitude": 137.0,
+      "nativeCoordinate": "+21.4+137.0/",
+      "windAsReported": [
+        {
+          "value": "80",
+          "description": "中心付近の最大風速８０ノット",
+          "condition": "中心付近",
+          "unit": "ノット",
+          "type": "最大風速"
+        },
+        {
+          "value": "40",
+          "description": "中心付近の最大風速４０メートル",
+          "condition": "中心付近",
+          "unit": "m/s",
+          "type": "最大風速"
+        },
+        {
+          "value": "115",
+          "description": "最大瞬間風速１１５ノット",
+          "unit": "ノット",
+          "type": "最大瞬間風速"
+        },
+        {
+          "value": "60",
+          "description": "最大瞬間風速６０メートル",
+          "unit": "m/s",
+          "type": "最大瞬間風速"
+        }
+      ],
+      "windAveragingPeriod": null,
+      "pressureAsReported": [
+        {
+          "value": "950",
+          "description": "中心気圧９５０ヘクトパスカル",
+          "unit": "hPa",
+          "type": "中心気圧"
+        }
+      ],
+      "uncertaintyRadiiAsReported": [
+        {
+          "value": "120",
+          "description": "中心が７０パーセントの確率で入る予報円の半径１２０海里",
+          "unit": "海里",
+          "type": "７０パーセント確率半径"
+        },
+        {
+          "value": "220",
+          "description": "中心が７０パーセントの確率で入る予報円の半径２２０キロ",
+          "unit": "km",
+          "type": "７０パーセント確率半径"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "analysisPoints": 1,
+    "forecastPoints": 6,
+    "finiteInRangeCoordinates": true,
+    "explicitTimezones": true,
+    "strictlyIncreasingValidTimes": true
+  }
+}
