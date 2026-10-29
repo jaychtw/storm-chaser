@@ -1,3 +1,5 @@
+> M3-P owner authorization endorses this proposal for future standards review only. No change to `game-development-standards`, adopted versions or unrelated repositories is authorized.
+
 # Standards change candidates — application briefs and milestone lineage
 
 Date: 2026-10-29, Asia/Taipei. **Proposal only**, under AICP 1.1.0 §9. Governing baseline inspected at standards commit `cb74fe9497d07370f44a18a09fec124ab99848ec`. No files, tags, versions or pins in `game-development-standards` were modified. No new universal obligation is adopted here.

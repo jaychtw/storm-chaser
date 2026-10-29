@@ -1,3 +1,5 @@
+> Historical proposal from review commit `02dc7c2`. The owner subsequently authorized bounded M3-P in the [Final Implementation Authorization](../briefs/m3-p-authorization.md). Its neutral Auto rule supersedes this draft’s recency-default alternative; consult [ADR 0002](../adr/0002-product-reconciliation-proposed.md) and the [guide amendment](../amendments/design-guide-v1.0-m3p.md). Original draft content remains below for lineage.
+
 # Proposed implementation brief — M3-P product completion
 
 Date: 2026-10-29, Asia/Taipei. **Proposed; not authorized to begin.** Owner: product owner. Implementation: Codex. Design/product review: owner with advisory ChatGPT. Source baseline: `b09928a4ed758e0c053e9da6eaad264cbdf4625f` (resolve the approved starting revision again before implementation).

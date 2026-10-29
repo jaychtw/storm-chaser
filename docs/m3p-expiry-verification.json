@@ -1,0 +1,95 @@
+{
+  "type": "offline-post-fix-eligibility-check",
+  "checkedAt": "2026-10-29T03:21:43.988Z",
+  "reviewBase": "02dc7c2f1f1e61b5626f247bb9d1b9d8548c75e9",
+  "node": "v24.19.0",
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "initialClock": "2026-10-28T16:00:00.000Z",
+  "advanceHours": 25,
+  "cachedAdvisories": 1,
+  "clientSystems": 0,
+  "serverSystems": 0,
+  "clientExpiredCount": 1,
+  "serverExpiredCount": 1,
+  "sourceLifecycleUnchanged": "active",
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "tests": {
+    "passed": 97,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": {
+    "passed": true,
+    "warning": "existing large JavaScript bundle"
+  },
+  "testedFiles": [
+    {
+      "path": "shared/eligibility.ts",
+      "sha256": "5b9409b794cb77cdb1b7d963c4673eff10504e586eb09f01e31bf94d9f50db16"
+    },
+    {
+      "path": "shared/model.ts",
+      "sha256": "380b2fd9df2fcd390445f6a4f368963c283fc65e76e1f30840ff3b664024adda"
+    },
+    {
+      "path": "src/live.ts",
+      "sha256": "889ee9e4f7478a8beaa8be192d316100bc2d5ae80be124db0c86f2e4be2cf644"
+    },
+    {
+      "path": "src/focus.ts",
+      "sha256": "5f37dcedb877565bf6e84c2b305bf5b2e856f2187075d2d99617be73cc247f7c"
+    },
+    {
+      "path": "src/data-labels.ts",
+      "sha256": "e7d704633d4eadf9ea03b89feac328e322eb2f64a755b6d8569c5c75a991643c"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "9747c0306b821ee2f0a89ca6a82cf659928f134941966a7057a81e19a7f8e015"
+    },
+    {
+      "path": "src/map.ts",
+      "sha256": "c05e958c990f28d613195cff734880503348f5096af7fe41afa18d41109e1bd1"
+    },
+    {
+      "path": "src/i18n.ts",
+      "sha256": "9753d2b748872cded65405e31ce66cdcd3d3c6451c75c576b300a5ec24362f39"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "a7c64c40b87b2d2669fa019fdb8875c01d05f03fe8b0022247ca61f14b740980"
+    },
+    {
+      "path": "src/product.test.ts",
+      "sha256": "5004fb11e667bb12b94e28f470501ff426927e6b5d61273cab27caa99ea93019"
+    },
+    {
+      "path": "server/jma.ts",
+      "sha256": "4e8dbc85316271c469a7b70a9fe10c1f811cf3a95f8fa3a64c981c7e99679971"
+    },
+    {
+      "path": "server/store.ts",
+      "sha256": "501067335dd1483b8f90caa910da9391961ef3b0ac28e4e012781c8467918125"
+    },
+    {
+      "path": "scripts/browser-product.mjs",
+      "sha256": "c1a3a1200349b524349421dfdeaa41e12ee93a10a28c5247866e2a987f0765a4"
+    },
+    {
+      "path": "scripts/browser-live.mjs",
+      "sha256": "f12737b493e0387f4e8bd345843e3f5b75d6bbee39b347bc0a3d64ed9cfacabe"
+    },
+    {
+      "path": "scripts/browser-check.mjs",
+      "sha256": "124aef18a2b0ca59a9b2d3ade69d4ea86ec8ba0bbc6c708fd5d41b1c15cbd863"
+    }
+  ],
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.9.0",
+    "chromium": "154.0.8037.57",
+    "webgl": "software",
+    "actualSourceCollection": false
+  }
+}

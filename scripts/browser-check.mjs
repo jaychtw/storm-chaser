@@ -3,14 +3,16 @@ import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {mkdir,writeFile} from 'node:fs/promises';
+const stage=process.env.REVIEW_STAGE??'m3p-demo';
 const base=process.env.PREVIEW_URL || 'http://127.0.0.1:5173';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || (existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const errors=[]; const checks=[];
-await mkdir('docs/screenshots',{recursive:true});
+await mkdir(`docs/screenshots/${stage}`,{recursive:true});
 const context=await browser.newContext({viewport:{width:1440,height:1120},deviceScaleFactor:1,reducedMotion:'reduce'});
+await context.route('**/api/live',route=>route.abort());
 const page=await context.newPage();
 page.on('pageerror',e=>errors.push(e.message));
-async function screenshot(name){await page.locator('#map[data-ready="true"]').waitFor();await page.screenshot({path:`docs/screenshots/${name}.png`,fullPage:true});}
+async function screenshot(name){await page.locator('#map[data-ready="true"]').waitFor();await page.screenshot({path:`docs/screenshots/${stage}/${name}.png`,fullPage:true});}
 async function noOverflow(){assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'horizontal overflow');}
 async function audit(name){const r=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();checks.push({name,violations:r.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>n.target)}))});}
 try {
@@ -36,8 +38,8 @@ try {
  await page.locator('#auto').focus();await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement?.getAttribute('data-storm')),'demo-alpha');
  await page.keyboard.press('Tab');await page.keyboard.press('Enter');assert.equal(await page.locator('[data-storm="demo-bravo"]').getAttribute('aria-pressed'),'true');
  // WebGL failure must leave a useful, localized fallback rather than a blank shell.
- const fallback=await browser.newPage();await fallback.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return String(type).includes('webgl')?null:get.call(this,type,...args);};});
+ const fallback=await browser.newPage();await fallback.route('**/api/live',route=>route.abort());await fallback.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return String(type).includes('webgl')?null:get.call(this,type,...args);};});
  await fallback.goto(base+'?mode=demo');await fallback.locator('.map-error').waitFor();assert.equal(await fallback.locator('.source-link').count(),3);await fallback.close();
  assert.deepEqual(errors,[]);assert.equal(checks.flatMap(c=>c.violations).length,0,JSON.stringify(checks,null,2));
  console.log('PASS: map rendered; selection, Auto, tracks, forecast time, locale persistence, empty/outage, keyboard, WebGL fallback, 320–1440px overflow, and 7 axe scans.');
-} finally {await writeFile('docs/browser-results.json',JSON.stringify({checkedAt:new Date().toISOString(),errors,checks},null,2)+'\n');await browser.close();}
+} finally {await writeFile(`docs/${stage}-browser-results.json`,JSON.stringify({checkedAt:new Date().toISOString(),errors,checks},null,2)+'\n');await browser.close();}

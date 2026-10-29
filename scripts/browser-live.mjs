@@ -5,7 +5,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {normalize} from '../server/jma.ts';
 import {materialize} from '../server/store.ts';
-const stage=process.env.REVIEW_STAGE??'m3';
+const stage=process.env.REVIEW_STAGE??'m3p';
 const base=process.env.PREVIEW_URL??'http://127.0.0.1:5173';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 await mkdir(`docs/screenshots/${stage}`,{recursive:true});const results=[];
@@ -21,7 +21,7 @@ async function ready(){await page.locator('.storm-card').first().waitFor();await
 async function shot(name){await page.locator('#map[data-ready="true"]').waitFor();await page.screenshot({path:`docs/screenshots/${stage}/${name}.png`,fullPage:true});}
 async function audit(name){const r=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();results.push({name,violations:r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))});}
 try{
- await page.goto(base);await ready();assert.equal(await page.locator('.storm-card').count(),1);assert.equal(await page.locator('.forecast-dot').count(),6);assert.equal(await page.locator('[data-track="B"]').count(),0);assert.match(await page.locator('#detail').innerText(),/IN-FA/);await shot('official-specimen-en');await audit('official-specimen-en');
+ await page.goto(base);await ready();assert.equal(await page.locator('.storm-card').count(),1);assert.equal(await page.locator('.forecast-dot').count(),0);assert.equal(await page.locator('.storm-card[aria-pressed="true"]').count(),0);await shot('neutral-auto-en');await page.locator('.storm-card').click();assert.equal(await page.locator('.forecast-dot').count(),6);assert.equal(await page.locator('[data-track="B"]').count(),0);assert.match(await page.locator('#detail').innerText(),/IN-FA/);await shot('official-specimen-en');await audit('official-specimen-en');
  // Manual focus and camera must survive a genuinely changed normalized revision
  // arriving at the local API. This is an explicitly controlled replay, not a
  // claim of a future live source update witnessed in the wild.
@@ -37,7 +37,7 @@ try{
  await page.locator('#data-mode').selectOption('demo');assert.equal(await page.locator('.storm-card').count(),2);await page.locator('#data-mode').selectOption('live');assert.equal(await page.locator('.storm-card').count(),0);
  // New mobile navigation initializes the disclosure collapsed, with the map
  // ahead of storm rail and source stations in the rendered layout.
- payload=materialize([a],good,now);await page.setViewportSize({width:390,height:844});await page.goto(base);await ready();assert.equal(await page.locator('.detail-disclosure').getAttribute('open'),null);
+ payload=materialize([a],good,now);await page.setViewportSize({width:390,height:844});await page.goto(base);await ready();await page.locator('.storm-card').click();assert.equal(await page.locator('.detail-disclosure').getAttribute('open'),null);
  const mapY=await page.locator('.map-frame').boundingBox(),railY=await page.locator('#storm-rail').boundingBox();assert(mapY.y<railY.y);await shot('mobile-official-specimen-zh');await audit('mobile-official-specimen-zh');
  for(const width of [320,390,768,1024]){await page.setViewportSize({width,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow');}
  assert.deepEqual(errors,[]);assert.equal(results.flatMap(r=>r.violations).length,0,JSON.stringify(results));

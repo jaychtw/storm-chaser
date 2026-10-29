@@ -1,0 +1,200 @@
+{
+  "type": "controlled-official-specimen-and-mutated-cases",
+  "checkedAt": "2026-10-29T03:23:50.722Z",
+  "sourceUrl": "https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml",
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "results": [
+    {
+      "name": "en: neutral Auto / no arbitrary winner with two storms",
+      "status": "passed"
+    },
+    {
+      "name": "en: manual native motion, localized labels and source timestamps",
+      "status": "passed"
+    },
+    {
+      "name": "en: keyboard focus, forecast detail, locale and camera survive changed advisories",
+      "status": "passed"
+    },
+    {
+      "name": "en: changed forecast invalidates selected point and restores logical keyboard focus",
+      "status": "passed"
+    },
+    {
+      "name": "en: partial ingestion plus retained eligible records",
+      "status": "passed"
+    },
+    {
+      "name": "en: upstream collection failure is distinct from local API loss",
+      "status": "passed"
+    },
+    {
+      "name": "en: expired cached records/selected points disappear while API stays failed",
+      "status": "passed"
+    },
+    {
+      "name": "en: recovery restores same manual storm; Auto returns to neutral with one storm",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: neutral Auto / no arbitrary winner with two storms",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: manual native motion, localized labels and source timestamps",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: keyboard focus, forecast detail, locale and camera survive changed advisories",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: changed forecast invalidates selected point and restores logical keyboard focus",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: partial ingestion plus retained eligible records",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: upstream collection failure is distinct from local API loss",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: expired cached records/selected points disappear while API stays failed",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: recovery restores same manual storm; Auto returns to neutral with one storm",
+      "status": "passed"
+    },
+    {
+      "name": "explicit validity during API failure: pageshow",
+      "status": "passed"
+    },
+    {
+      "name": "explicit validity during API failure: focus",
+      "status": "passed"
+    },
+    {
+      "name": "explicit validity during API failure: visibilitychange",
+      "status": "passed"
+    },
+    {
+      "name": "explicit validity during API failure: timer",
+      "status": "passed"
+    },
+    {
+      "name": "en: mobile map-first and bilingual source access / touch alternative",
+      "status": "passed"
+    },
+    {
+      "name": "en: mobile offline/expired/unavailable evidence",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: mobile map-first and bilingual source access / touch alternative",
+      "status": "passed"
+    },
+    {
+      "name": "zh-TW: mobile offline/expired/unavailable evidence",
+      "status": "passed"
+    },
+    {
+      "name": "missing motion/wind and native qualitative forecast conditions remain honest",
+      "status": "passed"
+    }
+  ],
+  "audits": [
+    {
+      "name": "en-neutral",
+      "violations": []
+    },
+    {
+      "name": "en-manual",
+      "violations": []
+    },
+    {
+      "name": "en-partial",
+      "violations": []
+    },
+    {
+      "name": "en-api-stale",
+      "violations": []
+    },
+    {
+      "name": "en-expired",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-neutral",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-manual",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-partial",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-api-stale",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-expired",
+      "violations": []
+    },
+    {
+      "name": "en-mobile-manual",
+      "violations": []
+    },
+    {
+      "name": "en-mobile-expired",
+      "violations": []
+    },
+    {
+      "name": "en-mobile-unavailable",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-mobile-manual",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-mobile-expired",
+      "violations": []
+    },
+    {
+      "name": "zh-TW-mobile-unavailable",
+      "violations": []
+    }
+  ],
+  "shots": [
+    "desktop-en-auto-uncertain",
+    "desktop-en-manual-current",
+    "desktop-en-partial",
+    "desktop-en-api-stale",
+    "desktop-en-expired-outage",
+    "desktop-zh-TW-auto-uncertain",
+    "desktop-zh-TW-manual-current",
+    "desktop-zh-TW-partial",
+    "desktop-zh-TW-api-stale",
+    "desktop-zh-TW-expired-outage",
+    "mobile-en-auto-uncertain",
+    "mobile-en-manual-current",
+    "mobile-en-stale-outage",
+    "mobile-en-expired-outage",
+    "mobile-en-unavailable",
+    "mobile-zh-TW-auto-uncertain",
+    "mobile-zh-TW-manual-current",
+    "mobile-zh-TW-stale-outage",
+    "mobile-zh-TW-expired-outage",
+    "mobile-zh-TW-unavailable"
+  ],
+  "errors": [],
+  "unexpectedNetwork": [],
+  "liveSourceRequests": 0,
+  "limits": "Saved official specimen and isolated controlled cases; not actual current weather, real OS sleep, a physical phone, screen-reader certification or owner visual acceptance."
+}

@@ -24,6 +24,7 @@ jobs:
           done
           npm run test:browser
           npm run test:live-browser
+          npm run test:product-browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -31,4 +32,6 @@ jobs:
           path: |
             docs/screenshots/
             docs/browser-results.json
-            docs/m3-browser-results.json
+            docs/m3p-browser-results.json
+            docs/m3p-demo-browser-results.json
+            docs/m3p-acceptance-results.json

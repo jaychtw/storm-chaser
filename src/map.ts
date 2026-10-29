@@ -11,7 +11,7 @@ export class StormMap {
   pending?: () => void;
   constructor(container: HTMLElement, t: Copy, onError: () => void) {
     this.map = new maplibregl.Map({
-      container, center: [130, 24], zoom: 3.4, minZoom: 2, maxZoom: 8,
+      container, center: [135, 24], zoom: 2, minZoom: 2, maxZoom: 8,
       maxBounds: [[85,-10],[180,65]], attributionControl: false,
       style: {version: 8, sources: {
         countries: {type:'geojson', data:'/geography/countries.geojson'},
@@ -56,7 +56,7 @@ export class StormMap {
       this.markers.forEach(m=>m.remove()); this.markers=[];
       const features: Feature<LineString>[]=[];
       for(const storm of storms) {
-        const el=document.createElement('button'); el.type='button'; el.className='storm-pin'+(storm.id===selected?.id?' active':''); el.setAttribute('aria-label',`${storm.advisory?"JMA":t.synthetic} ${storm.name}`);
+        const el=document.createElement('button'); el.type='button'; el.className='storm-pin'+(storm.id===selected?.id?' active':''); el.dataset.mapStorm=storm.id;el.setAttribute('aria-label',`${storm.advisory?"JMA":t.synthetic} ${storm.name}`);el.setAttribute('aria-pressed',String(storm.id===selected?.id));
         el.textContent='◉'; el.onclick=()=>onStorm(storm.id);
         const name=document.createElement('span');name.textContent=storm.name; el.append(name);
         this.markers.push(new maplibregl.Marker({element:el}).setLngLat(storm.position).addTo(this.map));
@@ -67,6 +67,7 @@ export class StormMap {
         selected.tracks[track].slice(1).forEach((p,i)=>{
           const el=document.createElement('button');el.type='button';el.className='forecast-dot track-'+track;
           const lead=selected.forecastLeads?.[i]??(i+1)*12;
+          el.dataset.mapPoint=`${selected.id}|${track}|${selected.forecastTimes?.[i]??pointTime(i+1)}`;
           el.setAttribute('aria-label',`${selected.advisory?'JMA':track==='A'?t.trackA:t.trackB} +${lead} ${t.hours}`);
           el.onclick=()=>onPoint(selected.forecastTimes?.[i]??pointTime(i+1),track,lead);
           this.markers.push(new maplibregl.Marker({element:el}).setLngLat(p).addTo(this.map));
@@ -76,5 +77,5 @@ export class StormMap {
     };
     this.pending=run;if(this.loaded)run();
   }
-  reset(storm?: MapStorm|null) { if(storm){const b=new maplibregl.LngLatBounds();[storm.position,...storm.tracks.A,[121,24] as [number,number]].forEach(p=>b.extend(p));this.map.fitBounds(b,{padding:{top:55,bottom:55,left:45,right:95},maxZoom:4,duration:0});}else this.map.jumpTo({center:[130,24],zoom:3.4}); }
+  reset(storm?: MapStorm|null) { if(storm){const b=new maplibregl.LngLatBounds();[storm.position,...storm.tracks.A,[121,24] as [number,number]].forEach(p=>b.extend(p));this.map.fitBounds(b,{padding:{top:55,bottom:55,left:45,right:95},maxZoom:4,duration:0});}else this.map.jumpTo({center:[135,24],zoom:2}); }
 }

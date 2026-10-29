@@ -4,7 +4,8 @@ import {DatabaseSync,backup} from 'node:sqlite';
 import {randomUUID,createHash} from 'node:crypto';
 import type {Advisory,Health,LiveSnapshot} from '../shared/model';
 import {normalize} from './jma';
-export const POLL_MS=5*60_000,STALE_MS=8*3600_000,EXPIRE_MS=24*3600_000;
+import {eligibility,POLL_MS,STALE_MS,COLLECTION_STALE_MS} from '../shared/eligibility';
+export {POLL_MS,STALE_MS,EXPIRE_MS} from '../shared/eligibility';
 export function latest(records:Advisory[]){
  const units=new Map<string,Advisory>();
  for(const a of records){const old=units.get(a.unitKey);if(!old||a.controlAt>old.controlAt||(a.controlAt===old.controlAt&&a.retrievedAt>old.retrievedAt))units.set(a.unitKey,a);}
@@ -13,12 +14,13 @@ export function latest(records:Advisory[]){
 export function materialize(records:Advisory[],health:Health,now=Date.now()):LiveSnapshot{
  const current=latest(records);let expiredCount=0,inactiveCount=0;
  const advisories=current.filter(a=>{
-  if(a.cancelled||a.lifecycle==='inactive'){inactiveCount++;return false;}
-  if(!a.points.length||now-Date.parse(a.issuedAt)>EXPIRE_MS||(a.validUntil&&now>=Date.parse(a.validUntil))){expiredCount++;return false;}
+  const status=eligibility(a,now);
+  if(status==='inactive'){inactiveCount++;return false;}
+  if(status!=='eligible'){expiredCount++;return false;}
   return true;
  }).sort((a,b)=>b.controlAt.localeCompare(a.controlAt));
  let state=health.state;
- if(health.lastSuccessAt&&now-Date.parse(health.lastSuccessAt)>3*POLL_MS)state=records.length?'stale':'unavailable';
+ if(health.lastSuccessAt&&now-Date.parse(health.lastSuccessAt)>COLLECTION_STALE_MS)state=records.length?'stale':'unavailable';
  if(state==='fresh'&&advisories.some(a=>now-Date.parse(a.issuedAt)>STALE_MS))state='stale';
  return {mode:'live',asOf:new Date(now).toISOString(),health:{...health,state},advisories,expiredCount,inactiveCount,coverage:'recent-jma-bulletins',pollSeconds:POLL_MS/1000};
 }

@@ -15,7 +15,8 @@
     "reprocess": "node --import tsx server/reprocess.ts",
     "maintenance": "node --import tsx server/maintenance.ts",
     "backup": "node --import tsx server/backup.ts",
-    "healthcheck": "node --import tsx server/healthcheck.ts"
+    "healthcheck": "node --import tsx server/healthcheck.ts",
+    "test:product-browser": "node --import tsx scripts/browser-product.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.3.6",

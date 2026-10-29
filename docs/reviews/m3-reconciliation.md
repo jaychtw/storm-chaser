@@ -1,3 +1,5 @@
+> Historical reconciliation at review commit `02dc7c2`. Bounded M3-P has since been authorized; see the [owner authorization](../briefs/m3-p-authorization.md), [current acceptance report](../m3p-verification.md) and [ADR 0002](../adr/0002-product-reconciliation-proposed.md). The findings and proposed statuses below describe the review baseline, not current implementation or acceptance.
+
 # Storm Chaser — M3 reconciliation
 
 Review date: 2026-10-29, Asia/Taipei. **Review and planning only; draft for owner/advisory review.** Implementation baseline: [`b09928a4ed758e0c053e9da6eaad264cbdf4625f`](https://github.com/jaychtw/storm-chaser/commit/b09928a4ed758e0c053e9da6eaad264cbdf4625f), confirmed against remote `main` during this review. Documentation publication is authorized on `review/m3-reconciliation`, without merging into `main`. These drafts do not establish a new implementation, accepted milestone or M3-P authorization.

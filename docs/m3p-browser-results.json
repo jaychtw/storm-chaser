@@ -1,0 +1,27 @@
+{
+  "type": "controlled-official-specimen-replay",
+  "checkedAt": "2026-10-29T03:17:29.075Z",
+  "errors": [],
+  "results": [
+    {
+      "name": "official-specimen-en",
+      "violations": []
+    },
+    {
+      "name": "official-specimen-zh",
+      "violations": []
+    },
+    {
+      "name": "stale-official-specimen-zh",
+      "violations": []
+    },
+    {
+      "name": "unavailable-zh",
+      "violations": []
+    },
+    {
+      "name": "mobile-official-specimen-zh",
+      "violations": []
+    }
+  ]
+}
