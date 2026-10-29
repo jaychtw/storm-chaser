@@ -1,6 +1,6 @@
 # V1-F — frozen software candidate verification and acceptance gate
 
-Date: 2026-10-29 Asia/Taipei. Package **1.0.0-rc.1**, private/local-first. **Software candidate prepared for owner acceptance; no public release or service-readiness claim.** Development branch: `development/v1-f-finalization`. Baseline: `129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`. Implementation revision: **recorded in the final revision entry before handoff**; [verification metadata](verification.json) contains tested-file hashes and the final handoff supplies the exact delivery SHA.
+Date: 2026-10-29 Asia/Taipei. Package **1.0.0-rc.1**, private/local-first. **Software candidate prepared for owner acceptance; no public release or service-readiness claim.** Development branch: `development/v1-f-finalization`. Baseline: `129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`. Implementation revision: [`011a77f7bab741ecc9233d0fc394b2c53d7d9c8e`](https://github.com/jaychtw/storm-chaser/commit/011a77f7bab741ecc9233d0fc394b2c53d7d9c8e); [verification metadata](verification.json) contains tested-file hashes and the final handoff supplies the exact delivery SHA.
 
 Authority: [V1-F owner assignment](../briefs/v1-f-authorization.md), [versioned scope ADR](../adr/0004-v1-scope-freeze.md), [approved GDD amendment v1.0.3](../amendments/design-guide-v1.0.3-scope-freeze.md), AICP 1.1.0 at `cb74fe9497d07370f44a18a09fec124ab99848ec`. Original guide, source evidence and M3-O/P/E reports remain historical records. Separate ChatGPT Project conversations were not retrieved.
 
@@ -45,7 +45,7 @@ Environment: Linux Debian 13, Node **24.19.0**, npm **11.9.0**, Chromium **154.0
 
 Total browser audits: **53 scans, zero reported violations**. This is automated/emulated evidence, not screen-reader, physical-device, owner visual/release acceptance or human comprehension certification. Screenshots use actual running UI with saved official specimens and controlled cases; their labels identify replay. Source issue/valid/retrieval times remain source-backed, while replay time is explicit.
 
-Tests ran against the candidate working tree; file digests tie those files to the implementation revision recorded before handoff. Remote CI is not claimed. The workflow supports the new checks, but delivery commits use `[skip ci]` to avoid activating remote jobs under the $0 constraint. Temporary loopback frontends/readers are stopped at delivery.
+Tests ran against the candidate working tree; file digests tie those files to the implementation revision above. The subsequent documentation-only commit records this exact revision without changing tested source. Remote CI is not claimed. The workflow supports the new checks, but delivery commits use `[skip ci]` to avoid activating remote jobs under the $0 constraint. Temporary loopback frontends/readers are stopped at delivery.
 
 ## Frozen v1.0 acceptance matrix
 

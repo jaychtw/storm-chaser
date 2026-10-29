@@ -5,7 +5,7 @@
 - Repository: https://github.com/jaychtw/storm-chaser
 - Reviewed: 2026-10-29 Asia/Taipei. Owner: product owner; implementation: Codex; advisory product/design: ChatGPT.
 - Identity: **Storm Chaser v1.0 — JMA-first Experiential Cyclone Viewer**, local-first candidate `1.0.0-rc.1` (private). Experience-first organization/presentation/interaction of lawful existing public evidence; no independent forecasting.
-- Baseline: M3-O `b09928a` → M3-P `12dc2fc` → M3-E **`129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`** → V1-F on `development/v1-f-finalization`. Implementation revision recorded before handoff; final delivery SHA in completion message.
+- Baseline: M3-O `b09928a` → M3-P `12dc2fc` → M3-E **`129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`** → V1-F on `development/v1-f-finalization`. Implementation revision `011a77f7bab741ecc9233d0fc394b2c53d7d9c8e`; the subsequent documentation-only commit records it. Final delivery SHA in completion message.
 - Acceptance: M3-P visual design and M3-E Forecast-Time Explorer **accepted into scope by owner**. Frozen v1.0 identity/features approved. **V1-F software/release acceptance pending**; no public-readiness assertion.
 - Gate: software candidate consolidated, documented and locally reproducible; stop for owner acceptance. **$0 new expenditure**, no main merge, public release/preview/deployment, hosting/service enrollment or unattended collection.
 - Standards: AICP **1.1.0** at [`cb74fe9497d07370f44a18a09fec124ab99848ec`](https://github.com/jaychtw/game-development-standards/tree/cb74fe9497d07370f44a18a09fec124ab99848ec). Application GDD requirements; no game-only UGDS adoption or shared standards edits.

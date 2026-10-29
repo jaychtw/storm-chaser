@@ -4,7 +4,7 @@
   "timezone": "Asia/Taipei",
   "version": "1.0.0-rc.1",
   "baselineCommit": "129a3af3a13e882d8d92bcfd0360fdfa83b01cf7",
-  "implementationCommit": "recorded-before-handoff",
+  "implementationCommit": "011a77f7bab741ecc9233d0fc394b2c53d7d9c8e",
   "tests": {
     "passed": 131,
     "failed": 0,
