@@ -1,3 +1,5 @@
+> V1-F adoption: experience-first philosophy and Forecast-Time Explorer are now accepted into frozen v1.0 by the [approved v1.0.3 amendment](design-guide-v1.0.3-scope-freeze.md). This earlier proposed wording remains for history; secondary expansions are not approved.
+
 # Proposed Design Guide amendment v1.0.2 — experience-layer innovation
 
 2026-10-29 Asia/Taipei. **Proposed specification text; permanent feature adoption pending.** Basis: [M3-E owner assignment](../briefs/m3-e-authorization.md). The experience priority and bounded POC authorization below are already approved; the owner has not yet accepted the resulting interaction for production integration.

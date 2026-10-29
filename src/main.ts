@@ -6,7 +6,8 @@ import {StormMap} from './map';
 import {liveView,escapeHTML as E,type MapStorm} from './live';
 import {resolveFocus} from './focus';
 import {ForecastExplorer} from './explorer';
-import {forecastSteps} from './explorer-model';
+import {selectPublishedPoint,type PointSelection} from './point-selection';
+import {isLiveSnapshot} from './snapshot-contract';
 import {nativeLabel,reportedValue,reportedDirection} from './data-labels';
 import {eligibility,advisoryStale,EXPIRE_MS} from '../shared/eligibility';
 import type {LiveSnapshot,Position,Value} from '../shared/model';
@@ -15,8 +16,8 @@ let storage:Storage|undefined;try{storage=localStorage;}catch{}
 let locale:Locale=readLocale(storage);
 const params=new URLSearchParams(location.search);
 let demo=params.get('mode')==='demo',scenario=parseScenario(params.get('scenario'));
-let snapshot:LiveSnapshot|null=null,clientError=false,manual=false,selectedId:string|null=null,statusOpen=false,mapFailed=false;
-let point:{validAt:string;track:Track;lead:number;stormId:string}|null=null,pointLost=false;
+let snapshot:LiveSnapshot|null=null,clientError=false,clientInvalid=false,manual=false,selectedId:string|null=null,statusOpen=false,mapFailed=false;
+let point:PointSelection|null=null,pointLost=false;
 const tracks=new Set<Track>(['A','B']);
 const app=document.querySelector<HTMLDivElement>('#app')!;
 app.innerHTML=`<a class="skip-link" href="#workspace"></a><div id="header"></div><main id="workspace" tabindex="-1"><section id="intro"></section><div class="command-grid"><aside id="storm-rail"></aside><section class="map-column"><div id="map-heading"></div><div class="map-frame"><div id="map"></div><div id="map-overlay"></div><div id="map-meta"></div></div><div id="map-tools"></div><section id="explorer" aria-label="Forecast-Time Explorer"></section><section id="detail"></section></section><aside id="sources"></aside></div><section id="coverage"></section></main><footer id="footer"></footer><div class="sr-only" id="announcements" aria-live="polite"></div>`;
@@ -60,7 +61,7 @@ function render(force=false) {
  const now=Date.now(),v=currentView(now),{storms,selected,state}=v;
  const a=selected?.advisory,t=copy[locale];
  if(point&&(!selected||point.stormId!==selected.id||!tracks.has(point.track)||(!demo&&!selected.forecastTimes?.includes(point.validAt)))){point=null;pointLost=true;}
- const signature=JSON.stringify([demo,scenario,locale,manual,selectedId,statusOpen,mapFailed,clientError,snapshot,storms.map(s=>s.forecastTimes),state,v.expiredCount,point,pointLost,detailOpen,nativeOpen]);
+ const signature=JSON.stringify([demo,scenario,locale,manual,selectedId,statusOpen,mapFailed,clientError,clientInvalid,snapshot,storms.map(s=>s.forecastTimes),state,v.expiredCount,point,pointLost,detailOpen,nativeOpen]);
  if(!force&&signature===lastSignature)return;
  lastSignature=signature;
  const focused=focusKey();
@@ -68,7 +69,7 @@ function render(force=false) {
  const cycle=demo?fixtureIssuedAt:a?.issuedAt;
  const selectionGone=!demo&&manual&&!selected;
  const rationale=selectionGone?t.selectionLost:manual?t.whyManual:demo?selected?t.whyAuto:t.uncertain:t.neutralBody;
- const collectionExplanation=clientError?t.apiFailed:!snapshot||snapshot.health.state==='unknown'?t.awaiting:snapshot.health.error==='collection-failed'?t.collectionFailed:snapshot.health.partial?t.collectionPartial:state==='fresh'?t.collectionOK:!snapshot.advisories.length?t.collectionUnknown:t.liveStaleBody;
+ const collectionExplanation=clientInvalid?t.apiInvalid:clientError?t.apiFailed:!snapshot||snapshot.health.state==='unknown'?t.awaiting:snapshot.health.error==='collection-failed'?t.collectionFailed:snapshot.health.partial?t.collectionPartial:state==='fresh'?t.collectionOK:!snapshot.advisories.length?t.collectionUnknown:t.liveStaleBody;
  document.documentElement.lang=locale;document.title=`Storm Chaser · ${t.region}`;
  app.querySelector('.skip-link')!.textContent=locale==='en'?'Skip to workspace':'跳至主要內容';
  el('header').innerHTML=`<header class="topbar"><a class="brand" href="/" aria-label="Storm Chaser"><span class="brand-mark" aria-hidden="true">◉</span><span>STORM CHASER<small>${t.region}</small></span></a><div class="header-status"><span class="status-dot"></span>${demo?t.demo:t.live}<span class="header-divider">/</span>${label}</div><div class="header-actions"><label class="sr-only" for="data-mode">${t.mode}</label><select id="data-mode"><option value="live">${t.liveMode}</option><option value="demo">${t.demoMode}</option></select><button id="status-button" class="quiet" aria-expanded="${statusOpen}" aria-controls="coverage">${t.status} ↗</button><button id="language" class="language" aria-label="${locale==='en'?'切換至繁體中文':'Switch to English'}">${locale==='en'?'繁體中文':'ENGLISH'}</button></div></header><div class="demo-band ${demo?'':'live-band'}"><span>${demo?t.demoNote:t.liveNote}</span><span>${demo?t.fixtureTime:t.cycleInfo} · ${cycle?time(cycle):t.selectForCycle}</span></div>`;
@@ -92,7 +93,7 @@ function render(force=false) {
   return `<article class="source-card" data-source="${agency}"><header><span class="agency-number">0${i+1}</span><h3>${agency}</h3><span class="unverified-dot" aria-hidden="true"></span></header><p class="agency-name">${t[agency.toLowerCase() as 'jma'|'cwa'|'jtwc']}</p><div class="chart-placeholder"><span aria-hidden="true">↗</span><small>${t.chart}</small><p>${t.linkOnly}</p></div><span class="source-state">${active?t.integrated:t.unverified}</span><p class="source-gap">${explanation}</p>${active&&snapshot?.health.partial&&collectionExplanation!==t.collectionPartial?`<p class="source-gap">${t.collectionPartial}</p>`:''}${active?`<p class="source-state">${t.collectionState}: ${label}</p>`:''}<div class="source-timing">${active&&a?`${t.issued}: ${time(a.issuedAt)}<br>${t.analysisTime}: ${time(a.analysisAt)}<br>${t.control}: ${time(a.controlAt)}<br>${t.retrieved}: ${time(a.retrievedAt)}<br>`:active?`${t.selectForCycle}<br>`:''}${active&&snapshot?.health.lastCheckedAt?`${t.lastCheck}: ${time(snapshot.health.lastCheckedAt)}`:t.noCheck}<br>${active&&snapshot?.health.lastSuccessAt?`${t.lastSuccess}: ${time(snapshot.health.lastSuccessAt)}`:t.sourceTime}</div><a id="source-${agency}" class="source-link" href="${links[agency]}" target="_blank" rel="noopener noreferrer" aria-label="${agency} · ${t.openSource} (${t.external})">${t.openSource}<span aria-hidden="true">↗</span></a></article>`;
  }).join('')}`;
  el('coverage').innerHTML=`<div class="coverage-bar"><span class="eyebrow">${t.evidence}</span><strong>${demo?t.coverage:t.liveCoverage}</strong><button id="coverage-toggle" aria-expanded="${statusOpen}" aria-controls="coverage-body">${t.statusTitle} ${statusOpen?'−':'+'}</button></div><div id="coverage-body" ${statusOpen?'':'hidden'}><p>${demo?t.statusBody:t.liveStatusBody}</p>${!demo?`<p>${t.datumNotice}</p><p>${t.archiveNotice}</p>${snapshot?`<p>${t.lastResponse}: ${time(snapshot.asOf)}</p><p>${t.expired}: ${v.expiredCount} · ${t.inactive}: ${snapshot.inactiveCount}</p>`:''}`:''}<p>${t.uncertain}</p></div>`;
- el('footer').innerHTML=`<span class="footer-brand">STORM CHASER <span>/</span> M3-E POC</span><p>${t.disclaimer}</p>`;
+ el('footer').innerHTML=`<span class="footer-brand">STORM CHASER <span>/</span> V1 · LOCAL</span><p>${t.disclaimer}</p>`;
  (el('data-mode') as HTMLSelectElement).value=demo?'demo':'live';
  el('data-mode').onchange=e=>{demo=(e.target as HTMLSelectElement).value==='demo';manual=false;selectedId=null;point=null;pointLost=false;const u=new URL(location.href);u.searchParams.set('mode',demo?'demo':'live');history.replaceState(null,'',u);render();map?.reset(currentView().selected);el('data-mode').focus();};
  el('language').onclick=()=>{locale=locale==='en'?'zh-TW':'en';try{storage?.setItem('storm-chaser-locale',locale);}catch{}render();el('language').focus();};
@@ -107,21 +108,21 @@ function render(force=false) {
  const disclosure=document.querySelector<HTMLDetailsElement>('.detail-disclosure');
  if(disclosure)disclosure.ontoggle=()=>{if(disclosure.isConnected)detailOpen=disclosure.open;};
  const native=document.querySelector<HTMLDetailsElement>('#native-terms');if(native)native.ontoggle=()=>{if(native.isConnected)nativeOpen=native.open;};
- document.querySelectorAll<HTMLButtonElement>('[data-forecast-time]').forEach(btn=>btn.onclick=()=>{const s=currentView().selected,validAt=btn.dataset.forecastTime!;if(!s||!tracks.has('A'))return;const i=s.forecastTimes?.indexOf(validAt)??-1;if(i<0)return;point={validAt,track:'A',lead:s.forecastLeads![i],stormId:s.id};pointLost=false;detailOpen=true;render();el('close-point').focus({preventScroll:true});});
+ document.querySelectorAll<HTMLButtonElement>('[data-forecast-time]').forEach(btn=>btn.onclick=()=>setPoint(btn.dataset.forecastTime!,'A',0,true));
  if(point)el('close-point').onclick=()=>{point=null;render();el('detail-summary').focus();};
  el('explorer').setAttribute('aria-label',t.explorerTitle);
- explorer.render(a,point?.track==='A'?point.validAt:null,locale,{demo,enabled:tracks.has('A'),stale:state!=='fresh',lost:pointLost,emptyMessage:selectionGone?t.selectionLost:undefined},validAt=>{
-  const selected=currentView().selected,p=forecastSteps(selected?.advisory).find(p=>p.validAt===validAt);
-  if(!p||!selected||!tracks.has('A'))return;
-  point=p.kind==='forecast'?{validAt,track:'A',lead:p.leadHours,stormId:selected.id}:null;pointLost=false;render();
-  el('announcements').textContent=`${p.kind==='forecast'?copy[locale].explorerForecast:copy[locale].explorerAnalysis} · ${time(validAt)}`;
- },now);
+ explorer.render(a,point?.track==='A'?point.validAt:null,locale,{demo,enabled:tracks.has('A'),stale:state!=='fresh',lost:pointLost,emptyMessage:selectionGone?t.selectionLost:undefined},validAt=>setPoint(validAt,'A',0,false),now);
  map?.setLabels(t);
- map?.update(storms,selected,demo?tracks:new Set(tracks.has('A')?['A']:[]),choose,(validAt,track,lead)=>{
-  const s=currentView().selected;if(!s)return;
-  point={validAt,track,lead,stormId:s.id};pointLost=false;detailOpen=true;render();el('close-point')?.focus({preventScroll:true});
- },t,point?.validAt);
+ map?.update(storms,selected,demo?tracks:new Set(tracks.has('A')?['A']:[]),choose,(validAt,track,lead)=>setPoint(validAt,track,lead,true),t,point?.validAt);
  restoreFocus(focused);
+}
+function setPoint(validAt:string,track:Track,demoLead:number,openDetails:boolean) {
+ const selected=currentView().selected;if(!selected||!tracks.has(track))return;
+ const result=demo?{point:{validAt,track,lead:demoLead,stormId:selected.id}}:selectPublishedPoint(selected,validAt,track,false);
+ if(!result)return;
+ point=result.point;pointLost=false;if(openDetails)detailOpen=true;render();
+ if(openDetails&&point)el('close-point').focus({preventScroll:true});
+ el('announcements').textContent=`${demo?copy[locale].synthetic:point?copy[locale].explorerForecast:copy[locale].explorerAnalysis} · ${time(validAt)}`;
 }
 function choose(id:string) {
  if(!currentView().storms.some(s=>s.id===id))return;
@@ -135,14 +136,15 @@ async function refresh() {
  refreshing=true;
  // Expire before network I/O, including resume while requests are hung/offline.
  if(!demo)render();
+ let invalidReply=false;
  try {
   const r=await fetch('/api/live',{cache:'no-store',signal:AbortSignal.timeout(10_000)});
   if(!r.ok)throw new Error('local API');
-  const next=await r.json();if(next.mode!=='live'||!Array.isArray(next.advisories)||!next.health)throw new Error('invalid API');
+  let next:unknown;try{next=await r.json();}catch{invalidReply=true;throw new Error('invalid local JSON');}if(!isLiveSnapshot(next)){invalidReply=true;throw new Error('invalid local data');}
   const changed=JSON.stringify(snapshot?.advisories.map(a=>a.id))!==JSON.stringify(next.advisories.map((a:{id:string})=>a.id));
-  snapshot=next;clientError=false;
+  snapshot=next;clientError=false;clientInvalid=false;
   if(!demo&&changed)el('announcements').textContent=copy[locale].updated;
- }catch{clientError=true;}
+ }catch{clientError=true;clientInvalid=invalidReply;}
  finally{refreshing=false;if(!demo)render();}
 }
 render();
@@ -156,4 +158,4 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
 window.addEventListener('pageshow',resume);
 window.addEventListener('focus',resume);
 window.addEventListener('online',resume);
-window.addEventListener('offline',()=>{clientError=true;if(!demo)render();});
+window.addEventListener('offline',()=>{clientError=true;clientInvalid=false;if(!demo)render();});

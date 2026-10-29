@@ -1,0 +1,33 @@
+{
+  "type": "isolated-software-package-runtime-check",
+  "checkedAt": "2026-10-29T07:20:13.183Z",
+  "version": "1.0.0-rc.1",
+  "node": "v24.19.0",
+  "checks": [
+    {
+      "name": "default API is a loopback read-only reader with no implicit collection",
+      "status": "passed"
+    },
+    {
+      "name": "corrupt materialized record returns 503 without killing the reader and recovers after repair",
+      "status": "passed"
+    },
+    {
+      "name": "backup CLI and restored-directory verification preserve source bytes and snapshots",
+      "status": "passed"
+    },
+    {
+      "name": "damaged raw provenance fails verification and blocks backup",
+      "status": "passed"
+    },
+    {
+      "name": "verify refuses an absent archive rather than creating a misleading empty one",
+      "status": "passed"
+    }
+  ],
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "liveSourceRequests": 0,
+  "liveArchiveWrites": 0,
+  "hostServicesActivated": 0,
+  "limits": "Local temporary directory and loopback process only; not a real host reboot, off-host restore or unattended service test."
+}

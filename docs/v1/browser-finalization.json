@@ -1,0 +1,124 @@
+{
+  "type": "final-local-software-controlled-replay",
+  "checkedAt": "2026-10-29T07:36:28.442Z",
+  "sourceUrl": "https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml",
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "checks": [
+    {
+      "name": "desktop-en: marker/list/explorer point identity, time, coordinates and native values agree",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: malformed shape/JSON retain last-known eligible source without renewal or crash",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: expiry excludes data despite malformed API responses",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: marker/list/explorer point identity, time, coordinates and native values agree",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: malformed shape/JSON retain last-known eligible source without renewal or crash",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: expiry excludes data despite malformed API responses",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: marker/list/explorer point identity, time, coordinates and native values agree",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: malformed shape/JSON retain last-known eligible source without renewal or crash",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: expiry excludes data despite malformed API responses",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: marker/list/explorer point identity, time, coordinates and native values agree",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: malformed shape/JSON retain last-known eligible source without renewal or crash",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: expiry excludes data despite malformed API responses",
+      "status": "passed"
+    }
+  ],
+  "audits": [
+    {
+      "name": "desktop-en-current",
+      "violations": []
+    },
+    {
+      "name": "desktop-en-invalid-api",
+      "violations": []
+    },
+    {
+      "name": "desktop-en-expired",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-current",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-invalid-api",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-expired",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-current",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-invalid-api",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-expired",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-current",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-invalid-api",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-expired",
+      "violations": []
+    }
+  ],
+  "screenshots": [
+    "desktop-en-current",
+    "desktop-en-invalid-api-stale",
+    "desktop-en-expired",
+    "mobile-en-current",
+    "mobile-en-invalid-api-stale",
+    "mobile-en-expired",
+    "desktop-zh-TW-current",
+    "desktop-zh-TW-invalid-api-stale",
+    "desktop-zh-TW-expired",
+    "mobile-zh-TW-current",
+    "mobile-zh-TW-invalid-api-stale",
+    "mobile-zh-TW-expired"
+  ],
+  "errors": [],
+  "unexpectedOrigins": [],
+  "liveSourceRequests": 0,
+  "limits": "Emulated browsers and saved source, not current weather, physical devices, human acceptance or public hosting."
+}

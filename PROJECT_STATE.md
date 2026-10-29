@@ -1,30 +1,30 @@
 # Storm Chaser — project state
 
-**Adopted handoff index, not a second GDD.** Approved intent, reported/verified implementation, visual acceptance and release readiness are separate.
+**Adopted handoff index.** Approved scope, verified software, owner release acceptance and public service readiness are separate.
 
 - Repository: https://github.com/jaychtw/storm-chaser
-- Reviewed: 2026-10-29 Asia/Taipei. Owner: product owner; engineering: Codex; advisory design/product: ChatGPT.
-- Lineage: M3-O `b09928a` → reconciliation `02dc7c2` → M3-P **`12dc2fc23ded833e8ba539fddd67caddde2af477`** → M3-E POC delivery on `development/m3-e-forecast-time-explorer` (pin `git rev-parse HEAD`; exact SHA in delivery handoff).
-- Phase: **M3-E experiential POC delivered for review**, preserving M3-P/O work. Original Taiwan ranking and multi-agency objectives remain unfinished.
-- Acceptance: owner explicitly **accepted M3-P visual design** in the M3-E assignment. M3-P technical results remain evidence, not inferred release acceptance. **M3-E interaction/visual/usability acceptance pending**; not production ready.
-- Boundary: **$0 new expenditure**, no main merge, public preview/deployment, hosting/service activation or paid/free-tier enrollment. Local development/test frontends only; no live collection this cycle.
-- Standards: AICP **1.1.0**, prospectively adopted at [`cb74fe9497d07370f44a18a09fec124ab99848ec`](https://github.com/jaychtw/game-development-standards/tree/cb74fe9497d07370f44a18a09fec124ab99848ec). App-specific GDD requirements; no mechanical game-only UGDS obligations or standards edits.
+- Reviewed: 2026-10-29 Asia/Taipei. Owner: product owner; implementation: Codex; advisory product/design: ChatGPT.
+- Identity: **Storm Chaser v1.0 — JMA-first Experiential Cyclone Viewer**, local-first candidate `1.0.0-rc.1` (private). Experience-first organization/presentation/interaction of lawful existing public evidence; no independent forecasting.
+- Baseline: M3-O `b09928a` → M3-P `12dc2fc` → M3-E **`129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`** → V1-F on `development/v1-f-finalization`. Implementation revision recorded before handoff; final delivery SHA in completion message.
+- Acceptance: M3-P visual design and M3-E Forecast-Time Explorer **accepted into scope by owner**. Frozen v1.0 identity/features approved. **V1-F software/release acceptance pending**; no public-readiness assertion.
+- Gate: software candidate consolidated, documented and locally reproducible; stop for owner acceptance. **$0 new expenditure**, no main merge, public release/preview/deployment, hosting/service enrollment or unattended collection.
+- Standards: AICP **1.1.0** at [`cb74fe9497d07370f44a18a09fec124ab99848ec`](https://github.com/jaychtw/game-development-standards/tree/cb74fe9497d07370f44a18a09fec124ab99848ec). Application GDD requirements; no game-only UGDS adoption or shared standards edits.
 
-Intent: independent bilingual WNP/South China Sea cyclone experience with Taiwan relevance and visible official evidence. Approved priority: **originality of presentation/interaction over novelty of underlying information**; no firsthand/proprietary data or independent forecasting objective. Prior required functionality is not cancelled.
+Authority/current records:
 
-Authority/evidence:
+- [V1-F assignment](docs/briefs/v1-f-authorization.md), [scope-freeze ADR 0004 v1.0](docs/adr/0004-v1-scope-freeze.md), [approved GDD amendment v1.0.3](docs/amendments/design-guide-v1.0.3-scope-freeze.md)
+- [Frozen-scope acceptance matrix/report](docs/v1/verification.md), [verification metadata](docs/v1/verification.json), [clean install](docs/v1/clean-install.json), [final browser evidence](docs/v1/browser-finalization.json)
+- [Install/start/stop/config/backup/restore](docs/v1/local-operation.md), [known issues](docs/v1/known-issues.md), [public-service checklist](docs/v1/public-service-readiness.md), [deferred register](docs/v1/deferred-capabilities.md)
+- [Original Guide v1.0](docs/Storm_Chaser_Design_Guide_v1.0.md), [M3-O](docs/m3-verification.md), [M3-P](docs/m3p-verification.md), [M3-E](docs/m3e-review.md), [sources](docs/sources/m0-completion.md), [datum](docs/m3-datum-audit.md)
 
-- [Original approved Guide v1.0](docs/Storm_Chaser_Design_Guide_v1.0.md), [approved M3-P amendment](docs/amendments/design-guide-v1.0-m3p.md), [proposed experience amendment](docs/amendments/design-guide-v1.0-m3e-proposed.md)
-- [M3-E owner assignment](docs/briefs/m3-e-authorization.md), [ADR 0003](docs/adr/0003-experience-layer-poc.md), [ADR 0002](docs/adr/0002-product-reconciliation-proposed.md)
-- [M3-E rationale, comparison, evaluation, secondary proposals and review instructions](docs/m3e-review.md), [actual browser evidence](docs/m3e-explorer-results.json), [verification metadata](docs/m3e-verification.json)
-- [M3-P verification](docs/m3p-verification.md), [M3-O report](docs/m3-verification.md), [architecture](docs/adr/0001-jma-operations.md), [sources](docs/sources/m0-completion.md), [datum](docs/m3-datum-audit.md)
+Frozen implemented scope: WNP/South China Sea map; JMA analyzed/forecast centers; manual/neutral Auto; exact published-time Explorer; native motion/intensity/missing values; EN/zh-TW; Night Operations/map-first; provenance/bulletin links/chart page fallback; honest freshness/partial/unavailable/expiry; bounded local collection/archive/recovery.
 
-Approved preserved behavior: Night Operations, EN/zh-TW, mobile map-first, JMA primary, native values/provenance, demo/live isolation, qualitative datum limitations, neutral uncertain Auto even for one storm, persistent manual selection, local expiry and honest source states. Historical issuance browsing deferred; official-page chart fallback satisfies access.
+V1-F verified: **131 tests**, TypeScript/build, **five browser suites /53 axe scans with zero reported violations**, exact point agreement across marker/list/Explorer, malformed API cache retention/expiry, **five isolated API/backup/restore checks**, fresh offline install/tests/build with byte-identical assets, clean review smoke, production-only runtime smoke. API/frontend default loopback; API no longer embeds a collector. Shared source/time/selection validation; raw/provenance/storage guards preserved. No new dependency version or architectural migration.
 
-M3-E implemented: current-advisory discrete time slider/previous-next, synchronized exact map emphasis/source readout, analysis/prediction distinction, irregular-gap labels and no motion/interpolation. Existing marker/list navigation retained. No secondary global disclosure or alternate-perspective feature implemented. **110 tests pass**, production build passes (existing size warning), all four browser suites pass; **25 explorer checks, 41 total axe scans with zero violations**, actual matched desktop/mobile EN/zh-TW before/after replay screenshots. Headless local-review harness smoke passed. Human comprehension, physical devices, screen readers and headful review in this cloud run remain unverified.
+Performance measured: local map ready **1.18–2.23s**, constrained emulation **7.48–8.27s**; ~1 MB JS warning retained with evidence. Security: locked dependency graph unchanged, static/local boundary checks passed; **fresh vulnerability clearance not verified** (offline audit only). Source availability was not re-probed this cycle. Physical devices, screen readers, independent usability, actual host scheduling/reboot/soak/off-host restore, public edge/security/rollback remain unverified.
 
-Open: M3-E owner accept/revise/reject; proposed GDD wording; any future progressive-disclosure exploration; Taiwan ranking methodology; CWA credential/semantics and JTWC access/reuse gates; exact CRS/future schemas; real host dispatch/reboot/soak/off-host restore, security/rollback and RC acceptance. Local tests/backups/workspace do not prove continuous operation.
+**Deliberately deferred, not frozen-scope bugs:** Taiwan ranking, CWA/JTWC, multi-agency comparison, historical cycles/Time Travel, Showdown, precise impacts/proximity and additional perspectives/disclosure. Reopen only on register criteria plus owner approval. Neutral Auto remains approved; no newest/nearest ranking substitute.
 
-Next step: **owner reviews M3-E POC/evidence**. No production integration, next experiential expansion, main merge, external activation, expenditure or deployment is authorized. Standards proposals remain separately reviewable only.
+Next authorized step: **owner reviews V1-F software acceptance**. No next feature cycle, public release/main merge, service activation, expenditure or deployment follows automatically. [Retrospective](docs/v1/retrospective.md) and existing standards proposals stay local/separately reviewable.
 
-Continuity: repository and supplied conversation recovered; separate ChatGPT Project history not retrieved. Update this index at material approved decisions or verified milestones; never silently promote a proposal, test or visual acceptance into release authorization.
+Continuity: repository and supplied conversation available; separate ChatGPT Project history not retrieved. Preserve original rationale and dated evidence; never promote deferrals, local tests or feature/visual acceptance into public readiness.

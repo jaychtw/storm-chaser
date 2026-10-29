@@ -1,0 +1,78 @@
+{
+  "type": "available-static-local-security-review",
+  "reviewDate": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "dependencyLockUnchangedExceptRootMetadata": true,
+  "lockedPackages": 150,
+  "directRuntimeLicenses": [
+    {
+      "name": "fast-xml-parser",
+      "version": "5.3.6",
+      "license": "MIT",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "maplibre-gl",
+      "version": "5.10.0",
+      "license": "BSD-3-Clause",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "name": "tsx",
+      "version": "4.20.6",
+      "license": "MIT",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    }
+  ],
+  "offlineAudit": {
+    "command": "npm audit --offline --json",
+    "exitCode": 0,
+    "reportedVulnerabilities": 0,
+    "freshAdvisoryDataVerified": false,
+    "interpretation": "Cached/offline result only; does not establish current vulnerability clearance."
+  },
+  "dependencyResolution": {
+    "command": "npm ls --omit=dev --depth=1 --json",
+    "exitCode": 0
+  },
+  "checks": [
+    {
+      "area": "network surface",
+      "result": "loopback API/frontend defaults; API has GET-only fixed routes and no embedded collector"
+    },
+    {
+      "area": "source and XML boundary",
+      "result": "fixed JMA bulletin URL allowlist shared with browser; DTD/entity rejection, unit/time/coordinate guards and raw provenance regression tests"
+    },
+    {
+      "area": "browser JSON/output",
+      "result": "malformed API snapshots rejected before state replacement; source strings escaped/textContent; source URLs allowlisted; no browser secret/config injection in src"
+    },
+    {
+      "area": "local recovery",
+      "result": "503 on unreadable materialization; archive verification/backup fail closed on damaged provenance; no destructive auto-repair"
+    },
+    {
+      "area": "transport",
+      "result": "curl retains proxy/CA and HTTPS; no redirect or TLS verification bypass added"
+    },
+    {
+      "area": "storage",
+      "result": "prepared SQLite operations, bounded retention/lease/backoff preserved; data/backup dirs ignored and excluded from frontend static paths"
+    }
+  ],
+  "unverified": [
+    "fresh vulnerability advisories",
+    "independent penetration/security review",
+    "public TLS/CSP/CORS/edge/rate-limit behavior",
+    "host permissions/patching/real scheduling/alerts",
+    "public distribution/project-license review"
+  ],
+  "externalSecurityServicesActivated": 0
+}

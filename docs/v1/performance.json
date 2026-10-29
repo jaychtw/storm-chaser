@@ -1,0 +1,86 @@
+{
+  "type": "local-bundle-characterization",
+  "checkedAt": "2026-10-29T07:11:58.050Z",
+  "runs": [
+    {
+      "profile": "local-desktop",
+      "run": 1,
+      "mapReadyMs": 2230.9691820000003,
+      "nextStepMs": 424.6123630000002,
+      "timings": {
+        "navigation": [],
+        "resources": []
+      },
+      "metrics": {
+        "LayoutDuration": 0.20714,
+        "ScriptDuration": 0.441924,
+        "TaskDuration": 1.506825,
+        "JSHeapUsedSize": 13405596
+      }
+    },
+    {
+      "profile": "local-desktop",
+      "run": 2,
+      "mapReadyMs": 1179.8217450000002,
+      "nextStepMs": 132.04493900000034,
+      "timings": {
+        "navigation": [],
+        "resources": []
+      },
+      "metrics": {
+        "LayoutDuration": 0.155158,
+        "ScriptDuration": 0.405781,
+        "TaskDuration": 1.048727,
+        "JSHeapUsedSize": 10316144
+      }
+    },
+    {
+      "profile": "constrained-simulation",
+      "run": 1,
+      "mapReadyMs": 8267.191371,
+      "nextStepMs": 259.814171,
+      "timings": {
+        "navigation": [],
+        "resources": []
+      },
+      "metrics": {
+        "LayoutDuration": 0.289458,
+        "ScriptDuration": 0.910979,
+        "TaskDuration": 2.488187,
+        "JSHeapUsedSize": 10840792
+      }
+    },
+    {
+      "profile": "constrained-simulation",
+      "run": 2,
+      "mapReadyMs": 7480.499670999998,
+      "nextStepMs": 279.6415020000022,
+      "timings": {
+        "navigation": [],
+        "resources": []
+      },
+      "metrics": {
+        "LayoutDuration": 0.269343,
+        "ScriptDuration": 0.816159,
+        "TaskDuration": 2.315058,
+        "JSHeapUsedSize": 10182804
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "index-ByGsthhv.js",
+      "bytes": 1007265,
+      "gzipBytes": 277892
+    },
+    {
+      "name": "index-CtyeWqfE.css",
+      "bytes": 89885,
+      "gzipBytes": 14726
+    }
+  ],
+  "geographyBytes": 838726,
+  "unexpectedOrigins": 0,
+  "liveSourceRequests": 0,
+  "limits": "Two cold contexts/profile, loopback preview, software WebGL. Constrained profile is 4x CPU, 100ms latency, 1.6Mbit/s simulated throughput, not a real device, public host or SLA. No HTTP compression is added by this measurement."
+}

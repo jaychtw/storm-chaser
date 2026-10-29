@@ -1,74 +1,57 @@
 # Storm Chaser
 
-Bilingual western North Pacific cyclone prototype using verified **JMA XML**, a transactional SQLite archive, and the Night Operations MapLibre interface. M3-E Forecast-Time Explorer is a working interaction POC for owner review, preserving M3-P/O engineering. M3-P visual design is owner-accepted; M3-E acceptance remains pending. It is not an official warning service and is not publicly deployed.
+**v1.0 — JMA-first Experiential Cyclone Viewer.** A bilingual local-first software candidate (`1.0.0-rc.1`, private) for exploring official JMA information geographically and through discrete published forecast times. Night Operations identity, map-first mobile, native values, source evidence and honest data states. No independent warning/forecast or production-readiness claim.
 
-## Review the Forecast-Time Explorer POC
+## Frozen scope and review
 
-- [Design rationale, actual before/after screenshots, tests and local replay instructions](docs/m3e-review.md)
-- [Owner assignment](docs/briefs/m3-e-authorization.md) · [decision status](docs/adr/0003-experience-layer-poc.md) · [proposed GDD amendment](docs/amendments/design-guide-v1.0-m3e-proposed.md)
-- [Desktop EN POC](docs/screenshots/m3e/after-desktop-en-plus45.png) · [Mobile zh-TW POC](docs/screenshots/m3e/after-mobile-zh-TW-plus45.png)
+- [V1-F verification, acceptance matrix, measured performance and limitations](docs/v1/verification.md)
+- [Owner-approved scope ADR v1.0](docs/adr/0004-v1-scope-freeze.md) · [approved GDD amendment](docs/amendments/design-guide-v1.0.3-scope-freeze.md)
+- [Deferred capabilities and reopening criteria](docs/v1/deferred-capabilities.md)
+- [PROJECT_STATE.md](PROJECT_STATE.md) · [V1-F authorization](docs/briefs/v1-f-authorization.md)
+- [Final desktop EN](docs/screenshots/v1f/desktop-en-current.png) · [Final mobile zh-TW](docs/screenshots/v1f/mobile-zh-TW-current.png)
 
-For a source-isolated local review, build the frontend and serve it on loopback without an API/collector, then run `PREVIEW_URL=http://127.0.0.1:4183 npm run review:explorer` on a graphical desktop. It supplies clearly labeled, frozen saved-source replay in that browser context only. Use `-- --smoke` for headless verification. See the report for exact commands. No public preview exists.
+Forecast-Time Explorer is accepted into the frozen product scope. Auto remains a neutral uncertain regional overview; choose a storm manually. Taiwan ranking, CWA/JTWC, comparisons, history/Showdown, precise proximity/impact and additional perspectives are deliberately deferred. They are not claimed implemented or treated as frozen-scope defects.
 
-## Existing JMA development workflow
+## Install and review locally
 
-Requires Node.js 24, npm, curl with normal proxy/CA trust, and a WebGL browser.
-
-```sh
-npm ci
-npm run build
-STORM_EXTERNAL_SCHEDULER=1 npm run api
-```
-
-Keep the read API running. In another terminal:
+Tested Linux, Node 24.19.0/npm 11.9.0; Node 24.x/npm 11.x supported. WebGL Chromium/browser and a graphical display for headful review. No API key, tile subscription or new account needed.
 
 ```sh
-npm run collect
-npm run healthcheck
-npm run preview -- --port 4173
-```
-
-Open the local address printed by Vite in your own browser. `/api` is proxied to loopback port 8787. The external-scheduler mode intentionally does not poll inside the API; the collector's due/backoff state persists across one-shot runs. For development, `npm run dev -- --port 5173` serves the frontend, and plain `npm run api` optionally provides an embedded timer.
-
-Default storage is ignored `.local/live/storm.sqlite` (`STORM_DATA_DIR` selects another directory). M2 file archives are imported non-destructively and preserved. Synthetic demos and official published examples never seed live storage. JMA is the only integrated source; CWA/JTWC remain deferred. Live Auto is a neutral regional overview: Taiwan relevance cannot yet be ranked, even when only one storm is available. Select a storm manually to inspect its reported forecast. Expiry is enforced locally during API outages; it is not a dissipation or safety conclusion.
-
-## Verify and maintain
-
-```sh
+npm ci --no-audit --no-fund
 npm test
 npm run build
-# With the frontend running:
-npm run test:browser
-npm run test:live-browser
-npm run test:product-browser
-npm run test:explorer-browser
-# Actual live data, no replay substitution:
-node scripts/capture-live.mjs
-# Local archive maintenance:
-npm run maintenance
-npm run backup
+npm run preview -- --port 4183 --strictPort
 ```
 
-Browser checks use system Chromium, `CHROMIUM_PATH`, or Playwright Chromium. `PREVIEW_URL` selects a local preview. Tests/replay use isolated data. The capture script requires real currently usable JMA data and fails rather than injecting fixtures. Use `npm run reprocess` only to inspect quarantined saved bytes after a supported parser fix.
+In another terminal, for **frontend-only labeled saved-source replay**:
 
-## M3-P review materials
+```sh
+PREVIEW_URL=http://127.0.0.1:4183 npm run review:local
+# Headless/cloud smoke:
+PREVIEW_URL=http://127.0.0.1:4183 npm run review:local -- --smoke
+```
 
-- [M3-P verification and acceptance matrix](docs/m3p-verification.md)
-- [Approved authorization](docs/briefs/m3-p-authorization.md) · [decision dispositions](docs/adr/0002-product-reconciliation-proposed.md) · [guide amendment](docs/amendments/design-guide-v1.0-m3p.md)
-- [Project state / handoff](PROJECT_STATE.md)
-- [Desktop EN replay](docs/screenshots/m3p/desktop-en-manual-current.png) · [Mobile zh-TW replay](docs/screenshots/m3p/mobile-zh-TW-auto-uncertain.png)
+No API/collector/database is needed for replay. The isolated browser freezes Date at the saved specimen's time, blocks external requests and shows NOT CURRENT WEATHER. Synthetic demo fixtures remain separately labeled under `?mode=demo`; normal JMA mode never substitutes them. Close the review browser and Ctrl+C your frontend to stop.
 
-M3-P browser checks use isolated saved-source/controlled replay, not current weather. Run them against a local built preview without an API/collector; they intercept/abort `/api/live`. The optional actual-data and archive commands above are separate from M3-P verification and were not executed this cycle.
+For **actual JMA-backed local operation**, [follow the complete guide](docs/v1/local-operation.md): `npm run api` starts a loopback **read-only reader**, with **no embedded collection timer**. Real one-shot collection remains an explicit operator command. Source polling, archive/retention and configuration limitations are documented; no unattended service is authorized or activated by V1-F. Never promise continuous operation from an ephemeral workspace.
 
-## Preserved M3-O evidence
+## Verify and recover
 
-- [Verification report and release-candidate path](docs/m3-verification.md)
-- [Architecture decision, hosting requirements and planning costs](docs/adr/0001-jma-operations.md)
-- [Datum audit and display limitations](docs/m3-datum-audit.md)
-- [Operations/recovery runbook](docs/m3-operations.md)
-- [Actual desktop](docs/screenshots/m3/actual-collected-jma-desktop.png) · [Actual mobile zh-TW](docs/screenshots/m3/actual-collected-jma-mobile-zh.png)
-- [Original design guide](docs/Storm_Chaser_Design_Guide_v1.0.md)
+With the loopback frontend running:
 
-Proposed systemd assets under `ops/` passed static verification but have not been installed/enabled. Off-host backups, external alerting, host reboot/timer observation and a private staging soak remain release gates. The current financial limit is **$0 new expenditure**. The historical $7–20/month planning estimate is unverified and is not an approved budget or procurement instruction. Review the documented retention/disk limits before promising historical coverage.
+```sh
+PREVIEW_URL=http://127.0.0.1:4183 npm run test:browser
+PREVIEW_URL=http://127.0.0.1:4183 npm run test:live-browser
+PREVIEW_URL=http://127.0.0.1:4183 npm run test:product-browser
+PREVIEW_URL=http://127.0.0.1:4183 npm run test:explorer-browser
+PREVIEW_URL=http://127.0.0.1:4183 npm run test:finalization-browser
+npm run verify:package
+```
 
-M3-E stops at POC review; actual Taiwan relevance ranking and multi-agency comparison remain unresolved. The owner decides accept/revise/reject before production integration or further experiential work. No host service activation, environment publication, public deployment or release candidate has been performed.
+Browser suites use saved official specimens/controlled cases. `verify:package` uses temporary archives and a temporary local reader; no weather source requests or live archive writes. Against a deliberately chosen existing archive, `npm run verify:archive` checks integrity/provenance without retention pruning; `npm run backup` creates verified online snapshots. Use the [backup/restore guide](docs/v1/local-operation.md), [troubleshooting](docs/v1/known-issues.md) and [service-readiness separation](docs/v1/public-service-readiness.md).
+
+## Evidence and boundaries
+
+[Historical Guide v1.0](docs/Storm_Chaser_Design_Guide_v1.0.md), [source dossiers](docs/sources/m0-completion.md), [datum audit](docs/m3-datum-audit.md), [M3-O](docs/m3-verification.md), [M3-P](docs/m3p-verification.md), [M3-E](docs/m3e-review.md) and [architecture](docs/adr/0001-jma-operations.md) retain original rationale. Latest approved scope is ADR 0004; old unfinished goals are explicit deferrals now.
+
+**$0 new expenditure.** No public release/preview, hosting/service activation, real collection, main merge or deployment performed by V1-F. Software-package completion, owner release acceptance and public operational readiness are separate. Stop at owner acceptance review; [retrospective](docs/v1/retrospective.md) does not modify shared standards.

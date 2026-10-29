@@ -1,6 +1,8 @@
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { createHash } from 'node:crypto';
 import type {Advisory, Position, Value, TextValue} from '../shared/model';
+import {bulletinUrl} from '../shared/source-url';
+export {bulletinUrl} from '../shared/source-url';
 const parser=new XMLParser({ignoreAttributes:false,attributeNamePrefix:'@_',removeNSPrefix:true,parseTagValue:false,parseAttributeValue:false,trimValues:true,processEntities:false});
 const list=<T>(v:T|T[]|undefined):T[]=>v===undefined?[]:Array.isArray(v)?v:[v];
 const text=(v:any):string=>typeof v==='string'?v:typeof v?.['#text']==='string'?v['#text']:'';
@@ -8,7 +10,6 @@ function required(v:any,label:string){const s=text(v);if(!s)throw new Error(`mis
 function date(v:any,label:string){const s=required(v,label);const m=s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,3})?(Z|[+-]\d{2}:\d{2})$/);if(!m||!Number.isFinite(Date.parse(s)))throw new Error(`invalid ${label}`);const [y,mo,d,h,mi,se]=m.slice(1,7).map(Number);const check=new Date(Date.UTC(y,mo-1,d));if(check.getUTCMonth()!==mo-1||check.getUTCDate()!==d||h>23||mi>59||se>59||(m[7]!=='Z'&&(Number(m[7].slice(1,3))>14||Number(m[7].slice(4,6))>59)))throw new Error(`invalid ${label}`);return new Date(s).toISOString();}
 export const hash=(raw:string|Uint8Array)=>createHash('sha256').update(raw).digest('hex');
 export function parseXml(raw:string){if(raw.length>8_000_000||/<!DOCTYPE|<!ENTITY/i.test(raw)||XMLValidator.validate(raw)!==true)throw new Error('invalid XML');const allowed=new Set(['http://www.w3.org/2005/Atom','http://www.w3.org/2001/XMLSchema-instance','http://xml.kishou.go.jp/jmaxml1/','http://xml.kishou.go.jp/jmaxml1/addition1/','http://xml.kishou.go.jp/jmaxml1/informationBasis1/','http://xml.kishou.go.jp/jmaxml1/body/meteorology1/','http://xml.kishou.go.jp/jmaxml1/elementBasis1/']);for(const m of raw.matchAll(/xmlns(?::[\w-]+)?=["']([^"']+)["']/g))if(!allowed.has(m[1]))throw new Error('unsupported XML namespace');return parser.parse(raw);}
-export function bulletinUrl(value:string){const u=new URL(value);if(u.origin!=='https://www.data.jma.go.jp'||!/^\/developer\/xml\/data\/[\w-]+_VPTW(?:50|51|60|61)_[\w-]+\.xml$/.test(u.pathname)||u.search||u.hash||u.username||u.password)throw new Error('untrusted bulletin URL');return u.href;}
 export function discover(raw:string):string[]{const doc=parseXml(raw);if(!Object.hasOwn(doc,'feed'))throw new Error('missing Atom feed');const feed=doc.feed||{};return [...new Set(list<any>(feed.entry).flatMap(e=>list<any>(e.link).map(l=>l['@_href']).filter((s:unknown):s is string=>typeof s==='string'&&/_VPTW(?:60|61)_/.test(s)).map(bulletinUrl)))];}
 function values(v:any,units:string[]):Value[]{return list<any>(v).map(x=>{const s=text(x);const num=s===''?null:Number(s);if(num!==null&&(!Number.isFinite(num)||num<0))throw new Error('invalid meteorological value');const unit=required(x['@_unit'],'unit');if(!units.includes(unit))throw new Error('unsupported native unit');return {value:num,unit,type:required(x['@_type'],'value type'),...(x['@_condition']?{condition:x['@_condition']} : {}),...(x['@_description']?{description:x['@_description']}:{})};});}
 function direction(v:any):TextValue|undefined {

@@ -1,6 +1,8 @@
+> V1-F disposition: the owner has accepted Forecast-Time Explorer for frozen v1.0 scope. See [ADR 0004](0004-v1-scope-freeze.md). The POC-era record below remains historical; scope acceptance is not software/release/public-operation acceptance.
+
 # ADR 0003 — experience priority and Forecast-Time Explorer POC
 
-2026-10-29 Asia/Taipei. **Approved direction and implementation scope; POC acceptance pending.** Starting revision: `12dc2fc23ded833e8ba539fddd67caddde2af477`. Approval source: owner's [M3-E assignment](../briefs/m3-e-authorization.md), supplied in this conversation. No separate prior Project conversation was retrieved.
+2026-10-29 Asia/Taipei. **Historical M3-E direction/scope record; feature subsequently accepted by V1-F.** Starting revision: `12dc2fc23ded833e8ba539fddd67caddde2af477`. Approval source: owner's [M3-E assignment](../briefs/m3-e-authorization.md), supplied in this conversation. No separate prior Project conversation was retrieved.
 
 | ID | Decision | Status and consequence |
 |---|---|---|

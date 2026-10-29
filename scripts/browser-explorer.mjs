@@ -6,6 +6,7 @@ import {existsSync,readFileSync} from 'node:fs';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {normalize} from '../server/jma.ts';
 import {materialize} from '../server/store.ts';
+const stage=process.env.REVIEW_STAGE??'v1f-explorer';
 const base=process.env.PREVIEW_URL??'http://127.0.0.1:5173',beforeBase=process.env.BASELINE_URL;
 const raw=readFileSync('docs/sources/evidence/2026-10-29/jma-vptw61.xml','utf8');
 const sourceUrl='https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml';
@@ -14,7 +15,7 @@ const health={state:'fresh',lastSuccessAt:new Date(now).toISOString(),lastChecke
 const payload=()=>materialize([advisory],health,now);
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const checks=[],audits=[],screenshots=[],errors=[],unexpectedOrigins=[];
-await mkdir('docs/screenshots/m3e',{recursive:true});
+await mkdir(`docs/screenshots/${stage}`,{recursive:true});
 async function create(locale,width,target=base) {
  const context=await browser.newContext({viewport:{width,height:width<640?844:1080},hasTouch:width<640,isMobile:width<640,reducedMotion:'reduce'});
  await context.addInitScript(locale=>localStorage.setItem('storm-chaser-locale',locale),locale);
@@ -22,11 +23,11 @@ async function create(locale,width,target=base) {
  page.on('pageerror',e=>errors.push(e.message));await page.clock.install({time:now});
  await page.route('**/*',async route=>{const u=new URL(route.request().url());if(u.origin!==new URL(target).origin){unexpectedOrigins.push(u.origin);await route.abort();return;}if(u.pathname==='/api/live'){if(state.failed){await route.abort();return;}state.successes++;await route.fulfill({json:state.payload});return;}await route.continue();});
  await page.goto(target);await page.locator('.storm-card').waitFor();await page.locator('#map[data-ready="true"]').waitFor();
- await page.evaluate(before=>{const banner=document.createElement('aside');banner.textContent=`CONTROLLED REPLAY / 受控重播 · saved JMA specimen · not current weather · ${before?'BEFORE M3-P':'AFTER M3-E POC'}`;banner.style.cssText='padding:10px 18px;background:#302618;color:#f0d19b;font:12px sans-serif;line-height:1.6';document.body.prepend(banner);},target!==base);
+ await page.evaluate(before=>{const banner=document.createElement('aside');banner.textContent=`CONTROLLED REPLAY / 受控重播 · saved JMA specimen · not current weather · ${before?'BEFORE M3-P':'V1-F LOCAL CANDIDATE'}`;banner.style.cssText='padding:10px 18px;background:#302618;color:#f0d19b;font:12px sans-serif;line-height:1.6';document.body.prepend(banner);},target!==base);
  return {page,context,state};
 }
 async function check(name,fn){await fn();checks.push({name,status:'passed'});}
-async function shot(page,name){await page.locator('.map-frame').scrollIntoViewIfNeeded();await page.clock.runFor(250);await page.locator('#map[data-ready="true"]').waitFor();await page.screenshot({path:`docs/screenshots/m3e/${name}.png`,fullPage:true});screenshots.push(name);}
+async function shot(page,name){await page.locator('.map-frame').scrollIntoViewIfNeeded();await page.clock.runFor(250);await page.locator('#map[data-ready="true"]').waitFor();await page.screenshot({path:`docs/screenshots/${stage}/${name}.png`,fullPage:true});screenshots.push(name);}
 async function audit(page,name){const r=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();audits.push({name,violations:r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))});}
 async function manual(page,touch=false){if(touch)await page.locator('.storm-card').tap();else await page.locator('.storm-card').click();}
 async function setIndex(page,index){const r=page.locator('#explorer-range');await r.focus();await page.keyboard.press('Home');for(let i=0;i<index;i++)await page.keyboard.press('ArrowRight');}
@@ -113,5 +114,5 @@ try {
  assert.deepEqual(errors,[]);assert.deepEqual(unexpectedOrigins,[]);assert.equal(audits.flatMap(a=>a.violations).length,0,JSON.stringify(audits));
  console.log(`PASS: ${checks.length} explorer checks, ${audits.length} axe scans, ${screenshots.length} screenshots, baseline comparison ${Boolean(beforeBase)}.`);
 }finally{
- await writeFile('docs/m3e-explorer-results.json',JSON.stringify({type:'controlled-saved-official-specimen-POC',checkedAt:new Date().toISOString(),baselineCommit:'12dc2fc23ded833e8ba539fddd67caddde2af477',baselineCompared:Boolean(beforeBase),sourceUrl,sourceHash:advisory.contentHash,checks,audits,screenshots,errors,unexpectedOrigins,liveSourceRequests:0,limits:'Browser rendering and controlled replay, not current weather, physical devices, human comprehension testing or owner M3-E visual acceptance.'},null,2)+'\n');await browser.close();
+ await writeFile(`docs/${stage}-results.json`,JSON.stringify({type:'controlled-saved-official-specimen-finalization',checkedAt:new Date().toISOString(),baselineCommit:'129a3af3a13e882d8d92bcfd0360fdfa83b01cf7',baselineCompared:Boolean(beforeBase),sourceUrl,sourceHash:advisory.contentHash,checks,audits,screenshots,errors,unexpectedOrigins,liveSourceRequests:0,limits:'Browser rendering and controlled replay, not current weather, physical devices, human comprehension testing or owner V1-F acceptance.'},null,2)+'\n');await browser.close();
 }

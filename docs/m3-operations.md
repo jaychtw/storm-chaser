@@ -1,3 +1,5 @@
+> Historical M3 runbook. Current startup is a read-only API with no embedded collector; use the [V1-F local operation guide](v1/local-operation.md). Original timer/host recommendations and unperformed checks below are retained as historical context.
+
 # M3 operations runbook — local verification and proposed host setup
 
 These instructions describe a reviewed candidate architecture. **No host service, public site or remote backup has been deployed.** Use the existing isolated repository checkout; do not create a worktree unless requested.

@@ -1,3 +1,5 @@
+> V1-F supersession: Taiwan ranking and externally dependent comparison features are deliberately deferred from frozen v1.0, not forgotten or completed. [ADR 0004](0004-v1-scope-freeze.md) and the [register](../v1/deferred-capabilities.md) govern current scope; the earlier objectives/rationale below are historical.
+
 # ADR 0002 — product objectives and M3 reconciliation
 
 Date: 2026-10-29, Asia/Taipei. **Approved in part; remaining proposals identified below.** Filename retained for review-link continuity. Original proposed record is preserved at review commit `02dc7c2f1f1e61b5626f247bb9d1b9d8548c75e9`.

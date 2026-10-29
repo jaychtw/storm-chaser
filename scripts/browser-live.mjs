@@ -5,7 +5,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {normalize} from '../server/jma.ts';
 import {materialize} from '../server/store.ts';
-const stage=process.env.REVIEW_STAGE??'m3e-pipeline';
+const stage=process.env.REVIEW_STAGE??'v1f-pipeline';
 const base=process.env.PREVIEW_URL??'http://127.0.0.1:5173';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 await mkdir(`docs/screenshots/${stage}`,{recursive:true});const results=[];

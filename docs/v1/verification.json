@@ -1,0 +1,165 @@
+{
+  "type": "V1-F-local-software-finalization",
+  "checkedAt": "2026-10-29T07:41:16.286Z",
+  "timezone": "Asia/Taipei",
+  "version": "1.0.0-rc.1",
+  "baselineCommit": "129a3af3a13e882d8d92bcfd0360fdfa83b01cf7",
+  "implementationCommit": "recorded-before-handoff",
+  "tests": {
+    "passed": 131,
+    "failed": 0,
+    "skipped": 0,
+    "files": 6,
+    "previousBaselineRetained": 110,
+    "finalizationCases": 21
+  },
+  "build": {
+    "passed": true,
+    "warningRetained": true,
+    "assets": [
+      {
+        "path": "dist/assets/index-ByGsthhv.js",
+        "sha256": "d5c4f9fa0969892a3f81e3bfa56557775bc0b60845be4dd4b673e7ba33b7fd82"
+      },
+      {
+        "path": "dist/assets/index-CtyeWqfE.css",
+        "sha256": "d58273cca11ffcee5fe4953cf71334267f9fc11905d8f298ee0bccb084834e3e"
+      }
+    ]
+  },
+  "browser": {
+    "suitesPassed": 5,
+    "axeScans": 53,
+    "axeViolations": 0,
+    "finalChecks": 12,
+    "finalScreenshots": 12,
+    "sourceRequests": 0
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "chromium": "154.0.8037.57",
+    "platform": "Linux Debian 13 / software WebGL"
+  },
+  "reproducibility": {
+    "cleanOfflineInstall": true,
+    "cleanTests": 131,
+    "byteIdenticalBuild": true,
+    "cleanReviewSmoke": true,
+    "productionOnlyRuntimeChecks": 5
+  },
+  "boundary": {
+    "realCollection": false,
+    "liveArchiveWrites": false,
+    "unattendedServiceActivation": false,
+    "expenditure": 0,
+    "publicRelease": false,
+    "mainMerge": false,
+    "deployment": false
+  },
+  "acceptance": {
+    "scope": "approved",
+    "software": "pending owner review",
+    "publicService": "not authorized / not verified"
+  },
+  "testedFiles": [
+    {
+      "path": "package.json",
+      "sha256": "e2462002f7a943658ec866b78b8dfc7bf250cdd03940688f1f1b34653fe575e7"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "a7b3af8f818a485904fa94bc3a52d31c9a3feb2718d619e5e37f6aad4865bef5"
+    },
+    {
+      "path": ".nvmrc",
+      "sha256": "7e8a2fa94951112b894a3dbe3d05efef5e9263741fa49125f0a70f40fedab4cc"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "1e2442fedfc484d554c32298ea1c3b6fb77ab5541563781679eba6447b3a178e"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "3a81b6dc1be6f9249473cd758fcd3514e92d85065d5a2d91c2a449a02e4be9dc"
+    },
+    {
+      "path": "src/i18n.ts",
+      "sha256": "5abd0b278ffd6b50b810a80e3028806df8bdf9346442ccbc249f1048a883d5a1"
+    },
+    {
+      "path": "src/explorer.ts",
+      "sha256": "284f097b2eb6e2b1a455c5cfe71c2bce85f765a130e55901ba40d06154f77a52"
+    },
+    {
+      "path": "src/point-selection.ts",
+      "sha256": "db5b4ec50522cdad22c9d2669f213a140a06eb57d07efd0f46b780e8463d75cf"
+    },
+    {
+      "path": "src/snapshot-contract.ts",
+      "sha256": "b432bf49f7a6322138c75d42c2a658478818bf90adc5565922ca0fa711e0dcd2"
+    },
+    {
+      "path": "src/finalization.test.ts",
+      "sha256": "5f4a2b94fd67569704f1d695f1fcc90ff903fdda34e85efb436c589320eb53be"
+    },
+    {
+      "path": "shared/config.ts",
+      "sha256": "99458d2341d44a1656f4bef7d04a96d1191f707ec07b6ea2604b2aeb29684182"
+    },
+    {
+      "path": "shared/source-url.ts",
+      "sha256": "66b96ecae19f702d1595251219015447e152158449e9679910295daa26a98977"
+    },
+    {
+      "path": "server/index.ts",
+      "sha256": "d672931b7e2813389117125c0378d81c17d6ed7d98ad40f5a65e78051cf0c069"
+    },
+    {
+      "path": "server/jma.ts",
+      "sha256": "ad35e4f64f285c12c90a5bef12afb88f1fcc16b3f3f5abb09bd39e115af14a22"
+    },
+    {
+      "path": "server/maintenance.ts",
+      "sha256": "cc8954db718f742793ec0dc9281b8109d9bbd957888c77342786798d13e07378"
+    },
+    {
+      "path": "server/verify.ts",
+      "sha256": "36f280b9b9ee731285ab246e718f1df80265c97ebc6551d7164f7f47fc924d74"
+    },
+    {
+      "path": "scripts/browser-finalization.mjs",
+      "sha256": "e3a8c2aa5241be85e4d7918af85915df7eac533a24242652728728e40b2e52c6"
+    },
+    {
+      "path": "scripts/verify-local-package.mjs",
+      "sha256": "2fa53372f359bcfc408366c3ec9a45edee4df5f61b67ee8dfe7619d01787cd87"
+    },
+    {
+      "path": "scripts/measure-local.mjs",
+      "sha256": "44d301f1ccd5a5f0b1c0548622dbafcefccfe14aebdd5012571a6d104690901e"
+    }
+  ],
+  "browserReports": [
+    {
+      "path": "docs/v1f-demo-browser-results.json",
+      "sha256": "abea73d2ff239bb8eb7108ed26d88e0508034da81375f7b91555b3efcb46475e"
+    },
+    {
+      "path": "docs/v1f-pipeline-browser-results.json",
+      "sha256": "359ab8d0e07a1da41890d0c3b3b099ea6e5f0dbdd56a63e1af76b72d0db2e1da"
+    },
+    {
+      "path": "docs/v1f-product-acceptance-results.json",
+      "sha256": "e0d0b3474874f0707141859e4ee99ad01c79edb6b96a684564f96ec580dc97ca"
+    },
+    {
+      "path": "docs/v1f-explorer-results.json",
+      "sha256": "07fb78ff528d87003bb21ba7af025d0cad5f043f443410426dd2f5a73e4e6587"
+    },
+    {
+      "path": "docs/v1/browser-finalization.json",
+      "sha256": "a741f245aa19d1770d92f7e3fae49245863218e6e0887caf56546b08a9004628"
+    }
+  ]
+}

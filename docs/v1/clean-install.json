@@ -1,0 +1,56 @@
+{
+  "type": "clean-offline-install-reproducibility",
+  "reviewDate": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "version": "1.0.0-rc.1",
+  "sourceExport": "tracked and pending candidate files only; excluded .git/node_modules/dist/.local",
+  "fullInstall": {
+    "command": "npm ci --offline --no-audit --no-fund",
+    "passed": true,
+    "addedPackages": 99
+  },
+  "tests": {
+    "command": "npm test",
+    "passed": 131,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "passed": true,
+    "byteIdenticalToWorkingBuild": true,
+    "assets": [
+      {
+        "path": "dist/index.html",
+        "sha256": "8acb7281fb8fa195e537f527e839b889e46b79817aec4be15d97daf77d70e40a"
+      },
+      {
+        "path": "dist/assets/index-ByGsthhv.js",
+        "sha256": "d5c4f9fa0969892a3f81e3bfa56557775bc0b60845be4dd4b673e7ba33b7fd82"
+      },
+      {
+        "path": "dist/assets/index-CtyeWqfE.css",
+        "sha256": "d58273cca11ffcee5fe4953cf71334267f9fc11905d8f298ee0bccb084834e3e"
+      },
+      {
+        "path": "dist/geography/countries.geojson",
+        "sha256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f"
+      }
+    ]
+  },
+  "sourceFilesCompared": 33,
+  "frontendReviewSmoke": {
+    "command": "PREVIEW_URL=http://127.0.0.1:4187 npm run review:local -- --smoke",
+    "passed": true,
+    "loopbackOnly": true,
+    "stopped": true
+  },
+  "productionOnlyInstall": {
+    "command": "npm ci --omit=dev --offline --no-audit --no-fund",
+    "passed": true
+  },
+  "runtimeEvidence": "clean-runtime-verification.json",
+  "liveSourceRequests": 0,
+  "realOwnerArchiveWrites": 0,
+  "limitations": "Fresh directory and cached dependencies on the same tested Linux machine; not another OS, host-loss recovery, current advisories or public deployment."
+}

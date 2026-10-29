@@ -1,12 +1,12 @@
 {
   "name": "storm-chaser",
-  "version": "0.1.0",
+  "version": "1.0.0-rc.1",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:browser": "node scripts/browser-check.mjs",
     "api": "node --import tsx server/index.ts",
@@ -18,7 +18,12 @@
     "healthcheck": "node --import tsx server/healthcheck.ts",
     "test:product-browser": "node --import tsx scripts/browser-product.mjs",
     "test:explorer-browser": "node --import tsx scripts/browser-explorer.mjs",
-    "review:explorer": "node --import tsx scripts/review-explorer.mjs"
+    "review:explorer": "node --import tsx scripts/review-explorer.mjs",
+    "verify:archive": "node --import tsx server/verify.ts",
+    "review:local": "node --import tsx scripts/review-explorer.mjs",
+    "verify:package": "node --import tsx scripts/verify-local-package.mjs",
+    "measure:local": "node --import tsx scripts/measure-local.mjs",
+    "test:finalization-browser": "node --import tsx scripts/browser-finalization.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.3.6",
@@ -32,5 +37,9 @@
     "typescript": "5.9.3",
     "vite": "7.1.12",
     "vitest": "3.2.4"
+  },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
   }
 }

@@ -1,3 +1,5 @@
+> Current delivery: [ADR 0004](0004-v1-scope-freeze.md) freezes a conservative local-first software package. The host architecture remains accepted in principle; historical costs/host prerequisites below neither authorize procurement nor block local software completion.
+
 > Later owner decision: this architecture is accepted **in principle**, with **$0 new expenditure** and no procurement/activation/deployment authority. See [ADR 0002](0002-product-reconciliation-proposed.md). Costs and unperformed host checks below remain historical planning/evidence limits.
 
 # ADR 0001 — JMA-first single-host operation
