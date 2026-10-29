@@ -4,7 +4,7 @@
 
 | Gate | Current status / evidence needed before claiming it |
 |---|---|
-| Owner software/release acceptance | Pending V1-F review. A development push/private npm version is not a public release. |
+| Owner local software acceptance / public release | Local baseline `475dd767d6c18544996b4b9f0204b39dc8c01e3c` accepted on 2026-10-29; [closure record](closure-v1.0.md). Public release remains unauthorized. The rest of this service checklist remains unverified. |
 | Delivery/hosting model | Conservative local-first only. Owner must explicitly choose/approve any operated service and verify costs against $0. Historical VM estimates are not quotes/budgets. |
 | Persistent host/time/filesystem and service account | Real host resources, permissions, time sync, disk pressure and process isolation not verified here. No systemd unit installed/enabled. |
 | Scheduling/reboot/long-running recovery | Static assets and isolated cursor/lease/crash regressions exist; actual timer catch-up/reboot and multi-day source changes need separate authorized observation. |

@@ -1,3 +1,5 @@
+> Subsequent owner decision (2026-10-29): the exact V1-F baseline `475dd767d6c18544996b4b9f0204b39dc8c01e3c` is now **accepted as completed local-first software**. See [closure record v1.0](closure-v1.0.md). Pending-acceptance wording/results below preserve the original V1-F review report; no public release, operational clearance or new test run is implied.
+
 # V1-F — frozen software candidate verification and acceptance gate
 
 Date: 2026-10-29 Asia/Taipei. Package **1.0.0-rc.1**, private/local-first. **Software candidate prepared for owner acceptance; no public release or service-readiness claim.** Development branch: `development/v1-f-finalization`. Baseline: `129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`. Implementation revision: [`011a77f7bab741ecc9233d0fc394b2c53d7d9c8e`](https://github.com/jaychtw/storm-chaser/commit/011a77f7bab741ecc9233d0fc394b2c53d7d9c8e); [verification metadata](verification.json) contains tested-file hashes and the final handoff supplies the exact delivery SHA.

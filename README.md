@@ -1,9 +1,11 @@
 # Storm Chaser
 
-**v1.0 — JMA-first Experiential Cyclone Viewer.** A bilingual local-first software candidate (`1.0.0-rc.1`, private) for exploring official JMA information geographically and through discrete published forecast times. Night Operations identity, map-first mobile, native values, source evidence and honest data states. No independent warning/forecast or production-readiness claim.
+**v1.0 — JMA-first Experiential Cyclone Viewer.** An owner-accepted bilingual local-first software baseline (`1.0.0-rc.1`, private/unpublished) for exploring official JMA information geographically and through discrete published forecast times. Night Operations identity, map-first mobile, native values, source evidence and honest data states. No independent warning/forecast or production-readiness claim.
 
-## Frozen scope and review
+## Frozen scope and acceptance
 
+- [Closure record v1.0 — local software accepted, 2026-10-29](docs/v1/closure-v1.0.md)
+- [Lifecycle retrospective](docs/v1/lifecycle-retrospective.md) · [consolidated standards proposals](docs/proposals/closure-standards-handoff.md)
 - [V1-F verification, acceptance matrix, measured performance and limitations](docs/v1/verification.md)
 - [Owner-approved scope ADR v1.0](docs/adr/0004-v1-scope-freeze.md) · [approved GDD amendment](docs/amendments/design-guide-v1.0.3-scope-freeze.md)
 - [Deferred capabilities and reopening criteria](docs/v1/deferred-capabilities.md)
@@ -54,4 +56,4 @@ Browser suites use saved official specimens/controlled cases. `verify:package` u
 
 [Historical Guide v1.0](docs/Storm_Chaser_Design_Guide_v1.0.md), [source dossiers](docs/sources/m0-completion.md), [datum audit](docs/m3-datum-audit.md), [M3-O](docs/m3-verification.md), [M3-P](docs/m3p-verification.md), [M3-E](docs/m3e-review.md) and [architecture](docs/adr/0001-jma-operations.md) retain original rationale. Latest approved scope is ADR 0004; old unfinished goals are explicit deferrals now.
 
-**$0 new expenditure.** No public release/preview, hosting/service activation, real collection, main merge or deployment performed by V1-F. Software-package completion, owner release acceptance and public operational readiness are separate. Stop at owner acceptance review; [retrospective](docs/v1/retrospective.md) does not modify shared standards.
+**$0 new expenditure.** No public release/preview, hosting/service activation, real collection, main merge or deployment performed by V1-F. The owner has finally accepted the local-first software baseline at `475dd767d6c18544996b4b9f0204b39dc8c01e3c`; the current lifecycle is **CLOSED**. Package version and accepted product code remain unchanged. Public release/publication, main merge, deployment, service activation, live collection and expenditure remain unauthorized. The [closure record](docs/v1/closure-v1.0.md) separates that acceptance from unverified public operation and optional enhancements. Standards recommendations remain proposals; no next implementation cycle is authorized.

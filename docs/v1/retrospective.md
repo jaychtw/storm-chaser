@@ -1,3 +1,5 @@
+> Closure follow-up (2026-10-29): [lifecycle retrospective](lifecycle-retrospective.md) and [consolidated standards handoff](../proposals/closure-standards-handoff.md). The V1-F lessons below remain historical; shared-standard changes are still proposals only.
+
 # V1-F retrospective — bounded completion
 
 2026-10-29 Asia/Taipei. Project-local lessons; shared standards unchanged. AICP 1.1.0 §9 at `cb74fe9497d07370f44a18a09fec124ab99848ec` governs any future promotion.

@@ -1,3 +1,5 @@
+> Subsequent acceptance (2026-10-29): [closure record v1.0](../v1/closure-v1.0.md) accepts exact baseline `475dd767d6c18544996b4b9f0204b39dc8c01e3c` as completed local-first software. This resolves the historical pending software-acceptance gate below; approved frozen scope and public-release restrictions remain unchanged.
+
 # ADR 0004 v1.0 — frozen v1.0 product and local-first finalization
 
 Date: 2026-10-29 Asia/Taipei. **Owner-approved product scope and V1-F work; software/release acceptance pending.** Authority: [V1-F assignment](../briefs/v1-f-authorization.md). Baseline `129a3af3a13e882d8d92bcfd0360fdfa83b01cf7`. No inferred acceptance of unperformed technical/operational checks.

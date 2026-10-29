@@ -1,3 +1,5 @@
+> Closure follow-up (2026-10-29): candidates A/B are consolidated with current-template inspection in the [standards handoff](closure-standards-handoff.md). Earlier endorsement remains review-only; this record does not authorize implementation.
+
 > M3-P owner authorization endorses this proposal for future standards review only. No change to `game-development-standards`, adopted versions or unrelated repositories is authorized.
 
 # Standards change candidates — application briefs and milestone lineage
