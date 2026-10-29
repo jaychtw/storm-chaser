@@ -2,7 +2,7 @@
 
 Separately authorized by the owner on October 30, 2026 (Asia/Taipei); original accepted local-first v1.0 closure is preserved. Base main: `bbfbbee1fc2213152d6004031da0a623c6ae0823`; underlying accepted software: `475dd767d6c18544996b4b9f0204b39dc8c01e3c`. Package identity stays `1.0.0-rc.1`; this milestone changes distribution and patches dependencies, without reopening deferred features.
 
-Target: https://jaychtw.github.io/storm-chaser/. **Stage A passed locally; deployment/public verification is pending.** See Git history/final handoff for exact implementation and deployment SHAs. A successful local build is not a deployed-site claim.
+Target: https://jaychtw.github.io/storm-chaser/. **Stage A passed locally. Hosted deployment succeeded; direct public-site verification is BLOCKED by the environment allowlist.** See Git history/final handoff for exact implementation and deployment SHAs. A successful local build is not a deployed-site claim.
 
 ## Architecture and failure behavior
 
@@ -45,3 +45,13 @@ Pages limits remain 1 GB site, soft 100 GB/month bandwidth and ten-minute deploy
 - Fresh audit: zero reported vulnerabilities. Workflow trigger/permissions structure and diff whitespace checks pass. Physical devices, screen readers, independent human comprehension, long-running soak and guaranteed uptime remain unverified.
 
 New local raw logs/reports are under `/workspace/storm-promotion-results/`; accepted historical artifacts were preserved. No source-generated database, raw archive, controlled test specimen or screenshot is in the public artifact. Public deployment must still be verified at the actual URL before claiming success.
+
+## Hosted deployment and remaining verification — October 30, 2026
+
+Implementation/deployed source: `64615b55c5b7d75720fa0b7b7e5b3b722030d98a`. Promoted from the dedicated distribution branch by a non-force fast-forward. [Successful workflow run 40912955062](https://github.com/jaychtw/storm-chaser/actions/runs/40912955062), GitHub Pages deployment ID `7418219608`; build, source reconciliation, state cache, notice generation, public snapshot/artifact validation, upload and deploy all passed. First hosted attempt stopped at collection, saved state and skipped publication; the single retry succeeded after the required interval. Its detailed failure log was not retrievable from this environment, so the first failure's precise cause is not asserted.
+
+Canonical environment URL: https://jaychtw.github.io/storm-chaser/. GitHub workflow success is **not** direct public-browser proof. The active environment proxy denies `jaychtw.github.io` (CONNECT 403); its current enforced policy still omits that host. Detailed Actions logs also redirect to blocked `results-receiver.actions.githubusercontent.com`. Owner action: allow/apply `jaychtw.github.io` for actual-site checks; optionally allow the log host for diagnosing the initial failure. No proxy bypass or TLS weakening was attempted.
+
+Actual collected JMA JSON was successfully tested in the local Pages artifact: source-preserving forecast step selection, EN/zh-TW switching, mobile layout and zero external requests. That local result does not establish the deployed JSON's actual contents/freshness, public asset loading or public interaction. Direct public verification remains required before declaring the milestone complete. The hourly bounded workflow is enabled under owner authorization; it may fail or be delayed, and clients retain independent ageing/expiry safeguards.
+
+Observed retained Actions artifacts after publishing: 5,720,879 bytes across two artifacts, including the earlier software-check artifact. No payment method, paid service, larger runner, new account, tag, package release or shared-standard change was introduced. All temporary local frontend/API/browser processes were stopped; only explicitly authorized GitHub automation remains enabled. Current package/bundle-size/experimental SQLite and runner Node-runtime migration warnings remain documented; no physical-device or long-running reliability certification is claimed.

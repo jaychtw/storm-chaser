@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-10-29T16:36:31.412110+00:00",
+  "implementationAndDeploymentSha": "64615b55c5b7d75720fa0b7b7e5b3b722030d98a",
+  "acceptedLocalFirstBase": "bbfbbee1fc2213152d6004031da0a623c6ae0823",
+  "lockedInstall": "passed",
+  "unitTests": 133,
+  "productionBuilds": [
+    "local passed",
+    "Pages passed"
+  ],
+  "browserSuites": [
+    {
+      "name": "test:browser",
+      "code": 0
+    },
+    {
+      "name": "test:live-browser",
+      "code": 0
+    },
+    {
+      "name": "test:product-browser",
+      "code": 0
+    },
+    {
+      "name": "test:explorer-browser",
+      "code": 0
+    },
+    {
+      "name": "test:finalization-browser",
+      "code": 0
+    },
+    {
+      "name": "verify:package",
+      "code": 0
+    },
+    {
+      "name": "review:local",
+      "code": 0
+    }
+  ],
+  "axeScans": 57,
+  "reportedAxeViolations": 0,
+  "freshAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "localActualJmaSmoke": {
+    "type": "actual-collected-JMA-record-in-local-Pages-artifact",
+    "checkedAt": "2026-10-29T16:32:07.550Z",
+    "selectedPublishedTime": "2026-10-30T03:00:00.000Z",
+    "externalRequests": [],
+    "passed": true
+  },
+  "publicWorkflowRun": 40912955062,
+  "deploymentId": 7418219608,
+  "hostedWorkflowConclusion": "success",
+  "publicBrowserVerification": "blocked: jaychtw.github.io is absent from the enforced allowlist",
+  "sourceCoverageLimits": "One local completed reconciliation and one successful hosted run; not a continuous-operation or complete-basin claim.",
+  "temporaryProcesses": "All started local frontends, browsers and package-test APIs stopped."
+}
