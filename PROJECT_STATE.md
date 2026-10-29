@@ -32,3 +32,7 @@ Frozen scope: WNP/South China Sea map, JMA analyzed/forecast centers, manual/neu
 [Lifecycle retrospective](docs/v1/lifecycle-retrospective.md) · [consolidated standards proposals](docs/proposals/closure-standards-handoff.md). Recommendations are **proposed only**; shared standards and project pins remain unchanged. Current development is finished. **No next implementation task is authorized. Stop after pushing the closure documentation branch for review.** Future work requires explicit owner direction and an appropriate brief; dependency availability alone triggers nothing.
 
 Repository history and supplied owner instructions are available; separate ChatGPT Project conversations were not retrieved. Do not infer missing approvals or claim persistent AI memory. This closure updates acceptance/continuity only, preserving original rationale and dated evidence.
+
+## Separately authorized Pages distribution investigation
+
+The owner subsequently authorized a bounded GitHub Pages edition. [Stage A investigation](docs/pages/investigation.md) is blocked pending owner verification of shared artifact-storage allowance and enforced $0 overage controls; no static edition, new workflow or deployment is implemented. This prospective distribution milestone preserves the original v1.0 closure and accepted local-first software.

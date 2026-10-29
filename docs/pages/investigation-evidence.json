@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-29T16:00:51.748186+00:00",
+  "acceptedMain": "bbfbbee1fc2213152d6004031da0a623c6ae0823",
+  "files": {
+    "pages-current-extra_l.xml": {
+      "sha256": "49448bd90dd7ab9fdae93116bd7385eb5394f109a3382a6bcd0ac9a810bded2c",
+      "bytes": 3908568
+    },
+    "pages-current-bulletin.xml": {
+      "sha256": "1956e33af0ab2008f4f85d87c47ecbb990aaa6f72ca016357257ad4ca1bedaa1",
+      "bytes": 30113
+    },
+    "pages-jma-terms.html": {
+      "sha256": "ff2b45042e6207053d8f6aa617656aa6a144e462db138f0b8138de6eefbeff48",
+      "bytes": 23377
+    },
+    "pages-jma-pull.html": {
+      "sha256": "70e391cb0563a5f77a0361bd9537ac69ad40f5bcc1517900ef6c5705f682c5d3",
+      "bytes": 10819
+    }
+  },
+  "sourceCheck": {
+    "longFeedCandidateBulletins": 104,
+    "collectorNewDownloadCapPerCycle": 100,
+    "bulletin": "https://www.data.jma.go.jp/developer/xml/data/20261029154009_0_VPTW61_010000.xml",
+    "issuedAt": "2026-10-29T15:45:00.000Z",
+    "controlAt": "2026-10-29T15:40:09.000Z",
+    "normalizedPoints": 7,
+    "inputKind": "live",
+    "eligibilityAtInspection": "eligible"
+  },
+  "billingApi": "403 Resource not accessible by integration",
+  "observedRepositoryArtifacts": {
+    "count": 1,
+    "bytes": 5022499
+  },
+  "limits": "One feed and one linked bulletin inspected; not complete collection or ongoing scheduling evidence."
+}
