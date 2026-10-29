@@ -1,0 +1,26 @@
+// Clearly labeled saved-source tests of the Pages artifact, never published data.
+import {createServer} from 'node:http';import {readFile,writeFile} from 'node:fs/promises';import {resolve,extname} from 'node:path';import assert from 'node:assert/strict';import {chromium} from '@playwright/test';import AxeBuilder from '@axe-core/playwright';
+import {normalize} from '../server/jma.ts';import {materialize} from '../server/store.ts';
+const now=Date.parse('2026-10-28T16:00:00Z'),a=normalize(await readFile('docs/sources/evidence/2026-10-29/jma-vptw61.xml','utf8'),'https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml',new Date(now).toISOString());
+const snapshot=materialize([a],{state:'fresh',lastSuccessAt:new Date(now).toISOString()},now);
+const root=resolve('dist');const server=createServer(async(req,res)=>{try{if(!req.url.startsWith('/storm-chaser/'))throw Error();const path=resolve(root,req.url.slice('/storm-chaser/'.length).split('?')[0]||'index.html');if(!path.startsWith(root+'/'))throw Error();const body=await readFile(path);res.setHeader('content-type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.html':'text/html'})[extname(path)]??'text/plain');res.end(body);}catch{res.writeHead(404).end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}/storm-chaser/`,origin=new URL(base).origin;
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const audits=[],checks=[],external=[],errors=[];
+try {
+for(const locale of ['en','zh-TW'])for(const width of [1440,390]){
+ const context=await browser.newContext({viewport:{width,height:width<640?844:1080},isMobile:width<640,hasTouch:width<640,reducedMotion:'reduce'});await context.addInitScript(l=>localStorage.setItem('storm-chaser-locale',l),locale);const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.clock.install({time:now});let data=snapshot,mode='ok';
+ await context.route('**/*',async route=>{const url=new URL(route.request().url());if(url.origin!==origin){external.push(url.href);await route.abort();return;}if(url.pathname.endsWith('/data/live.json')){await route.fulfill(mode==='missing'?{status:404,body:'missing'}:mode==='invalid'?{contentType:'application/json',body:'{bad'}:{json:data});return;}assert(!url.pathname.startsWith('/api/'));await route.continue();});
+ await page.goto(base+'?mode=demo');await page.locator('.storm-card').waitFor();await page.locator('#map[data-ready="true"]').waitFor();assert.equal(await page.locator('.storm-card').count(),1);assert.equal(await page.locator('.brand').getAttribute('href'),'/storm-chaser/');assert.equal(await page.locator('#data-mode').isVisible(),false);
+ await page.locator('.storm-card').click();await page.locator('#explorer-next').click();assert.equal(await page.locator('#explorer').getAttribute('data-selected-time'),a.points[1].validAt);assert.equal(await page.locator('#explorer-source').getAttribute('href'),a.sourceUrl);
+ await page.locator('#language').click();await page.locator('#language').click();const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();audits.push({locale,width,violations:audit.violations});
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.clock.setSystemTime(now+16*60_000);await page.evaluate(()=>dispatchEvent(new Event('focus')));await page.locator('.map-tag[data-health="stale"]').waitFor();
+ data={...snapshot,health:{...snapshot.health,partial:true}};await page.clock.setSystemTime(now);await page.evaluate(()=>dispatchEvent(new Event('focus')));await page.locator('.map-tag[data-health="stale"]').waitFor();
+ data=snapshot;mode='invalid';await page.evaluate(()=>dispatchEvent(new Event('focus')));await page.locator('.map-tag[data-health="stale"]').waitFor();
+ await page.clock.setSystemTime(now+25*3600_000);await page.evaluate(()=>dispatchEvent(new Event('focus')));await page.locator('.map-tag[data-health="unavailable"]').waitFor();assert.equal(await page.locator('.storm-card').count(),0);
+ mode='missing';await page.reload();await page.locator('.map-tag[data-health="unavailable"]').waitFor();assert.equal(await page.locator('.storm-card').count(),0);
+ mode='ok';data={...snapshot,advisories:[],health:{state:'fresh',lastSuccessAt:new Date(now).toISOString()}};await page.clock.setSystemTime(now);await page.reload();await page.locator('.map-tag[data-health="fresh"]').waitFor();assert.equal(await page.locator('.storm-card').count(),0);
+ checks.push({locale,width,status:'passed'});await context.close();
+}
+assert.deepEqual(errors,[]);assert.deepEqual(external,[]);assert.equal(audits.flatMap(a=>a.violations).length,0);console.log('PASS: Pages subpath, bundled worker, static JSON, no public fixtures, Explorer, bilingual desktop/mobile, missing/invalid/partial/empty/delayed/expired data; four axe scans.');
+}finally{await writeFile(process.env.PAGES_REPORT??'/tmp/storm-pages-browser.json',JSON.stringify({type:'controlled-saved-source-pages-artifact-test',checks,audits,errors,external},null,2));await browser.close();await new Promise(r=>server.close(r));}

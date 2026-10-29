@@ -1,3 +1,5 @@
+> Historical investigation. Financial gate subsequently supported by owner evidence; see [distribution milestone](distribution.md) for implementation and current verification.
+
 # Pages distribution milestone — Stage A investigation
 
 Owner authorization: “Storm Chaser — GitHub Pages Deployment Authorization”, supplied in this conversation. This separately reopens bounded public distribution; it does not rewrite the original local-first closure. Accepted main remains `bbfbbee1fc2213152d6004031da0a623c6ae0823` (software `475dd767d6c18544996b4b9f0204b39dc8c01e3c`, version `1.0.0-rc.1`).

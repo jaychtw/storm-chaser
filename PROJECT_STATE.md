@@ -36,3 +36,7 @@ Repository history and supplied owner instructions are available; separate ChatG
 ## Separately authorized Pages distribution investigation
 
 The owner subsequently authorized a bounded GitHub Pages edition. [Stage A investigation](docs/pages/investigation.md) is blocked pending owner verification of shared artifact-storage allowance and enforced $0 overage controls; no static edition, new workflow or deployment is implemented. This prospective distribution milestone preserves the original v1.0 closure and accepted local-first software.
+
+### Pages Stage A — October 30, 2026
+
+Owner billing evidence resolves the prior investigation gate without requiring an enforced budget. [Distribution milestone](docs/pages/distribution.md) records the separately authorized static edition, bounded hourly collector/cache, patched dependencies and reproduced local verification. Public deployment is pending. Original accepted local-first closure remains preserved; this does not reopen deferred product features. $0 remains binding.

@@ -1,4 +1,7 @@
-import maplibregl, { type GeoJSONSource, type Map as GLMap } from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+maplibregl.setWorkerUrl(workerUrl);
+import type {GeoJSONSource,Map as GLMap} from 'maplibre-gl';
 import type { FeatureCollection, Feature, LineString } from 'geojson';
 import type { Copy } from './i18n';
 import { type Track, pointTime } from './fixtures';
@@ -14,7 +17,7 @@ export class StormMap {
       container, center: [135, 24], zoom: 2, minZoom: 2, maxZoom: 8,
       maxBounds: [[85,-10],[180,65]], attributionControl: false,
       style: {version: 8, sources: {
-        countries: {type:'geojson', data:'/geography/countries.geojson'},
+        countries: {type:'geojson', data:import.meta.env.BASE_URL+'geography/countries.geojson'},
         grid: {type:'geojson', data:this.grid()}, tracks: {type:'geojson', data:{type:'FeatureCollection',features:[]}},
       }, layers: [
         {id:'water',type:'background',paint:{'background-color':'#0c1822'}},
