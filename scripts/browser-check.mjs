@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {mkdir,writeFile} from 'node:fs/promises';
-const stage=process.env.REVIEW_STAGE??'m3p-demo';
+const stage=process.env.REVIEW_STAGE??'m3e-demo';
 const base=process.env.PREVIEW_URL || 'http://127.0.0.1:5173';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || (existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const errors=[]; const checks=[];

@@ -1,0 +1,187 @@
+{
+  "type": "controlled-saved-official-specimen-POC",
+  "checkedAt": "2026-10-29T05:11:05.008Z",
+  "baselineCommit": "12dc2fc23ded833e8ba539fddd67caddde2af477",
+  "baselineCompared": true,
+  "sourceUrl": "https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml",
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "checks": [
+    {
+      "name": "desktop-en: neutral Auto does not acquire a priority through the explorer",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: discrete navigation synchronizes valid time, source coordinates and camera",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: source details, locale and map selection remain synchronized",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: native slider mouse drag retains DOM identity and hits only published points",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: hidden layer, analysis reset and reduced-motion semantics",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-en: stale exploration and expiry operate without a fresh API response",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: neutral Auto does not acquire a priority through the explorer",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: discrete navigation synchronizes valid time, source coordinates and camera",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: source details, locale and map selection remain synchronized",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: hidden layer, analysis reset and reduced-motion semantics",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-en: stale exploration and expiry operate without a fresh API response",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: neutral Auto does not acquire a priority through the explorer",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: discrete navigation synchronizes valid time, source coordinates and camera",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: source details, locale and map selection remain synchronized",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: native slider mouse drag retains DOM identity and hits only published points",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: hidden layer, analysis reset and reduced-motion semantics",
+      "status": "passed"
+    },
+    {
+      "name": "desktop-zh-TW: stale exploration and expiry operate without a fresh API response",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: neutral Auto does not acquire a priority through the explorer",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: discrete navigation synchronizes valid time, source coordinates and camera",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: source details, locale and map selection remain synchronized",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: hidden layer, analysis reset and reduced-motion semantics",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-zh-TW: stale exploration and expiry operate without a fresh API response",
+      "status": "passed"
+    },
+    {
+      "name": "selected forecast expires individually; baseline is explained, not another forecast",
+      "status": "passed"
+    },
+    {
+      "name": "insufficient forecasts and missing native values stay explicit",
+      "status": "passed"
+    },
+    {
+      "name": "explicit parent validity removes the timeline on resume despite future points",
+      "status": "passed"
+    }
+  ],
+  "audits": [
+    {
+      "name": "desktop-en-forecast",
+      "violations": []
+    },
+    {
+      "name": "desktop-en-stale",
+      "violations": []
+    },
+    {
+      "name": "desktop-en-expired",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-forecast",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-stale",
+      "violations": []
+    },
+    {
+      "name": "mobile-en-expired",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-forecast",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-stale",
+      "violations": []
+    },
+    {
+      "name": "desktop-zh-TW-expired",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-forecast",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-stale",
+      "violations": []
+    },
+    {
+      "name": "mobile-zh-TW-expired",
+      "violations": []
+    },
+    {
+      "name": "insufficient",
+      "violations": []
+    }
+  ],
+  "screenshots": [
+    "before-desktop-en-plus45",
+    "after-desktop-en-plus45",
+    "after-desktop-en-stale",
+    "after-desktop-en-expired",
+    "before-mobile-en-plus45",
+    "after-mobile-en-plus45",
+    "after-mobile-en-stale",
+    "after-mobile-en-expired",
+    "before-desktop-zh-TW-plus45",
+    "after-desktop-zh-TW-plus45",
+    "after-desktop-zh-TW-stale",
+    "after-desktop-zh-TW-expired",
+    "before-mobile-zh-TW-plus45",
+    "after-mobile-zh-TW-plus45",
+    "after-mobile-zh-TW-stale",
+    "after-mobile-zh-TW-expired",
+    "after-desktop-en-insufficient"
+  ],
+  "errors": [],
+  "unexpectedOrigins": [],
+  "liveSourceRequests": 0,
+  "limits": "Browser rendering and controlled replay, not current weather, physical devices, human comprehension testing or owner M3-E visual acceptance."
+}

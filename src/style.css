@@ -27,3 +27,14 @@
 #point-lost,#selection-notice{font-size:12px;line-height:1.8;color:#efcc91}
 .source-timing{font-size:11px;overflow-wrap:anywhere}.source-gap{font-size:12px}
 @media(max-width:640px){.motion{grid-template-columns:1fr}.storm-list{display:grid;grid-template-columns:1fr;width:100%;overflow:visible}.storm-card{width:100%}.forecast-list button{flex:1 1 100%;text-align:left}.source-times dd{overflow-wrap:anywhere}.storm-issue{font-size:11px}.source-gap{font-size:12px}.map-tag{max-width:40%;white-space:normal;line-height:1.5}}
+/* M3-E POC: a discrete time lens within the approved map column. */
+#explorer{margin:18px 0 24px;padding:18px;border:1px solid #45636b;border-radius:5px;background:#111d26}
+#explorer[hidden]{display:none}.explorer-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px}.explorer-heading h2{font-size:20px;font-weight:500;margin-top:8px}.explorer-heading>span{font-size:11px;line-height:1.8;color:#b5ded8;max-width:45%;text-align:right}
+#explorer-instructions,#explorer-status{font-size:12px;line-height:1.8;color:var(--muted)}#explorer-status:not(:empty){color:#efcc91;margin-top:8px}
+.explorer-controls{display:flex;align-items:center;gap:12px;margin:18px 0 10px}.explorer-controls>button{min-width:44px;min-height:44px;font-size:20px}.explorer-controls>button:disabled{opacity:.45}
+.explorer-range-wrap{flex:1;min-width:0}.explorer-range-wrap label{display:block;font-size:12px;color:#c5d4dc}.explorer-range-wrap input{display:block;min-height:44px;width:100%;margin:0;accent-color:#6dd8d0;cursor:pointer}.explorer-range-wrap input:focus-visible{outline-offset:1px}
+.explorer-ticks{display:flex;justify-content:space-between;gap:4px;font-size:10px;color:var(--muted)}.explorer-ticks>span:first-child{max-width:60px}.explorer-ticks>span{overflow-wrap:anywhere;text-align:center}
+.explorer-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 16px;border-top:1px solid #354e57;margin-top:16px;padding-top:16px}.explorer-time strong{font-size:18px;color:#e8edf1;font-weight:500}.explorer-time>span{font-size:12px;color:#b5ded8}
+.explorer-context{font-size:12px;line-height:1.9;margin-top:12px;color:var(--muted)}#explorer-evidence{font-size:12px;line-height:1.9;margin-top:10px}#explorer-evidence summary{cursor:pointer;min-height:44px;padding:10px 0}#explorer-evidence p{overflow-wrap:anywhere}
+.forecast-dot.is-explored:before{border-color:#edfaff;background:#28565b;box-shadow:0 0 0 5px #6dd8d044}.forecast-dot.is-explored:after{background:#edfaff}
+@media(max-width:640px){#explorer{padding:14px;margin-top:14px}.explorer-heading{display:block}.explorer-heading>span{display:block;max-width:none;text-align:left;margin-top:8px}.explorer-controls{gap:8px}.explorer-ticks{display:none}.explorer-time{display:block}.explorer-time>*{display:block;margin-bottom:6px}.explorer-time strong{font-size:17px}}

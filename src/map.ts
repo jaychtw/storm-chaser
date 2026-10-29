@@ -50,7 +50,7 @@ export class StormMap {
     buttons.forEach((el,i)=>{el.setAttribute('aria-label',i===0?t.zoomIn:t.zoomOut);el.setAttribute('title',i===0?t.zoomIn:t.zoomOut);});
     this.map.getCanvas().setAttribute('aria-label',t.map);
   }
-  update(storms: MapStorm[], selected: MapStorm|null, tracks: Set<Track>, onStorm:(id:string)=>void, onPoint:(validAt:string,track:Track,lead:number)=>void, t:Copy) {
+  update(storms: MapStorm[], selected: MapStorm|null, tracks: Set<Track>, onStorm:(id:string)=>void, onPoint:(validAt:string,track:Track,lead:number)=>void, t:Copy,exploredAt?:string) {
     const run=()=>{
       this.map.getContainer().dataset.ready='false';
       this.markers.forEach(m=>m.remove()); this.markers=[];
@@ -68,6 +68,9 @@ export class StormMap {
           const el=document.createElement('button');el.type='button';el.className='forecast-dot track-'+track;
           const lead=selected.forecastLeads?.[i]??(i+1)*12;
           el.dataset.mapPoint=`${selected.id}|${track}|${selected.forecastTimes?.[i]??pointTime(i+1)}`;
+          el.dataset.position=JSON.stringify(p);
+          const explored=Boolean(selected.advisory&&selected.forecastTimes?.[i]===exploredAt);
+          el.classList.toggle('is-explored',explored);el.setAttribute('aria-pressed',String(explored));
           el.setAttribute('aria-label',`${selected.advisory?'JMA':track==='A'?t.trackA:t.trackB} +${lead} ${t.hours}`);
           el.onclick=()=>onPoint(selected.forecastTimes?.[i]??pointTime(i+1),track,lead);
           this.markers.push(new maplibregl.Marker({element:el}).setLngLat(p).addTo(this.map));

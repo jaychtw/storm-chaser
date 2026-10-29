@@ -16,7 +16,9 @@
     "maintenance": "node --import tsx server/maintenance.ts",
     "backup": "node --import tsx server/backup.ts",
     "healthcheck": "node --import tsx server/healthcheck.ts",
-    "test:product-browser": "node --import tsx scripts/browser-product.mjs"
+    "test:product-browser": "node --import tsx scripts/browser-product.mjs",
+    "test:explorer-browser": "node --import tsx scripts/browser-explorer.mjs",
+    "review:explorer": "node --import tsx scripts/review-explorer.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.3.6",

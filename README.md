@@ -1,8 +1,16 @@
 # Storm Chaser
 
-Bilingual western North Pacific cyclone prototype using verified **JMA XML**, a transactional SQLite archive, and the Night Operations MapLibre interface. M3-P is ready for owner review, preserving M3-O operational hardening. It is not an official warning service and is not publicly deployed.
+Bilingual western North Pacific cyclone prototype using verified **JMA XML**, a transactional SQLite archive, and the Night Operations MapLibre interface. M3-E Forecast-Time Explorer is a working interaction POC for owner review, preserving M3-P/O engineering. M3-P visual design is owner-accepted; M3-E acceptance remains pending. It is not an official warning service and is not publicly deployed.
 
-## Run locally
+## Review the Forecast-Time Explorer POC
+
+- [Design rationale, actual before/after screenshots, tests and local replay instructions](docs/m3e-review.md)
+- [Owner assignment](docs/briefs/m3-e-authorization.md) · [decision status](docs/adr/0003-experience-layer-poc.md) · [proposed GDD amendment](docs/amendments/design-guide-v1.0-m3e-proposed.md)
+- [Desktop EN POC](docs/screenshots/m3e/after-desktop-en-plus45.png) · [Mobile zh-TW POC](docs/screenshots/m3e/after-mobile-zh-TW-plus45.png)
+
+For a source-isolated local review, build the frontend and serve it on loopback without an API/collector, then run `PREVIEW_URL=http://127.0.0.1:4183 npm run review:explorer` on a graphical desktop. It supplies clearly labeled, frozen saved-source replay in that browser context only. Use `-- --smoke` for headless verification. See the report for exact commands. No public preview exists.
+
+## Existing JMA development workflow
 
 Requires Node.js 24, npm, curl with normal proxy/CA trust, and a WebGL browser.
 
@@ -33,6 +41,7 @@ npm run build
 npm run test:browser
 npm run test:live-browser
 npm run test:product-browser
+npm run test:explorer-browser
 # Actual live data, no replay substitution:
 node scripts/capture-live.mjs
 # Local archive maintenance:
@@ -62,4 +71,4 @@ M3-P browser checks use isolated saved-source/controlled replay, not current wea
 
 Proposed systemd assets under `ops/` passed static verification but have not been installed/enabled. Off-host backups, external alerting, host reboot/timer observation and a private staging soak remain release gates. The current financial limit is **$0 new expenditure**. The historical $7–20/month planning estimate is unverified and is not an approved budget or procurement instruction. Review the documented retention/disk limits before promising historical coverage.
 
-M3-P stops here for review; actual Taiwan relevance ranking and multi-agency comparison remain unresolved. No host service activation, environment publication, public deployment or release candidate has been performed.
+M3-E stops at POC review; actual Taiwan relevance ranking and multi-agency comparison remain unresolved. The owner decides accept/revise/reject before production integration or further experiential work. No host service activation, environment publication, public deployment or release candidate has been performed.

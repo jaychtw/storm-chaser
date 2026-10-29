@@ -5,6 +5,8 @@ import {availableStorms,parseScenario,fixtureIssuedAt,type Track} from './fixtur
 import {StormMap} from './map';
 import {liveView,escapeHTML as E,type MapStorm} from './live';
 import {resolveFocus} from './focus';
+import {ForecastExplorer} from './explorer';
+import {forecastSteps} from './explorer-model';
 import {nativeLabel,reportedValue,reportedDirection} from './data-labels';
 import {eligibility,advisoryStale,EXPIRE_MS} from '../shared/eligibility';
 import type {LiveSnapshot,Position,Value} from '../shared/model';
@@ -17,9 +19,10 @@ let snapshot:LiveSnapshot|null=null,clientError=false,manual=false,selectedId:st
 let point:{validAt:string;track:Track;lead:number;stormId:string}|null=null,pointLost=false;
 const tracks=new Set<Track>(['A','B']);
 const app=document.querySelector<HTMLDivElement>('#app')!;
-app.innerHTML=`<a class="skip-link" href="#workspace"></a><div id="header"></div><main id="workspace" tabindex="-1"><section id="intro"></section><div class="command-grid"><aside id="storm-rail"></aside><section class="map-column"><div id="map-heading"></div><div class="map-frame"><div id="map"></div><div id="map-overlay"></div><div id="map-meta"></div></div><div id="map-tools"></div><section id="detail"></section></section><aside id="sources"></aside></div><section id="coverage"></section></main><footer id="footer"></footer><div class="sr-only" id="announcements" aria-live="polite"></div>`;
+app.innerHTML=`<a class="skip-link" href="#workspace"></a><div id="header"></div><main id="workspace" tabindex="-1"><section id="intro"></section><div class="command-grid"><aside id="storm-rail"></aside><section class="map-column"><div id="map-heading"></div><div class="map-frame"><div id="map"></div><div id="map-overlay"></div><div id="map-meta"></div></div><div id="map-tools"></div><section id="explorer" aria-label="Forecast-Time Explorer"></section><section id="detail"></section></section><aside id="sources"></aside></div><section id="coverage"></section></main><footer id="footer"></footer><div class="sr-only" id="announcements" aria-live="polite"></div>`;
 const el=(id:string)=>document.getElementById(id)!;
 const time=(v:string)=>formatTime(v,locale);
+const explorer=new ForecastExplorer(el('explorer'));
 const links={CWA:'https://www.cwa.gov.tw/V8/C/P/Typhoon/TY_NEWS.html',JMA:'https://www.jma.go.jp/bosai/map.html#contents=typhoon',JTWC:'https://www.metoc.navy.mil/jtwc/jtwc.html'};
 let map:StormMap|undefined,detailOpen=!matchMedia('(max-width:640px)').matches,nativeOpen=false;
 let lastSignature='';
@@ -43,7 +46,8 @@ function focusKey():string|null {
 function restoreFocus(key:string|null) {
  if(!key)return;
  const target=document.querySelector<HTMLElement>(key)??document.querySelector<HTMLElement>('#selection-notice')??document.querySelector<HTMLElement>('#detail-summary')??el('auto');
- if(document.activeElement!==target)target.focus({preventScroll:true});
+ if(target.matches(':disabled'))document.querySelector<HTMLElement>('#explorer-range')?.focus({preventScroll:true});
+ else if(document.activeElement!==target)target.focus({preventScroll:true});
 }
 function values(xs:Value[]|undefined) {
  return xs?.length?xs.map(v=>E(reportedValue(v,locale))).join('<br>'):copy[locale].noValue;
@@ -88,7 +92,7 @@ function render(force=false) {
   return `<article class="source-card" data-source="${agency}"><header><span class="agency-number">0${i+1}</span><h3>${agency}</h3><span class="unverified-dot" aria-hidden="true"></span></header><p class="agency-name">${t[agency.toLowerCase() as 'jma'|'cwa'|'jtwc']}</p><div class="chart-placeholder"><span aria-hidden="true">↗</span><small>${t.chart}</small><p>${t.linkOnly}</p></div><span class="source-state">${active?t.integrated:t.unverified}</span><p class="source-gap">${explanation}</p>${active&&snapshot?.health.partial&&collectionExplanation!==t.collectionPartial?`<p class="source-gap">${t.collectionPartial}</p>`:''}${active?`<p class="source-state">${t.collectionState}: ${label}</p>`:''}<div class="source-timing">${active&&a?`${t.issued}: ${time(a.issuedAt)}<br>${t.analysisTime}: ${time(a.analysisAt)}<br>${t.control}: ${time(a.controlAt)}<br>${t.retrieved}: ${time(a.retrievedAt)}<br>`:active?`${t.selectForCycle}<br>`:''}${active&&snapshot?.health.lastCheckedAt?`${t.lastCheck}: ${time(snapshot.health.lastCheckedAt)}`:t.noCheck}<br>${active&&snapshot?.health.lastSuccessAt?`${t.lastSuccess}: ${time(snapshot.health.lastSuccessAt)}`:t.sourceTime}</div><a id="source-${agency}" class="source-link" href="${links[agency]}" target="_blank" rel="noopener noreferrer" aria-label="${agency} · ${t.openSource} (${t.external})">${t.openSource}<span aria-hidden="true">↗</span></a></article>`;
  }).join('')}`;
  el('coverage').innerHTML=`<div class="coverage-bar"><span class="eyebrow">${t.evidence}</span><strong>${demo?t.coverage:t.liveCoverage}</strong><button id="coverage-toggle" aria-expanded="${statusOpen}" aria-controls="coverage-body">${t.statusTitle} ${statusOpen?'−':'+'}</button></div><div id="coverage-body" ${statusOpen?'':'hidden'}><p>${demo?t.statusBody:t.liveStatusBody}</p>${!demo?`<p>${t.datumNotice}</p><p>${t.archiveNotice}</p>${snapshot?`<p>${t.lastResponse}: ${time(snapshot.asOf)}</p><p>${t.expired}: ${v.expiredCount} · ${t.inactive}: ${snapshot.inactiveCount}</p>`:''}`:''}<p>${t.uncertain}</p></div>`;
- el('footer').innerHTML=`<span class="footer-brand">STORM CHASER <span>/</span> M3-P</span><p>${t.disclaimer}</p>`;
+ el('footer').innerHTML=`<span class="footer-brand">STORM CHASER <span>/</span> M3-E POC</span><p>${t.disclaimer}</p>`;
  (el('data-mode') as HTMLSelectElement).value=demo?'demo':'live';
  el('data-mode').onchange=e=>{demo=(e.target as HTMLSelectElement).value==='demo';manual=false;selectedId=null;point=null;pointLost=false;const u=new URL(location.href);u.searchParams.set('mode',demo?'demo':'live');history.replaceState(null,'',u);render();map?.reset(currentView().selected);el('data-mode').focus();};
  el('language').onclick=()=>{locale=locale==='en'?'zh-TW':'en';try{storage?.setItem('storm-chaser-locale',locale);}catch{}render();el('language').focus();};
@@ -105,11 +109,18 @@ function render(force=false) {
  const native=document.querySelector<HTMLDetailsElement>('#native-terms');if(native)native.ontoggle=()=>{if(native.isConnected)nativeOpen=native.open;};
  document.querySelectorAll<HTMLButtonElement>('[data-forecast-time]').forEach(btn=>btn.onclick=()=>{const s=currentView().selected,validAt=btn.dataset.forecastTime!;if(!s||!tracks.has('A'))return;const i=s.forecastTimes?.indexOf(validAt)??-1;if(i<0)return;point={validAt,track:'A',lead:s.forecastLeads![i],stormId:s.id};pointLost=false;detailOpen=true;render();el('close-point').focus({preventScroll:true});});
  if(point)el('close-point').onclick=()=>{point=null;render();el('detail-summary').focus();};
+ el('explorer').setAttribute('aria-label',t.explorerTitle);
+ explorer.render(a,point?.track==='A'?point.validAt:null,locale,{demo,enabled:tracks.has('A'),stale:state!=='fresh',lost:pointLost,emptyMessage:selectionGone?t.selectionLost:undefined},validAt=>{
+  const selected=currentView().selected,p=forecastSteps(selected?.advisory).find(p=>p.validAt===validAt);
+  if(!p||!selected||!tracks.has('A'))return;
+  point=p.kind==='forecast'?{validAt,track:'A',lead:p.leadHours,stormId:selected.id}:null;pointLost=false;render();
+  el('announcements').textContent=`${p.kind==='forecast'?copy[locale].explorerForecast:copy[locale].explorerAnalysis} · ${time(validAt)}`;
+ },now);
  map?.setLabels(t);
  map?.update(storms,selected,demo?tracks:new Set(tracks.has('A')?['A']:[]),choose,(validAt,track,lead)=>{
   const s=currentView().selected;if(!s)return;
   point={validAt,track,lead,stormId:s.id};pointLost=false;detailOpen=true;render();el('close-point')?.focus({preventScroll:true});
- },t);
+ },t,point?.validAt);
  restoreFocus(focused);
 }
 function choose(id:string) {

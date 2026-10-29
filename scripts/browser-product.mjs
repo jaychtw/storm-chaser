@@ -6,7 +6,7 @@ import {existsSync,readFileSync} from 'node:fs';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {normalize} from '../server/jma.ts';
 import {materialize} from '../server/store.ts';
-const stage='m3p',base=process.env.PREVIEW_URL??'http://127.0.0.1:5173';
+const stage=process.env.REVIEW_STAGE??'m3e-product',base=process.env.PREVIEW_URL??'http://127.0.0.1:5173';
 const raw=readFileSync('docs/sources/evidence/2026-10-29/jma-vptw61.xml','utf8');
 const url='https://www.data.jma.go.jp/developer/xml/data/20261028154121_0_VPTW61_010000.xml';
 const now=Date.parse('2026-10-28T16:00:00Z');

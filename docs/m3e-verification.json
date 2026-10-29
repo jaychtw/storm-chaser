@@ -1,0 +1,110 @@
+{
+  "type": "M3-E-local-verification-record",
+  "checkedAt": "2026-10-29T05:17:35.305Z",
+  "baselineCommit": "12dc2fc23ded833e8ba539fddd67caddde2af477",
+  "runtime": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "chromium": "154.0.8037.57",
+    "webgl": "software"
+  },
+  "unit": {
+    "passed": 110,
+    "failed": 0,
+    "skipped": 0,
+    "files": 5
+  },
+  "build": {
+    "passed": true,
+    "jsKilobytes": 1004.32,
+    "gzipKilobytes": 276.85,
+    "warning": "existing large-bundle advisory"
+  },
+  "browser": {
+    "suitesPassed": 4,
+    "explorerChecks": 25,
+    "axeScans": 41,
+    "axeViolations": 0,
+    "baselineCompared": true,
+    "replayScreenshots": 17
+  },
+  "manualReviewHarness": {
+    "headlessSmoke": "passed",
+    "headfulInCloud": "not tested"
+  },
+  "sourceRequests": 0,
+  "liveArchiveWrites": 0,
+  "ownerAcceptance": {
+    "M3PVisual": "accepted by owner in M3-E assignment",
+    "M3E": "pending",
+    "production": "not authorized"
+  },
+  "testedFiles": [
+    {
+      "path": "src/explorer-model.ts",
+      "sha256": "9d8cab942c58ba308fda402985f8af3fbc9efb0f9d163a5ccd7d1aad9e8ecf99"
+    },
+    {
+      "path": "src/explorer.ts",
+      "sha256": "3b3a416fbf32feea5e8d5b374b9c956bb8d3e0155b9a3a4009c0c533d722c9f8"
+    },
+    {
+      "path": "src/explorer.test.ts",
+      "sha256": "75fdfcf7b9f92bd17b31946949cad07687ce46c955304594b74ab6ae63449d4a"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "5b5f152fd7997c04bbb01578fa34197a7bed244fc3f07ce346fd5d4af0bd727a"
+    },
+    {
+      "path": "src/map.ts",
+      "sha256": "7b9b316dd308065503ca4d858d5aac5393f38669309bd6c339de467509c4817d"
+    },
+    {
+      "path": "src/i18n.ts",
+      "sha256": "0c061fff593ddd2514ce3b2443be7e82b33c3600513b31bce60f33a90e85d329"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "6561037ae89918b9212c4d9ee08bd4d41ee6f52857520e0b1d07dadb4b703a68"
+    },
+    {
+      "path": "scripts/browser-explorer.mjs",
+      "sha256": "4bfb16e9c53ac7930b0ccfb16a0b6bcced25a0300274aac242c885b223d2970a"
+    },
+    {
+      "path": "scripts/review-explorer.mjs",
+      "sha256": "6ca94b8db91acdb94bd97a0dcf1da561f1bbfd41ba34364bc389df79dfcd400d"
+    },
+    {
+      "path": "scripts/browser-check.mjs",
+      "sha256": "86c47eb2de64f4f573d1e701f7d9c7a3bfa7b29aa20dc1c3888d4890b96792ec"
+    },
+    {
+      "path": "scripts/browser-live.mjs",
+      "sha256": "a8f769e9159e487f6b807e36e998c9921bf483bc6e4a3195cc9ba44d78c506d2"
+    },
+    {
+      "path": "scripts/browser-product.mjs",
+      "sha256": "c7a6d9bd1ca9b0016e9836ce0b7bb58e1099d08fb527186bc178f9f649d344d1"
+    }
+  ],
+  "browserReports": [
+    {
+      "path": "docs/m3e-demo-browser-results.json",
+      "sha256": "e26666db54c34446e0f0b03d6e21b538f1321cbd7f6a46c2bfbf82fe46297b88"
+    },
+    {
+      "path": "docs/m3e-pipeline-browser-results.json",
+      "sha256": "92ecbfe1b4c33dd9092dd233a4ce9a129ac7dc9113e4ca12b2069fd484371d7c"
+    },
+    {
+      "path": "docs/m3e-product-acceptance-results.json",
+      "sha256": "4fa71b9ef3bc669856c523727952860fbf0f5cd8cec41d594fe248111eafb8f0"
+    },
+    {
+      "path": "docs/m3e-explorer-results.json",
+      "sha256": "7769ca86868262eaef61e20297a153ffe41f4edc12020a6f929ee26a29ef0e44"
+    }
+  ]
+}

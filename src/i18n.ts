@@ -1,6 +1,15 @@
 export type Locale = 'en' | 'zh-TW';
 export const copy = {
   en: {
+    explorerTitle: 'Forecast-Time Explorer', explorerPOC: 'INTERACTION POC',
+    explorerPrompt: 'Select a storm manually to explore the times in its current JMA advisory. Auto does not assign Taiwan priority.',
+    explorerInstructions: 'Step through published times. The map highlights one reported position at a time; it does not simulate storm movement.',
+    explorerSteps: 'Published time step', explorerPrevious: 'Previous published time', explorerNext: 'Next published time',
+    explorerAnalysis: 'Analysis · reported center', explorerForecast: 'Forecast · prediction, not an observation',
+    explorerGaps: 'Discrete published steps; time intervals vary. No positions are interpolated.',
+    explorerNextGap: 'Until next published step', explorerNoForecast: 'No unexpired forecast positions are available in this advisory. No forecast has been created to fill the gap.',
+    explorerHidden: 'The JMA forecast layer is hidden. Enable it to explore published forecast positions.',
+    explorerStepOf: 'Published step', explorerOf: 'of',
     neutralTitle: 'Regional overview · priority uncertain',
     neutralBody: 'Taiwan relevance cannot currently be determined from the available information. Select a storm to explore its reported track.',
     selectionLost: 'Your selected storm is no longer eligible for the current view. It may have expired, been cancelled, or left the collected coverage. Select another storm or return to Auto; this does not establish dissipation.',
@@ -72,6 +81,15 @@ export const copy = {
     movement: 'Motion', noWarnings: 'No official warnings loaded', legend: 'Map legend', observed: 'Fixture center',
   },
   'zh-TW': {
+    explorerTitle: '預報時間探索', explorerPOC: '互動概念驗證',
+    explorerPrompt: '請手動選取風暴，探索目前 JMA 公告發布的各個時間點；自動模式不會指定臺灣關注優先序。',
+    explorerInstructions: '依序探索官方發布的時間點。地圖僅強調對應的來源位置，不會模擬風暴移動。',
+    explorerSteps: '已發布的時間步驟', explorerPrevious: '上一個發布時間點', explorerNext: '下一個發布時間點',
+    explorerAnalysis: '分析 · 來源發布的中心位置', explorerForecast: '預報 · 預測位置，非實際觀測',
+    explorerGaps: '僅含已發布的離散時間點，時間間隔不一定相同，未內插任何位置。',
+    explorerNextGap: '距下一個發布時間點', explorerNoForecast: '此公告目前沒有仍在顯示期限內的預報位置，不會自行產生預報填補缺口。',
+    explorerHidden: 'JMA 預報圖層已隱藏，請啟用圖層以探索官方發布的預報位置。',
+    explorerStepOf: '發布步驟', explorerOf: '／',
     neutralTitle: '區域總覽 · 相關性未定',
     neutralBody: '目前資料不足以判定各風暴與臺灣的相關性。請選取風暴以查看其官方發布的路徑資訊。',
     selectionLost: '您選取的風暴已不符合目前畫面的顯示條件，可能因期限已過、公告撤銷或不在蒐集範圍內。請選取其他風暴或切回自動；這並非風暴已消散的判定。',
