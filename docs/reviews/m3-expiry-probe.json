@@ -1,0 +1,20 @@
+{
+  "reviewDate": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "baselineCommit": "b09928a4ed758e0c053e9da6eaad264cbdf4625f",
+  "type": "offline-read-only-review-probe",
+  "sourceHash": "fc63bada0151445e76b379e689c5fcf763f144d97b905f7f2142912e276b3caa",
+  "sourceFile": "docs/sources/evidence/2026-10-29/jma-vptw61.xml",
+  "initialClock": "2026-10-28T16:00:00Z",
+  "advanceHours": 25,
+  "cachedAdvisories": 1,
+  "clientSystemsAfter25h": 1,
+  "clientForecastsAfter25h": 4,
+  "serverSystemsAfter25h": 0,
+  "serverExpiredCount": 1,
+  "nativeMotionValues": 2,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "servicesStarted": 0,
+  "limitations": "Pure-function reproduction of retained cached data; not a browser or live outage test. UI code review establishes that fetch failures retain the snapshot and label it stale."
+}
